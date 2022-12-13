@@ -1,7 +1,40 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 
+const CocktailSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  base: {
+    type: String,
+    required: true,
+  },
+  shakenOrStirred: {
+    type: String,
+    required: true
+  },
+  garnish: {
+    type: String
+  },
+  preparation: {
+    type: String,
+    required: true
+  },
+  notes: {
+    type: String,
+  }
+});
+
+export const Cocktail = new mongoose.model('Cocktail', CocktailSchema);
+
 const UserSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   email: {
     type: String,
     required: true,
@@ -18,12 +51,3 @@ const UserSchema = new mongoose.Schema({
 });
 
 export const User = mongoose.model('User', UserSchema);
-
-export const RecipeScehma = new mongoose.Schema({
-  title: {
-    type: String,
-    unique: true,
-  },
-});
-
-export const Recipe = mongoose.model('Recipe', RecipeScehma);

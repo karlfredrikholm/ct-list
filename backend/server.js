@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { Recipe } from './utils/mongoose.js';
+import { Cocktail, User } from './utils/mongoose.js';
+import { authenticateUser } from './utils/authenticate.js';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -9,7 +10,8 @@ import { Recipe } from './utils/mongoose.js';
 const port = process.env.PORT || 8080;
 const app = express();
 
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/final-project';
+const mongoUrl =
+  process.env.MONGO_URL || 'mongodb://localhost/cocktails-project';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.promise = Promise;
 
@@ -22,12 +24,37 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/recipes', async (req, res) => {
-  const allRecipes = await Recipe.find({});
-  res.status(200).json({
-    success: true,
-    response: allRecipes,
-  });
+// End point for getting
+app.get('/cocktail', async (req, res) => {
+  try {
+    let cocktailList = {};
+    const {
+      page,
+      perPage,
+      numberPager = +page,
+      numberPerPage = +perPage,
+    } = req.query;
+    res.status(200).json({
+      success: true,
+      response: cocktailList,
+    });
+  } catch (error) {}
+});
+
+app.post('/cocktails', authenticateUser);
+app.post('/cocktails', async (req, res) => {
+  try {
+    const newCocktail = await new Cocktail(req.body).save();
+    res.status(201).json({
+      success: true,
+      response: newCocktail,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      response: error,
+    });
+  }
 });
 
 // Start the server
