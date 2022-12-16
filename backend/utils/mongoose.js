@@ -7,16 +7,13 @@ const CocktailSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  base: {
-    type: String,
-    required: true,
-  },
-  shakenOrStirred: {
-    type: String,
+  measurements: {
+    type: Number,
     required: true
   },
-  garnish: {
-    type: String
+  ingredients: {
+    type: String,
+    required: true
   },
   preparation: {
     type: String,
@@ -24,10 +21,18 @@ const CocktailSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
+    minLength: 5,
+    maxLength: 140,
+    trim: true
+  },
+  createdBy: {
+    // the logged in user's username
+  },
+  createdAt: {
+    type: Date,
+    default: () => new Date()
   }
 });
-
-export const Cocktail = new mongoose.model('Cocktail', CocktailSchema);
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -50,4 +55,5 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+export const Cocktail = new mongoose.model('Cocktail', CocktailSchema);
 export const User = mongoose.model('User', UserSchema);

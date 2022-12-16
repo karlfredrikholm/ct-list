@@ -1,21 +1,24 @@
 import React from 'react';
-import data from './data/vegan-recipes';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Search from 'components/Search';
+import SignIn from 'components/SignIn';
+import AddForm from 'components/AddForm';
+import About from 'components/About';
+import Contact from 'components/Contact';
+import NotFound from 'components/NotFound';
 
 const App = () => {
   return (
-    <div>
-      {data.map((recipe) => {
-        return (
-          <div key={recipe}>
-            <h3>{recipe.title}</h3>
-            <h4>Ingredients:</h4>
-            <p>{recipe.ingredients}</p>
-            <h5>Preparation:</h5>
-            <p>{recipe.preparation}</p>
-          </div>
-        );
-      })}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Search />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/add" element={<AddForm />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

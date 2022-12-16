@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// End point for getting
+// End point for GET request when searching
 app.get('/cocktail', async (req, res) => {
   try {
     let cocktailList = {};
@@ -33,7 +33,11 @@ app.get('/cocktail', async (req, res) => {
       perPage,
       numberPager = +page,
       numberPerPage = +perPage,
+      name,
+      base,
+      shakeOrStirr
     } = req.query;
+
     res.status(200).json({
       success: true,
       response: cocktailList,
@@ -41,7 +45,7 @@ app.get('/cocktail', async (req, res) => {
   } catch (error) {}
 });
 
-app.post('/cocktails', authenticateUser);
+// app.post('/cocktails', authenticateUser);
 app.post('/cocktails', async (req, res) => {
   try {
     const newCocktail = await new Cocktail(req.body).save();
