@@ -1,11 +1,12 @@
 /* eslint-disable operator-linebreak */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { GiMartini } from 'react-icons/gi';
 import Nav from './styled/Nav.styled';
 import { MenuBtn } from './styled/Buttons.styled';
 
-const mountedStyle = { marginRight: '0', animation: 'menuInAnimation .5s' };
-const unmountedStyle = { animation: 'menuOutAnimation .5s' };
+const shownStyle = { marginRight: '0', animation: 'menuInAnimation .4s ease' };
+const hiddenStyle = { animation: 'menuOutAnimation .4s ease' };
 
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -18,10 +19,10 @@ const Menu = () => {
         aria-label="menu"
         aria-controls="primary-navigation"
         aria-expanded="false">
-        <div />
+        <GiMartini />
       </MenuBtn>
       <ul
-        style={showMenu ? mountedStyle : unmountedStyle}
+        style={showMenu ? shownStyle : hiddenStyle}
         id="primary-navigation">
         <li>
           <NavLink to="/">Home</NavLink>

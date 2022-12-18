@@ -15,7 +15,7 @@ const Nav = styled.nav`
     list-style-type: none;
     margin-right: -10rem;
     min-height: 100vh;
-    width: 10rem;
+    width: 15rem;
   }
 
   @keyframes menuInAnimation {

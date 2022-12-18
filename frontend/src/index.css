@@ -19,9 +19,16 @@ code {
     monospace;
 }
 
-a, a:active {
+a {
+  color: blue;
+  font-weight: 700;
   text-decoration: none;
-  color: black;
+}
+
+.active {
+  font-weight: 400;
+  color: white;
+  transition: all .2s ease-in-out;
 }
 
 .outer-wrapper {
