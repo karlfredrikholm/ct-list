@@ -23,20 +23,20 @@ app.get('/', (req, res) => {
   res.send([
     {
       path: '/',
-      methods: ['GET'],
+      methods: ['GET']
     },
     {
       path: '/cocktails',
-      methods: ['GET', 'POST'],
+      methods: ['GET', 'POST']
     },
     {
       path: '/cocktails/:id',
-      methods: ['GET'],
+      methods: ['GET']
     },
     {
       path: '/cocktails/:category',
-      methods: ['GET'],
-    },
+      methods: ['GET']
+    }
   ]);
 });
 
@@ -46,23 +46,23 @@ app.get('/cocktails', async (req, res) => {
     page,
     perPage,
     numberPage = +page,
-    numberPerPage = +perPage,
+    numberPerPage = +perPage
   } = req.query;
 
   const response = {
     success: true,
-    body: {},
+    body: {}
   };
 
   try {
     if (page) {
       response.body = await Cocktail.aggregate([
-        { $sort: { name: 1 } },
+        { $sort: { cocktailName: 1 } },
         { $skip: (numberPage - 1) * numberPerPage },
-        { $limit: numberPerPage },
+        { $limit: numberPerPage }
       ]);
     } else {
-      response.body = await Cocktail.find().limit(20).sort({ 'name': 1 });
+      response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
     }
     res.status(200).json(response);
   } catch (e) {
@@ -76,35 +76,36 @@ app.get('/cocktails/:category', async (req, res) => {
 
   const response = {
     success: true,
-    body: {},
+    body: {}
   };
 
   try {
     if (category) {
-      response.body = await Cocktail.find({ category: category }).limit(20).sort({ 'name': 1 });
+      response.body = await Cocktail.find({ category: category })
+        .limit(20)
+        .sort({ cocktailName: 1 });
     } else {
-      response.body = await Cocktail.
-      find().limit(20).sort({ 'name': 1 });
+      response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
     }
   } catch (e) {
     res.status(400).json({
       success: false,
-      response: e,
+      response: e
     });
   }
 });
 
 // GET one single cocktail
 app.get('cocktails/:id', async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params;
 
   try {
     const singleCocktail = await Cocktail.findById(id);
-    res.status(200).json({ success: true, response: singleCocktail });
+    res.status(200).json({ success: true, response: singleCocktail });
   } catch (e) {
     res.status(400).json({
       success: false,
-      response: e,
+      response: e
     });
   }
 });
@@ -115,12 +116,12 @@ app.post('/cocktails', async (req, res) => {
     const newCocktail = await new Cocktail(req.body).save();
     res.status(201).json({
       success: true,
-      response: newCocktail,
+      response: newCocktail
     });
-  } catch (error) {
+  } catch (e) {
     res.status(400).json({
       success: false,
-      response: error,
+      response: e
     });
   }
 });

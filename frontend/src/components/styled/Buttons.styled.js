@@ -20,3 +20,10 @@ export const MenuBtn = styled.button`
     padding: 0.3rem;
   }
 `;
+
+export const SubmitBtn = styled.button`
+  border: none;
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+  width: 5rem;
+`;

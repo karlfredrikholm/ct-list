@@ -1,40 +1,122 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
+import { postCocktail } from 'utils/utils';
+import { SubmitBtn } from './styled/Buttons.styled';
+import { Form } from './styled/Form.styled';
 
 const AddForm = () => {
+  const [cocktailName, setCocktailName] = useState('');
+  const [category, setCategory] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const [garnish, setGarnish] = useState('');
+  const [preparation, setPreparation] = useState([]);
+  const [imageSearchLink, setImageSearchLink] = useState('');
+  const [notes, setNotes] = useState('');
+
+  const [newCocktail, setNewCocktail] = useState({});
+
+  console.log(cocktailName)
+  console.log(newCocktail.cocktailName)
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    setNewCocktail({
+      cocktailName,
+      category,
+      ingredients,
+      garnish,
+      preparation,
+      imageSearchLink,
+      notes
+    });
+
+    console.log(newCocktail);
+
+    postCocktail(newCocktail);
+    // .finally(() => {
+    //   setCocktailName('');
+    //   setCategory('');
+    //   setIngredients('');
+    //   setGarnish('');
+    //   setPreparation('');
+    //   setImageSearchLink('');
+    //   setNotes('');
+    //   setNewCocktail({});
+    // });
+  };
+
   return (
-    <div>
-      <form>
+    <Form onSubmit={handleFormSubmit}>
+      <div>
+        <h3>Add New Cocktail</h3>
 
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" />
+        <label htmlFor="cocktailName">Name</label>
+        <input
+          id="cocktailName"
+          type="text"
+          onChange={(e) => setCocktailName(e.target.value)}
+          value={cocktailName}
+          placeholder='E.g. "Dry Martini"'
+          required />
 
-        <label htmlFor="base">Base</label>
-        <input type="text" id="base" />
-
-        <label htmlFor="shaken">Shaken</label>
-        <input type="radio" id="shaken" />
-
-        <label htmlFor="stirred">Stirred</label>
-        <input type="radio" id="stirred" />
-
-        <label htmlFor="measurements">Measurements</label>
-        <input type="number" id="measurements" />
+        <label htmlFor="category">Category</label>
+        <select
+          id="category"
+          onChange={(e) => setCategory(e.target.value)}
+          value={category}
+          required>
+          <option value="" disabled>
+            Choose IBA Category:
+          </option>
+          <option value="the unforgettables">The Unforgettables</option>
+          <option value="contemporary classics">Contemporary Classics</option>
+          <option value="new era drinks">New Era Drinks</option>
+        </select>
 
         <label htmlFor="ingredients">Ingredients</label>
-        <input type="text" id="ingredients" />
+        <textarea
+          id="ingredients"
+          onChange={(e) => setIngredients(e.target.value)}
+          value={ingredients}
+          placeholder="E.g. 3 cl Gin, 3 Campari, 3 cl sweet vermouth"
+          required />
 
         <label htmlFor="garnish">Garnish</label>
-        <input type="text" id="garnish" />
+        <input
+          id="garnish"
+          type="text"
+          onChange={(e) => setGarnish(e.target.value)}
+          value={garnish}
+          placeholder="If no garnish – leave input field blank" />
 
         <label htmlFor="preparation">Preparation</label>
-        <input type="textfield" id="preparation" />
+        <textarea
+          id="preparation"
+          onChange={(e) => setPreparation(e.target.value)}
+          value={preparation}
+          placeholder="How to make the cocktail"
+          required />
+
+        <label htmlFor="image">Google Image Search Link</label>
+        <input
+          id="imagesLink"
+          type="text"
+          onChange={(e) => setImageSearchLink(e.target.value)}
+          value={imageSearchLink}
+          placeholder="URL for Google image search results"
+          required />
 
         <label htmlFor="notes">Notes</label>
-        <input type="text" id="notes" />
+        <input
+          id="notes"
+          type="text"
+          onChange={(e) => setNotes(e.target.value)}
+          value={notes}
+          placeholder="Any extra notes?" />
 
-      </form>
-    </div>
+        <SubmitBtn type="submit">Submit</SubmitBtn>
+      </div>
+    </Form>
   );
 };
 

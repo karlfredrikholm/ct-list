@@ -73,9 +73,16 @@ hr {
   transition: all 0.2s ease-in-out;
 }
 
+.inner-wrapper {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 80%;
+}
+
 .outer-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: rgb(130, 46, 60);
+
   background-color: rgb(87, 35, 44);
+  padding: 1px 0;
 }

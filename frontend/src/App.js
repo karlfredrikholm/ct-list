@@ -13,17 +13,19 @@ import NotFound from 'components/NotFound';
 const App = () => {
   return (
     <div className="outer-wrapper">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<SingleCocktail />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/add" element={<AddForm />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="inner-wrapper">
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<SingleCocktail />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/add" element={<AddForm />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 };
