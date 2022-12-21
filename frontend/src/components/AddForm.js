@@ -30,16 +30,15 @@ const AddForm = () => {
     console.log(newCocktail);
 
     postCocktail(newCocktail);
-    // .finally(() => {
-    //   setCocktailName('');
-    //   setCategory('');
-    //   setIngredients('');
-    //   setGarnish('');
-    //   setPreparation('');
-    //   setImageSearchLink('');
-    //   setNotes('');
-    //   setNewCocktail({});
-    // });
+
+    setCocktailName('');
+    setCategory('');
+    setIngredients('');
+    setGarnish('');
+    setPreparation('');
+    setImageSearchLink('');
+    setNotes('');
+    setNewCocktail({});
   };
 
   return (

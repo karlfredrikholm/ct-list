@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from 'components/Nav';
-import Search from 'components/Search';
+import List from 'components/List';
 // import SingleCocktail from 'components/SingleCocktail';
 import SignIn from 'components/SignIn';
 import AddForm from 'components/AddForm';
@@ -17,7 +17,7 @@ const App = () => {
         <BrowserRouter>
           <Nav />
           <Routes>
-            <Route path="/" element={<Search />} />
+            <Route path="/" element={<List />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/add" element={<AddForm />} />
             <Route path="/about" element={<About />} />
