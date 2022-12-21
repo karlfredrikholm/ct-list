@@ -98,7 +98,7 @@ app.get('/cocktails/:category', async (req, res) => {
 });
 
 // GET one single cocktail
-app.get('cocktails/:id', async (req, res) => {
+app.get('/cocktails/:id', async (req, res) => {
   const { id } = req.params;
   const singleCocktail = await Cocktail.findById(id);
 
