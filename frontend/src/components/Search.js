@@ -10,12 +10,9 @@ const Search = () => {
     <>
       <div>
         <form>
-          <fieldset>
-            <legend>
-              <label htmlFor="search">Drinklistan</label>
-            </legend>
-            <input type="text" id="search" placeholder="Vad är du sugen på?" />
-            {/* <button type="button">Filter search</button>
+          <label htmlFor="search">Cocktail Menu</label>
+          <input type="text" id="search" placeholder="Type here..." />
+          {/* <button type="button">Filter search</button>
           <div>
             <fieldset>
             <label htmlFor="shaken">Shaken</label>
@@ -41,8 +38,7 @@ const Search = () => {
               <option>Martini</option>
               </select>
             </div> */}
-            <button type="submit" onClick={handleFormSubmit}>Sök cocktails</button>
-          </fieldset>
+          <button type="submit" onClick={handleFormSubmit}>Search</button>
         </form>
       </div>
       <List />

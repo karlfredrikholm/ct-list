@@ -12,11 +12,8 @@ const AddForm = () => {
   const [preparation, setPreparation] = useState([]);
   const [imageSearchLink, setImageSearchLink] = useState('');
   const [notes, setNotes] = useState('');
-
   const [newCocktail, setNewCocktail] = useState({});
 
-  console.log(cocktailName)
-  console.log(newCocktail.cocktailName)
   const handleFormSubmit = (event) => {
     event.preventDefault();
 

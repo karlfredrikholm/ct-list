@@ -41,3 +41,32 @@ export const cocktail = createSlice({
     }
   }
 });
+
+// export const postCocktail = () => {
+//   return (dispatch, getState) => {
+//     const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(initialState)
+//     };
+//   }
+// }
+
+
+
+// export const postCocktail = async (recipe) => {
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(recipe)
+//   };
+
+//   // const res = await fetch(API_URL('cocktails'), options);
+//   const res = await fetch(API_URL('cocktails'), options);
+//   const json = await res.json();
+//   return json;
+// };

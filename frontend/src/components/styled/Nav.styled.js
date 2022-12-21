@@ -13,14 +13,14 @@ const Nav = styled.nav`
 
     background: mediumpurple;
     list-style-type: none;
-    margin-right: -10rem;
+    margin-right: -15rem;
     min-height: 100vh;
     width: 15rem;
   }
 
   @keyframes menuInAnimation {
     0% {
-      margin-right: -10rem;
+      margin-right: -15rem;
     }
     100% {
       margin-right: 0;
@@ -32,7 +32,7 @@ const Nav = styled.nav`
       margin-right: 0;
     }
     100% {
-      margin-right: -10rem;
+      margin-right: -15rem;
     }
   }
 `;

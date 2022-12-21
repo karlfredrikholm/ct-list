@@ -79,10 +79,23 @@ hr {
   width: 80%;
 }
 
-.outer-wrapper {
-  min-height: 100vh;
-  min-width: 100vw;
 
+.listWrapper {
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0 3rem;
+  width: 90%;
+  max-width: 700px;
+}
+
+.outer-wrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 100vh;
+  min-height: 100vh;
   background-color: rgb(87, 35, 44);
+  overflow-wrap: break-word;
   padding: 1px 0;
 }

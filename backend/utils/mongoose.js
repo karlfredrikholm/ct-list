@@ -14,7 +14,7 @@ const CocktailSchema = new mongoose.Schema({
   ingredients: {
     type: String,
     minLength: 8,
-    maxLength: 30,
+    maxLength: 140,
     trim: true,
     required: true,
   },
