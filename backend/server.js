@@ -115,12 +115,23 @@ app.get('/cocktails/:id', async (req, res) => {
 
 // POST new cocktail /cocktails
 app.post('/cocktails', async (req, res) => {
+  const { cocktailName } = req.body;
+
   try {
-    const newCocktail = await new Cocktail(req.body).save();
-    res.status(201).json({
-      success: true,
-      response: newCocktail
-    });
+    const cocktailExist = await Cocktail.findOne({ cocktailName });
+
+    if (cocktailExist) {
+      res.status(400).json({
+        success: false,
+        response: 'This cocktail is already in the database.'
+      });
+    } else {
+      const newCocktail = await new Cocktail(req.body).save();
+      res.status(201).json({
+        success: true,
+        response: newCocktail
+      });
+    }
   } catch (e) {
     res.status(400).json({
       success: false,
