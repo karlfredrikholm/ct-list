@@ -84,8 +84,10 @@ app.get('/cocktails/:category', async (req, res) => {
       response.body = await Cocktail.find({ category: category })
         .limit(20)
         .sort({ cocktailName: 1 });
-    } else {
-      response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
+        // res.status........
+      } else {
+        response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
+        // res.status........
     }
   } catch (e) {
     res.status(400).json({
@@ -98,10 +100,20 @@ app.get('/cocktails/:category', async (req, res) => {
 // GET one single cocktail
 app.get('cocktails/:id', async (req, res) => {
   const { id } = req.params;
+  const singleCocktail = await Cocktail.findById(id);
 
   try {
-    const singleCocktail = await Cocktail.findById(id);
-    res.status(200).json({ success: true, response: singleCocktail });
+    if (singleCocktail) {
+      res.status(200).json({
+        success: true,
+        response: singleCocktail
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        response: "Could not find cocktail info"
+        })
+    }
   } catch (e) {
     res.status(400).json({
       success: false,
