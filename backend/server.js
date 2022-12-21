@@ -42,6 +42,8 @@ app.get('/', (req, res) => {
 
 // GET  all cocktails
 app.get('/cocktails', async (req, res) => {
+  let cocktailList = {};
+
   const {
     page,
     perPage,
@@ -49,53 +51,42 @@ app.get('/cocktails', async (req, res) => {
     numberPerPage = +perPage
   } = req.query;
 
-  const response = {
-    success: true,
-    body: {}
-  };
-
   try {
     if (page) {
-      response.body = await Cocktail.aggregate([
+      cocktailList = await Cocktail.aggregate([
         { $sort: { cocktailName: 1 } },
         { $skip: (numberPage - 1) * numberPerPage },
         { $limit: numberPerPage }
       ]);
     } else {
-      response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
+      cocktailList = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
     }
-    res.status(200).json(response);
+    res.status(200).json({ success: true, response: cocktailList });
   } catch (e) {
     res.status(400).json({ success: false, response: e });
   }
 });
 
 // GET all cocktails in one category
-app.get('/cocktails/:category', async (req, res) => {
-  const { category } = req.params;
+// app.get('/cocktails/:category', async (req, res) => {
+//   let cocktailsInCategory = {};
+//   const { category } = req.params;
 
-  const response = {
-    success: true,
-    body: {}
-  };
-
-  try {
-    if (category) {
-      response.body = await Cocktail.find({ category: category })
-        .limit(20)
-        .sort({ cocktailName: 1 });
-        // res.status........
-      } else {
-        response.body = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
-        // res.status........
-    }
-  } catch (e) {
-    res.status(400).json({
-      success: false,
-      response: e
-    });
-  }
-});
+//   try {
+//     if (category) {
+//       cocktailsInCategory = await Cocktail.find({ category: category })
+//       .limit(20).sort({ cocktailName: 1 });
+//       } else {
+//       cocktailsInCategory = await Cocktail.find().limit(20).sort({ cocktailName: 1 });
+//       }
+//       res.status(200).json({ success: true, response: cocktailsInCategory })
+//   } catch (e) {
+//     res.status(400).json({
+//       success: false,
+//       response: e
+//     });
+//   }
+// });
 
 // GET one single cocktail
 app.get('/cocktails/:id', async (req, res) => {
@@ -111,8 +102,8 @@ app.get('/cocktails/:id', async (req, res) => {
     } else {
       res.status(404).json({
         success: false,
-        response: "Could not find cocktail info"
-        })
+        response: 'Could not find cocktail'
+      });
     }
   } catch (e) {
     res.status(400).json({

@@ -4,7 +4,7 @@ import { getCocktails } from 'utils/utils';
 
 const List = () => {
   const [cocktailList, setCocktailList] = useState([]);
-  const [singleCocktail, setSingleCocktail] = useState([]);
+  const [singleCocktail, setSingleCocktail] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const List = () => {
 
   const handleSingleCocktailClick = (id) => {
     getCocktails(`cocktails/${id}`)
-      .then((data) => setSingleCocktail(data))
+      .then((data) => setSingleCocktail(data.response))
       .catch((e) => console.error(e))
   };
 
