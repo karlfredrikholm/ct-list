@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { postCocktail } from 'utils/utils';
 import { SubmitBtn } from './styled/Buttons.styled';
-import { Form } from './styled/Form.styled';
+import { AddForm } from './styled/Forms';
 
-const AddForm = () => {
+const AddCocktail = () => {
   const [cocktailName, setCocktailName] = useState('');
   const [category, setCategory] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -42,7 +42,7 @@ const AddForm = () => {
   };
 
   return (
-    <Form onSubmit={handleFormSubmit}>
+    <AddForm onSubmit={handleFormSubmit}>
       <div>
         <h3>Add New Cocktail</h3>
 
@@ -112,8 +112,8 @@ const AddForm = () => {
 
         <SubmitBtn type="submit">Submit</SubmitBtn>
       </div>
-    </Form>
+    </AddForm>
   );
 };
 
-export default AddForm;
+export default AddCocktail;

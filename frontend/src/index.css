@@ -99,3 +99,9 @@ hr {
   overflow-wrap: break-word;
   padding: 1px 0;
 }
+
+@media (max-width: 700px) {
+  .inner-wrapper {
+    width: 100%;
+  }
+}

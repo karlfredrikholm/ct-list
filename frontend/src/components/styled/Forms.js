@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const SearchForm = styled.form`
+  height: 10rem;
+  width: 100%;
+  border: 1px solid white;
+`
+
+export const AddForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid white;
   padding: 2rem 4rem;
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
   width: 100%;
 
   & div {
