@@ -32,14 +32,32 @@ export const SubmitBtn = styled.button`
 export const ListItemBtn = styled.button`
   display: flex;
   justify-content: space-between;
-  background: pink;
+  align-items: center;
+  background: var(--main-color);
   border: none;
-  border-bottom: 1px solid whitesmoke;
+  border-top: 1px solid var(--text-color);
+  color: var(--text-color);
   cursor: pointer;
-  padding: .5rem .7rem;
+  padding: .5rem 1rem;
   width: 100%;
 `
 
 export const FilterBtn = styled.button`
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0 .4rem;
+  height: 2rem;
   width: fit-content;
+  
+`
+
+export const SearchBtn = styled.button`
+  border: 1px solid var(--text-color);
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+  height: 2rem;
+  width: 5rem;
 `

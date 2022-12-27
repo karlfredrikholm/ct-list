@@ -2,7 +2,7 @@
 import React from 'react';
 import List from './List';
 import { SearchForm } from './styled/Forms';
-import { FilterBtn } from './styled/Buttons.styled';
+import { FilterBtn, SearchBtn } from './styled/Buttons.styled';
 
 const handleFormSubmit = (event) => {
   event.preventDefault()
@@ -13,12 +13,17 @@ const Search = () => {
     <>
       <div>
         <SearchForm onSubmit={handleFormSubmit}>
-          <label htmlFor="search">Search IBA Cocktail List</label>
-          <input type="text" id="search" placeholder='E.g. "Manhattan"' />
-          <FilterBtn type="submit" onClick={handleFormSubmit}>The Unforgettables</FilterBtn>
-          <FilterBtn type="submit" onClick={handleFormSubmit}>Contemporary Classics</FilterBtn>
-          <FilterBtn type="submit" onClick={handleFormSubmit}>New Era Drinks</FilterBtn>
-          <FilterBtn type="submit">Search</FilterBtn>
+          <label htmlFor="search"><h1>Search IBA Cocktail List</h1></label>
+          <fieldset>
+            <input type="text" id="search" placeholder='E.g. "Manhattan"' />
+            <SearchBtn type="submit">Search</SearchBtn>
+          </fieldset>
+          <h5>Show all in one category</h5>
+          <div>
+            <FilterBtn type="submit" onClick={handleFormSubmit}>The Unforgettables</FilterBtn>
+            <FilterBtn type="submit" onClick={handleFormSubmit}>Contemporary Classics</FilterBtn>
+            <FilterBtn type="submit" onClick={handleFormSubmit}>New Era Drinks</FilterBtn>
+          </div>
         </SearchForm>
       </div>
       <List />
