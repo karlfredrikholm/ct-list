@@ -3,19 +3,28 @@ import styled from 'styled-components';
 export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
-
   width: 100%;
   padding: .7rem 0 1.5rem 1rem;
 
   & input {
     border: none;
+    color: var(--main-color);
     height: 2rem;
     width: 45%;
     margin-right: 1rem;
+    padding-left: .5rem;
   }
 
   & input::placeholder {
-    padding-left: .5rem;
+    color: var(--main-color);
+  }
+
+  & input:active {
+    color: var(--main-color);
+  }
+
+  & input:focus {
+    outline: none;
   }
 
   & fieldset {

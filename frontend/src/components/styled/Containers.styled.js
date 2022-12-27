@@ -13,7 +13,7 @@ export const SingleCocktailContainer = styled.div`
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 1rem 0 .2rem 0;
+    padding: 1rem 0 0.2rem 0;
   }
 
   & p {
@@ -39,21 +39,41 @@ export const Grid = styled.div`
   text-align: left;
 `;
 
-export const Ingredients = styled.div`
-`;
+export const Ingredients = styled.div``;
 
-export const Garnish = styled(Ingredients)`
-`
+export const Garnish = styled(Ingredients)``;
 
-export const Notes = styled(Garnish)`
-`
+export const Notes = styled(Garnish)``;
 
 export const Preparation = styled.div`
   width: fit-content;
   max-width: 32rem;
   text-align: left;
-  
+
   @media (max-width: 700px) {
     max-width: 26rem;
   }
 `;
+
+export const HeadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & h2 {
+    padding-bottom: -.4rem;
+    border-bottom: 2px solid var(--text-color);
+  }
+
+  & h5 {
+    font-size: .9rem;
+    text-align: right;
+    padding-top: .5rem;
+  }
+`;
+
+export const ImagesBack = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 32rem;
+`

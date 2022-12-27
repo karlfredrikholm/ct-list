@@ -45,6 +45,10 @@ export const ListItemBtn = styled.button`
     background: var(--text-color);
     color: var(--main-color);
   }
+
+  & p {
+
+  }
   `
 
 export const SearchBtn = styled.button`
@@ -52,6 +56,8 @@ export const SearchBtn = styled.button`
     background: none;
     color: var(--text-color);
     cursor: pointer;
+    font-size: .9rem;
+    font-weight: 600;
     height: 2rem;
     width: 5rem;
     transition: .2s ease;
@@ -74,6 +80,6 @@ export const FilterBtn = styled(SearchBtn)`
   }
 `
 
-export const BackBtn = styled(SearchBtn)`
-
+export const BackBtn = styled(FilterBtn)`
+  width: 5rem;
 `

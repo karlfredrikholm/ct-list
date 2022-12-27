@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SingleCocktailContainer, Grid, Garnish, Ingredients, Preparation } from './styled/Containers.styled';
+import { SingleCocktailContainer, HeadingContainer, Grid, Garnish, Ingredients, Preparation, ImagesBack } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
 
 const SingleCocktail = () => {
@@ -31,7 +31,10 @@ const SingleCocktail = () => {
 
   return (
     <SingleCocktailContainer>
+      <HeadingContainer>
       <h2>{singleCocktail.cocktailName}</h2>
+      <h5>{singleCocktail.category}</h5>
+      </HeadingContainer>
       <Grid>
         <Ingredients>
           <h4>Ingredients</h4>
@@ -47,10 +50,12 @@ const SingleCocktail = () => {
         <h4>Preparation</h4>
         <p>{singleCocktail.preparation}</p>
       </Preparation>
+      <ImagesBack>
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
       <BackBtn type="button" onClick={() => onBackBtnClick()}>
       Back
       </BackBtn>
+      </ImagesBack>
     </SingleCocktailContainer>
   )
 }

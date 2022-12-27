@@ -27,7 +27,7 @@ const List = () => {
           <Link key={item._id} to={`/cocktails/${item._id}`}>
             <ListItemBtn>
               <h4>{item.cocktailName}</h4>
-              <p>{item.category}</p>
+              <h5>{item.category}</h5>
             </ListItemBtn>
           </Link>
         )
