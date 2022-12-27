@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SingleCocktailContainer, HeadingContainer } from './styled/Containers.styled';
+import { SingleCocktailContainer } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
 
 const SingleCocktail = () => {
@@ -36,9 +36,8 @@ const SingleCocktail = () => {
 
   return (
     <SingleCocktailContainer>
-      <HeadingContainer>
-        <h2>{singleCocktail.cocktailName}</h2>
-      </HeadingContainer>
+      <h2>{singleCocktail.cocktailName}</h2>
+      <hr />
       <h4>Ingredients</h4>
       {singleCocktail && lineBreaks(singleCocktail.ingredients, 'ing')}
       <h4>Garnish</h4>
@@ -51,6 +50,7 @@ const SingleCocktail = () => {
       )}
       <h4>Preparation</h4>
       <p>{singleCocktail && lineBreaks(singleCocktail.preparation, 'prep')}</p>
+      <hr />
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
       <BackBtn type="button" onClick={() => onBackBtnClick()}>
         Back
