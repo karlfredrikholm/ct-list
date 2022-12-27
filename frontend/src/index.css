@@ -35,16 +35,12 @@ a {
   font-weight: 700;
   text-decoration: none;
   width: fit-content;
+  transition: 0.3s ease;
 }
 
 /* active class on the NavLinks, provided by React Router */
 .active {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 900;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  transition: 0.3s ease;
+  border-bottom: 2px solid var(--main-color);
 }
 
 h1 {
@@ -74,7 +70,7 @@ h4 {
 }
 
 h5 {
-  font-size: 0.9rem;
+  font-size: .8rem;
   font-family: 'Playfair Display';
   font-weight: 400;
   font-style: italic;
@@ -88,8 +84,6 @@ p {
 .inner-wrapper {
   display: flex;
   flex-direction: column;
-  border: 1px;
-  border-style: solid;
   max-width: 700px;
   width: 80%;
   height: fit-content;

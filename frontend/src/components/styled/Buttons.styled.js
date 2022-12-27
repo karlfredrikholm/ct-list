@@ -2,22 +2,22 @@ import styled from 'styled-components/macro';
 
 export const MenuBtn = styled.button`
   position: absolute;
-  bottom: 2rem;
-  right: 1.7rem;
+  top: 2.7rem;
+  right: 1rem;
 
   background: none;
   border: none;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
 
   & svg {
-    color: mediumpurple;
+    color: var(--main-color);
     width: 2.8rem;
     height: 2.8rem;
-    background: white;
+    background: var(--text-color);
     border-radius: 50%;
-    padding: 0.3rem;
+    padding: 0.4rem;
   }
 `;
 
@@ -41,12 +41,11 @@ export const ListItemBtn = styled.button`
   padding: 0.6rem 1rem;
   width: 100%;
 
-  &:hover {
-    background: var(--text-color);
-    color: var(--main-color);
-  }
-
-  & p {
+  @media (min-width: 850 px) {
+    &:hover {
+      background: var(--text-color);
+      color: var(--main-color);
+    }
   }
 `;
 
@@ -66,9 +65,11 @@ export const SearchBtn = styled.button`
     font-weight: 500;
   }
 
-  &:hover {
-    background: var(--text-color);
-    color: var(--main-color);
+  @media (min-width: 850px) {
+    &:hover {
+      background: var(--text-color);
+      color: var(--main-color);
+    }
   }
 `;
 export const FilterBtn = styled(SearchBtn)`
@@ -78,14 +79,15 @@ export const FilterBtn = styled(SearchBtn)`
   height: 2rem;
   width: fit-content;
 
-  &:hover {
-    background: var(--main-color);
-    color: var(--text-color);
+  @media (min-width: 850px) {
+    &:hover {
+      background: var(--main-color);
+      color: var(--text-color);
+    }
   }
 
   @media (max-width: 700px) {
     font-size: 0.7rem;
-    font-weight: 400;
   }
 `;
 
