@@ -49,7 +49,7 @@ const SingleCocktail = () => {
         </>
       )}
       <h4>Preparation</h4>
-      <p>{singleCocktail && lineBreaks(singleCocktail.preparation, 'prep')}</p>
+      {singleCocktail && lineBreaks(singleCocktail.preparation, 'prep')}
       <hr />
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
       <BackBtn type="button" onClick={() => onBackBtnClick()}>

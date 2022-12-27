@@ -28,7 +28,7 @@ export const SingleCocktailContainer = styled.div`
   }
 
   & p {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
 
   & hr {
