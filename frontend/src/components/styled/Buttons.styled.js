@@ -86,6 +86,5 @@ export const FilterBtn = styled(SearchBtn)`
   }
 `
 
-export const BackBtn = styled(FilterBtn)`
-  width: 5rem;
+export const BackBtn = styled(SearchBtn)`
 `

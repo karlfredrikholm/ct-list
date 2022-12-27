@@ -4,17 +4,17 @@ export const SingleCocktailContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
   padding: 1rem 2rem 3rem;
+  text-align: center;
 
   & h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding: 1rem 0 0.2rem 0;
-  }
-
-  & p {
+    background: var(--text-color);
+    color: var(--main-color);
     font-size: 1.2rem;
+    font-weight: 700;
+    width: fit-content;
+    padding: 0 .5rem;
+    margin: 2rem 0 1rem;
 
     @media (max-width: 700px) {
       font-size: 1rem;
@@ -46,9 +46,7 @@ export const Garnish = styled(Ingredients)``;
 
 export const Notes = styled(Garnish)``;
 
-export const Preparation = styled(Grid)`
-  grid-template-columns: 1fr;
-  gap: 0;
+export const Preparation = styled.div`
 `;
 
 export const HeadingContainer = styled.div`
@@ -56,8 +54,7 @@ export const HeadingContainer = styled.div`
   flex-direction: column;
 
   & h2 {
-    padding-bottom: -.4rem;
-    border-bottom: 2px solid var(--text-color);
+    text-decoration: underline;
   }
 
   & h5 {
@@ -66,7 +63,3 @@ export const HeadingContainer = styled.div`
     padding-top: .5rem;
   }
 `;
-
-export const ImagesBack = styled(Preparation)`
-  justify-items: center;
-`

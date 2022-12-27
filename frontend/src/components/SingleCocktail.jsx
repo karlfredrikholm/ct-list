@@ -1,8 +1,8 @@
 /* eslint-disable indent */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SingleCocktailContainer, HeadingContainer, Grid, Garnish, Ingredients, Preparation, ImagesBack } from './styled/Containers.styled';
+import { SingleCocktailContainer, HeadingContainer } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
 
 const SingleCocktail = () => {
@@ -10,53 +10,52 @@ const SingleCocktail = () => {
   const navigate = useNavigate();
   const [singleCocktail, setSingleCocktail] = useState('');
   // const [loading, setLoading] = useState(false);
-  console.log(singleCocktail)
+  console.log(singleCocktail);
 
   useEffect(() => {
-  //    setLoading(true)
+    //    setLoading(true)
     getCocktails(`/cocktails/${id}`)
       .then((data) => setSingleCocktail(data.response))
-      .catch((e) => console.error(e))
-  //      .finally(() => setLoading(false))
+      .catch((e) => console.error(e));
+    //      .finally(() => setLoading(false))
   }, [id]);
 
   const onBackBtnClick = () => {
     navigate(-1);
-  }
+  };
 
-  const lineBreaks = (string) => {
-    const newText = string.split(',').map((str) => <p>{str}</p>)
-    return newText
+  const lineBreaks = (string, what) => {
+    if (what === 'ing') {
+      const newText = string.split(',').map((str) => <p>{str}</p>);
+      return newText;
+    } else if (what === 'prep') {
+      const newText = string.split('.').map((str) => <p>{str}</p>);
+      return newText;
+    }
   };
 
   return (
     <SingleCocktailContainer>
       <HeadingContainer>
-      <h2>{singleCocktail.cocktailName}</h2>
-      <h5>{singleCocktail.category}</h5>
+        <h2>{singleCocktail.cocktailName}</h2>
       </HeadingContainer>
-      <Grid>
-        <Ingredients>
-          <h4>Ingredients</h4>
-          {singleCocktail && lineBreaks(singleCocktail.ingredients)}
-        </Ingredients>
-        <Garnish>
-        <h4>Garnish</h4>
-          {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
-          {singleCocktail.notes && <><h4>Notes</h4><p>{singleCocktail.notes}</p></>}
-        </Garnish>
-      </Grid>
-      <Preparation>
-        <h4>Preparation</h4>
-        <p>{singleCocktail.preparation}</p>
-      </Preparation>
-      <ImagesBack>
+      <h4>Ingredients</h4>
+      {singleCocktail && lineBreaks(singleCocktail.ingredients, 'ing')}
+      <h4>Garnish</h4>
+      {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
+      {singleCocktail.notes && (
+        <>
+          <h4>Notes</h4>
+          <p>{singleCocktail.notes}</p>
+        </>
+      )}
+      <h4>Preparation</h4>
+      <p>{singleCocktail && lineBreaks(singleCocktail.preparation, 'prep')}</p>
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
       <BackBtn type="button" onClick={() => onBackBtnClick()}>
-      Back
+        Back
       </BackBtn>
-      </ImagesBack>
     </SingleCocktailContainer>
-  )
-}
+  );
+};
 export default SingleCocktail;

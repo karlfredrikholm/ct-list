@@ -31,7 +31,7 @@ code {
 
 a {
   color: var(--main-color);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-decoration: none;
   width: fit-content;
@@ -79,7 +79,7 @@ h5 {
 }
 
 p {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .inner-wrapper {
