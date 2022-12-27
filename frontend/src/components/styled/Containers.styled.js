@@ -46,14 +46,9 @@ export const Garnish = styled(Ingredients)``;
 
 export const Notes = styled(Garnish)``;
 
-export const Preparation = styled.div`
-  width: fit-content;
-  max-width: 32rem;
-  text-align: left;
-
-  @media (max-width: 700px) {
-    max-width: 26rem;
-  }
+export const Preparation = styled(Grid)`
+  grid-template-columns: 1fr;
+  gap: 0;
 `;
 
 export const HeadingContainer = styled.div`
@@ -72,13 +67,6 @@ export const HeadingContainer = styled.div`
   }
 `;
 
-export const ImagesBack = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 32rem;
-
-  @media (max-width: 700px) {
-    max-width: 26rem;
-  }
+export const ImagesBack = styled(Preparation)`
+  justify-items: center;
 `
