@@ -49,3 +49,19 @@ const SingleCocktail = () => {
   )
 }
 export default SingleCocktail;
+
+// {singleRecipe &&
+//   <div>
+//     <h3>Ingredients</h3>
+//     <p>{singleRecipe.ingredients}</p>
+//     <h3>Method</h3>
+//     <p>{singleRecipe.preparation}</p>
+//     <h3>Garnish</h3>
+//     <p>{singleRecipe.garnish}</p>
+//     <a href={singleRecipe.imageSearchLink} target="_blank" rel="noreferrer"><h3>Images for inspiration (opens in a new window)</h3></a>
+//     {singleRecipe.notes &&
+//     <>
+//       <h3>Notes</h3>
+//       <p>{singleRecipe.notes}</p>
+//     </>}
+//   </div>}

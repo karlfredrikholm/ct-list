@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 
 export const MenuBtn = styled.button`
   position: absolute;
-  top: 1rem;
+  bottom: 2rem;
   right: 1.7rem;
 
   background: none;
@@ -21,9 +21,25 @@ export const MenuBtn = styled.button`
   }
 `;
 
+/* Add Form */
 export const SubmitBtn = styled.button`
   border: none;
   margin-top: 2rem;
   padding: .5rem 1rem;
   width: 5rem;
 `;
+
+export const ListItemBtn = styled.button`
+  display: flex;
+  justify-content: space-between;
+  background: pink;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  cursor: pointer;
+  padding: .5rem .7rem;
+  width: 100%;
+`
+
+export const FilterBtn = styled.button`
+  width: fit-content;
+`

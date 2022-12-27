@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
 export const SearchForm = styled.form`
+  display: flex;
+  flex-direction: column;
   height: 10rem;
   width: 100%;
-  border: 1px solid white;
+
+  & input {
+    width: 50%;
+  }
 `
 
 export const AddForm = styled.form`

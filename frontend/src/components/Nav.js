@@ -17,24 +17,23 @@ const Menu = () => {
         type="button"
         onClick={() => setShowMenu(!showMenu)}
         aria-label="menu"
-        aria-controls="primary-navigation"
-        aria-expanded="false">
+        aria-controls="primary-navigation">
         <GiMartini />
       </MenuBtn>
       <ul
         style={showMenu ? shownStyle : hiddenStyle}
         id="primary-navigation">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">List</NavLink>
         </li>
         <li>
-          <NavLink to="/signin">Sign In</NavLink>
+          <NavLink to="/signin">About</NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">Contact</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/contact">Admin</NavLink>
         </li>
       </ul>
     </Nav>

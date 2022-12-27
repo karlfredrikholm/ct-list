@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 // import { useNavigate } from 'react-router-dom';
-import { Accordion } from './styled/Accordion.styled';
-// import SingleCocktail from './SingleCocktail';
+import { ListItemBtn } from './styled/Buttons.styled';
+// import { ListItem } from './styled/ListItem.styled';
 
 const List = () => {
   // const navigate = useNavigate();
@@ -51,28 +51,12 @@ const List = () => {
     <div>
       {cocktailList && cocktailList.map((item) => {
         return (
-          <Accordion>
+          <ListItemBtn type="button" onClick={() => handleSingleCocktailClick(item._id)}>
             <h4>{item.cocktailName}</h4>
-            <button type="button" onClick={() => handleSingleCocktailClick(item._id)}>HEJ</button>
             <p>{item.category}</p>
-          </Accordion>
+          </ListItemBtn>
         )
       })}
-      {singleRecipe &&
-          <div>
-            <h3>Ingredients</h3>
-            <p>{singleRecipe.ingredients}</p>
-            <h3>Method</h3>
-            <p>{singleRecipe.preparation}</p>
-            <h3>Garnish</h3>
-            <p>{singleRecipe.garnish}</p>
-            <a href={singleRecipe.imageSearchLink} target="_blank" rel="noreferrer"><h3>Images for inspiration (opens in a new window)</h3></a>
-            {singleRecipe.notes &&
-            <>
-              <h3>Notes</h3>
-              <p>{singleRecipe.notes}</p>
-            </>}
-          </div>}
     </div>
   )
 };

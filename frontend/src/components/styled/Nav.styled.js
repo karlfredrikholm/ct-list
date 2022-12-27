@@ -16,6 +16,10 @@ const Nav = styled.nav`
     margin-right: -15rem;
     min-height: 100vh;
     width: 15rem;
+
+    /* @media (max-width: 700px) {
+      width: 100vw;
+    } */
   }
 
   @keyframes menuInAnimation {
