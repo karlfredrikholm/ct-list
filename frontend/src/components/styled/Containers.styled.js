@@ -45,3 +45,14 @@ export const Notes = styled(Garnish)``;
 
 export const Preparation = styled.div`
 `;
+
+export const AboutContainer = styled(SingleCocktailContainer)`
+  & p {
+    margin-bottom: 1.5rem;
+  }
+
+  & a {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+`
