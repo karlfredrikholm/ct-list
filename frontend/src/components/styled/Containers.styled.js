@@ -5,7 +5,7 @@ export const SingleCocktailContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 2rem 2rem 3rem;
+  padding: 1rem 2rem 3rem;
 
   & h4 {
     font-family: 'Playfair Display';
@@ -35,8 +35,12 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  width: 32rem;
+  max-width: 32rem;
   text-align: left;
+  
+  @media (max-width: 700px) {
+    max-width: 26rem;
+  }
 `;
 
 export const Ingredients = styled.div``;
@@ -75,5 +79,12 @@ export const ImagesBack = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: .1rem solid var(--text-color);
   width: 32rem;
+  max-width: 32rem;
+  padding: .5rem 0;
+  
+  @media (max-width: 700px) {
+    max-width: 26rem;
+  }
 `

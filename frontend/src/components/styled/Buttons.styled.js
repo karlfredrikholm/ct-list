@@ -62,9 +62,15 @@ export const SearchBtn = styled.button`
     width: 5rem;
     transition: .2s ease;
    
+    @media (max-width: 700px) {
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
     &:hover {
     background: var(--text-color);
     color: var(--main-color);
+
   }
   `
 export const FilterBtn = styled(SearchBtn)`
