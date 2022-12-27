@@ -18,7 +18,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Search />} />
             <Route path="/cocktails/:id" element={<SingleCocktail />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/admin" element={<SignIn />} />
             <Route path="/add" element={<AddCocktail />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />

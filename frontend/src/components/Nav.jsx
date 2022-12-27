@@ -27,13 +27,10 @@ const Menu = () => {
           <NavLink to="/">List</NavLink>
         </li>
         <li>
-          <NavLink to="/signin">About</NavLink>
+          <NavLink to="/about">About</NavLink>
         </li>
         <li>
-          <NavLink to="/about">Contact</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Admin</NavLink>
+          <NavLink to="/admin">Admin</NavLink>
         </li>
       </ul>
     </Nav>

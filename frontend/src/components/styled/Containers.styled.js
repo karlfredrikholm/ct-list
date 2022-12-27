@@ -20,6 +20,11 @@ export const SingleCocktailContainer = styled.div`
 
   & p {
     font-size: 1.2rem;
+
+
+    @media (max-width: 700px) {
+      font-size: 1rem;
+    }
   }
 
   & a {
@@ -52,5 +57,9 @@ export const Notes = styled(Garnish)`
 
 export const Preparation = styled.div`
   width: fit-content;
-  width: 60ch;
+  max-width: 32rem;
+  
+  @media (max-width: 700px) {
+    max-width: 26rem;
+  }
 `;
