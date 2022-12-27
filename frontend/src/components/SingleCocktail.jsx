@@ -37,17 +37,17 @@ const SingleCocktail = () => {
           <h4>Ingredients</h4>
           {singleCocktail && lineBreaks(singleCocktail.ingredients)}
         </Ingredients>
+        <Garnish>
+        <h4>Garnish</h4>
+          {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
+          {singleCocktail.notes && <><h4>Notes</h4><p>{singleCocktail.notes}</p></>}
+        </Garnish>
       </Grid>
       <Preparation>
         <h4>Preparation</h4>
         <p>{singleCocktail.preparation}</p>
       </Preparation>
-        <Garnish>
-        <h4>Garnish</h4>
-          {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
-        </Garnish>
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
-     {singleCocktail.notes && <><h4>Notes</h4><p>{singleCocktail.notes}</p></>}
       <BackBtn type="button" onClick={() => onBackBtnClick()}>
       Back
       </BackBtn>

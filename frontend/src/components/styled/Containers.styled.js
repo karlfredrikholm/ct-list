@@ -4,18 +4,16 @@ export const SingleCocktailContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-  text-align: center;
-
-  & h2 {
-    border-bottom: .1rem solid var(--text-color);
-  }
+  gap: 2rem;
+  padding: 2rem 2rem 3rem;
 
   & h4 {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 700;
-    text-transform: uppercase;
-    padding-bottom: .4rem;
+    padding: 1rem 0 .2rem 0;
   }
 
   & p {
@@ -34,14 +32,14 @@ export const SingleCocktailContainer = styled.div`
 `;
 
 export const Grid = styled.div`
-  margin: 1rem 2rem;
-  width: fit-content;
-  max-width: 32rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 32rem;
+  text-align: left;
 `;
 
 export const Ingredients = styled.div`
-  width: fit-content;
-  padding: 1rem 0 1.5rem .5rem;
 `;
 
 export const Garnish = styled(Ingredients)`
@@ -53,6 +51,7 @@ export const Notes = styled(Garnish)`
 export const Preparation = styled.div`
   width: fit-content;
   max-width: 32rem;
+  text-align: left;
   
   @media (max-width: 700px) {
     max-width: 26rem;
