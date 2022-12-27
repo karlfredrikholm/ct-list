@@ -8,7 +8,7 @@ export const SingleCocktailContainer = styled.div`
   text-align: center;
 
   & h2 {
-    border-bottom: .3rem dotted var(--text-color);
+    border-bottom: .1rem solid var(--text-color);
   }
 
   & h4 {
@@ -20,7 +20,6 @@ export const SingleCocktailContainer = styled.div`
 
   & p {
     font-size: 1.2rem;
-
 
     @media (max-width: 700px) {
       font-size: 1rem;
@@ -35,21 +34,17 @@ export const SingleCocktailContainer = styled.div`
 `;
 
 export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
-  margin: 2rem 0;
+  margin: 1rem 2rem;
+  width: fit-content;
+  max-width: 32rem;
 `;
 
 export const Ingredients = styled.div`
-  font-size: 3rem;
   width: fit-content;
   padding: 1rem 0 1.5rem .5rem;
 `;
 
 export const Garnish = styled(Ingredients)`
-  border-left: 1px solid var(--text-color);
-  padding-left: 2.5rem;
 `
 
 export const Notes = styled(Garnish)`

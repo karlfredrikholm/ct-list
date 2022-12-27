@@ -74,6 +74,6 @@ export const FilterBtn = styled(SearchBtn)`
   }
 `
 
-export const BackBtn = styled.button`
+export const BackBtn = styled(SearchBtn)`
 
 `
