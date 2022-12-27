@@ -8,9 +8,6 @@ export const SingleCocktailContainer = styled.div`
   padding: 1rem 2rem 3rem;
 
   & h4 {
-    font-family: 'Playfair Display';
-    font-style: italic;
-    text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 700;
     padding: 1rem 0 0.2rem 0;
@@ -77,13 +74,10 @@ export const HeadingContainer = styled.div`
 
 export const ImagesBack = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-top: .1rem solid var(--text-color);
+  justify-content: space-between;
   width: 32rem;
-  max-width: 32rem;
-  padding: .5rem 0;
-  
+
   @media (max-width: 700px) {
     max-width: 26rem;
   }
