@@ -1,42 +1,56 @@
 import styled from 'styled-components';
 
-export const CocktailContainer = styled.div`
-  border: 2px solid white;
+export const SingleCocktailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
-  width: 35rem;
   text-align: center;
 
-  & td {
-    color: white;
-    padding: 0 1rem 0 0;
+  & h2 {
+    border-bottom: .3rem dotted var(--text-color);
+  }
+
+  & h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: .4rem;
+  }
+
+  & p {
+    font-size: 1.2rem;
+  }
+
+  & a {
+    color: var(--text-color);
+    padding: 1rem 0;
+    text-decoration: underline;
   }
 `;
 
 export const Grid = styled.div`
   display: grid;
-  gap: 2rem;
   grid-template-columns: 1fr 1fr;
-  padding-top: 1rem;
+  text-align: left;
+  margin: 2rem 0;
 `;
 
 export const Ingredients = styled.div`
-  font-size: 1.2rem;
+  font-size: 3rem;
   width: fit-content;
-  padding: 0 1rem 0.5rem 0.5rem;
-
-  & div {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid white;
-  }
+  padding: 1rem 0 1.5rem .5rem;
 `;
 
-export const Garnish = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+export const Garnish = styled(Ingredients)`
+  border-left: 1px solid var(--text-color);
+  padding-left: 2.5rem;
+`
+
+export const Notes = styled(Garnish)`
 `
 
 export const Preparation = styled.div`
   width: fit-content;
+  width: 60ch;
 `;

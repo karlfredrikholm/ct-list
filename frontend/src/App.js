@@ -6,8 +6,8 @@ import Nav from 'components/Nav';
 import SignIn from 'components/SignIn';
 import AddCocktail from 'components/AddCocktail';
 import About from 'components/About';
-import Contact from 'components/Contact';
 import NotFound from 'components/NotFound';
+import SingleCocktail from 'components/SingleCocktail';
 
 const App = () => {
   return (
@@ -17,10 +17,10 @@ const App = () => {
           <Nav />
           <Routes>
             <Route path="/" element={<Search />} />
+            <Route path="/cocktails/:id" element={<SingleCocktail />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/add" element={<AddCocktail />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

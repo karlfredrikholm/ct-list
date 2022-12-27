@@ -38,26 +38,42 @@ export const ListItemBtn = styled.button`
   border-top: 1px solid var(--text-color);
   color: var(--text-color);
   cursor: pointer;
-  padding: .5rem 1rem;
+  padding: .6rem 1rem;
   width: 100%;
-`
 
-export const FilterBtn = styled.button`
-  background: none;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  cursor: pointer;
-  padding: 0 .4rem;
-  height: 2rem;
-  width: fit-content;
-  
-`
+  &:hover {
+    background: var(--text-color);
+    color: var(--main-color);
+  }
+  `
 
 export const SearchBtn = styled.button`
-  border: 1px solid var(--text-color);
-  background: none;
-  color: var(--text-color);
-  cursor: pointer;
+    border: 1px solid var(--text-color);
+    background: none;
+    color: var(--text-color);
+    cursor: pointer;
+    height: 2rem;
+    width: 5rem;
+    transition: .2s ease;
+   
+    &:hover {
+    background: var(--text-color);
+    color: var(--main-color);
+  }
+  `
+export const FilterBtn = styled(SearchBtn)`
+  background: var(--text-color);
+  color: var(--main-color);
+  padding: 0 .5rem;
   height: 2rem;
-  width: 5rem;
+  width: fit-content;
+
+  &:hover {
+    background: var(--main-color);
+    color: var(--text-color);
+  }
+`
+
+export const BackBtn = styled.button`
+
 `

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const SearchForm = styled.form`
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
+
   width: 100%;
   padding: .7rem 0 1.5rem 1rem;
 

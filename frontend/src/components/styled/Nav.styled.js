@@ -11,7 +11,7 @@ const Nav = styled.nav`
     justify-content: center;
     gap: 2rem;
 
-    background: mediumpurple;
+    background: var(--text-color);
     list-style-type: none;
     margin-right: -15rem;
     min-height: 100vh;
