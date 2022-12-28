@@ -16,7 +16,7 @@ const AddCocktail = () => {
 
   useEffect(() => {
     if (!accessToken) {
-      navigate('/admin');
+      navigate('/login');
     }
   }, [accessToken, navigate]);
 
@@ -69,7 +69,7 @@ const AddCocktail = () => {
           type="text"
           onChange={(e) => dispatch(cocktail.actions.setGarnish(e.target.value))}
           value={cocktailState.garnish}
-          placeholder="If no garnish – leave input field blank" />
+          placeholder="If no garnish, leave input field blank" />
 
         <label htmlFor="preparation">Preparation</label>
         <textarea

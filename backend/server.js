@@ -163,7 +163,6 @@ app.get('/:category', async (req, res) => {
 });
 
 // POST new cocktail
-app.get('/add', authenticateUser);
 app.post('/add', authenticateUser);
 app.post('/add', async (req, res) => {
   const { cocktailName } = req.body;

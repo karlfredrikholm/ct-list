@@ -30,7 +30,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Search />} />
               <Route path="/cocktails/:id" element={<SingleCocktail />} />
-              <Route path="/admin" element={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/add" element={<AddCocktail />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
