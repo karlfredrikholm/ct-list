@@ -9,7 +9,7 @@ const List = ({ cocktailList }) => {
       {typeof cocktailList === 'string' ? (
         <Link to="/">
           <ListItemBtn>
-            <h4>{cocktailList}, try again</h4>
+            <h4>{cocktailList}</h4>
           </ListItemBtn>
         </Link>
       ) : (
@@ -18,7 +18,7 @@ const List = ({ cocktailList }) => {
             <Link key={item._id} to={`/cocktails/${item._id}`}>
               <ListItemBtn>
                 <h4>{item.cocktailName}</h4>
-                <h5>{item.category}</h5>
+                <h5>{item.category.replaceAll('-', ' ')}</h5>
               </ListItemBtn>
             </Link>
           );

@@ -10,6 +10,7 @@ import { AddForm } from './styled/Forms';
 const AddCocktail = () => {
   const cocktailState = useSelector((store) => store.cocktail);
   const accessToken = useSelector((store) => store.user.accessToken);
+  const userName = useSelector((store) => store.user.username);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,12 +22,14 @@ const AddCocktail = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    postCocktail(cocktailState).finally(() => dispatch(cocktail.actions.cleanup()));
+    postCocktail(cocktailState)
+      .finally(() => dispatch(cocktail.actions.cleanup()));
   };
 
   return (
     <AddForm onSubmit={handleFormSubmit}>
       <div>
+        <h2>Welcome {userName}</h2>
         <h3>Add New Cocktail</h3>
 
         <label htmlFor="cocktailName">Name</label>

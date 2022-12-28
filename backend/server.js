@@ -10,8 +10,7 @@ import { Cocktail, User } from './utils/mongoose.js';
 const port = process.env.PORT || 8080;
 const app = express();
 
-const mongoUrl =
-  process.env.MONGO_URL || 'mongodb://localhost/cocktails-project';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/cocktails-project';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.promise = Promise;
 
@@ -79,7 +78,7 @@ app.post('/login', async (req, res) => {
     } else {
       res.status(400).json({
         success: false,
-        response: 'Username and/or password not correct'
+        response: 'Username/password not correct'
       });
     }
   } catch (err) {
@@ -115,7 +114,7 @@ app.get('/cocktails', async (req, res) => {
   }
 });
 
-// GET one single cocktail
+// GET single cocktail
 app.get('/cocktails/:id', async (req, res) => {
   const { id } = req.params;
   const singleCocktail = await Cocktail.findById(id);
@@ -198,7 +197,6 @@ app.listen(port, () => {
 });
 
 // For pagination
-
 // const {
 //   page,
 //   perPage,
@@ -216,47 +214,47 @@ app.listen(port, () => {
 // cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
 
 // Register end point
-app.post('/register', async (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const salt = bcrypt.genSaltSync();
-    const oldUser = await User.findOne({ username });
-    const oldEmail = await User.findOne({ email });
+// app.post('/register', async (req, res) => {
+//   const { username, email, password } = req.body;
+//   try {
+//     const salt = bcrypt.genSaltSync();
+//     const oldUser = await User.findOne({ username });
+//     const oldEmail = await User.findOne({ email });
 
-    if (password.length < 8) {
-      res.status(400).json({
-        success: false,
-        response: 'Password must be min 8 characters'
-      });
-    } else if (oldUser) {
-      res.status(400).json({
-        success: false,
-        response: 'Username already registered'
-      });
-    } else if (oldEmail) {
-      res.status(400).json({
-        success: false,
-        response: 'Email already registered'
-      });
-    } else {
-      const newUser = await new User({
-        username: username,
-        email: email,
-        password: bcrypt.hashSync(password, salt)
-      }).save();
-      res.status(201).json({
-        success: true,
-        response: {
-          username: newUser.username,
-          accessToken: newUser.accessToken,
-          id: newUser._id
-        }
-      });
-    }
-  } catch (err) {
-    res.status(400).json({
-      success: false,
-      response: err
-    });
-  }
-});
+//     if (password.length < 8) {
+//       res.status(400).json({
+//         success: false,
+//         response: 'Password must be min 8 characters'
+//       });
+//     } else if (oldUser) {
+//       res.status(400).json({
+//         success: false,
+//         response: 'Username already registered'
+//       });
+//     } else if (oldEmail) {
+//       res.status(400).json({
+//         success: false,
+//         response: 'Email already registered'
+//       });
+//     } else {
+//       const newUser = await new User({
+//         username: username,
+//         email: email,
+//         password: bcrypt.hashSync(password, salt)
+//       }).save();
+//       res.status(201).json({
+//         success: true,
+//         response: {
+//           username: newUser.username,
+//           accessToken: newUser.accessToken,
+//           id: newUser._id
+//         }
+//       });
+//     }
+//   } catch (err) {
+//     res.status(400).json({
+//       success: false,
+//       response: err
+//     });
+//   }
+// });

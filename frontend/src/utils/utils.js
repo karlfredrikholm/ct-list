@@ -18,7 +18,7 @@ export const postCocktail = async (recipe) => {
     body: JSON.stringify(recipe)
   };
 
-  const res = await fetch((`${BASE_URL}/cocktails`), options);
+  const res = await fetch((`${BASE_URL}/add`), options);
   const json = await res.json();
   return json;
 };

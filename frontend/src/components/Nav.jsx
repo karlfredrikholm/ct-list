@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GiMartini } from 'react-icons/gi';
+import { useDispatch, useSelector } from 'react-redux';
+import user from 'reducers/user';
 import Nav from './styled/Nav.styled';
 import { MenuBtn } from './styled/Buttons.styled';
 
@@ -9,7 +11,9 @@ const shownStyle = { marginRight: '0', animation: 'menuInAnimation .4s ease' };
 const hiddenStyle = { animation: 'menuOutAnimation .4s ease' };
 
 const Menu = () => {
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const accessToken = useSelector((store) => store.user.accessToken);
 
   return (
     <Nav>
@@ -32,6 +36,10 @@ const Menu = () => {
         <li>
           <NavLink to="/admin">Admin</NavLink>
         </li>
+        {accessToken &&
+        <li>
+          <NavLink to="/" onClick={() => dispatch(user.actions.setAccessToken(null))}>Sign Out</NavLink>
+        </li>}
       </ul>
     </Nav>
   );
