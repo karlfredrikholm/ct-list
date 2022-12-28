@@ -48,7 +48,7 @@ app.get('/cocktails', async (req, res) => {
   
   try {
     if (searchQuery) {
-      cocktailList = await Cocktail.find(searchQuery).sort({ cocktailName: 1});
+      cocktailList = await Cocktail.find({ "cocktailName": searchQuery }).sort({ cocktailName: 1});
     } else {
       cocktailList = await Cocktail.find().sort({ cocktailName: 1});
     }
