@@ -47,7 +47,11 @@ app.get('/cocktails', async (req, res) => {
   let cocktailList = {};
 
   try {
-    cocktailList = await Cocktail.find({ cocktailName: {$regex: name} }).sort({ cocktailName: 1});
+    if (name) {
+      cocktailList = await Cocktail.find({ cocktailName: {$regex: name} }).sort({ cocktailName: 1});
+    } else {
+      cocktailList = await Cocktail.find().sort({ cocktailName: 1});
+    }
     res.status(200).json({ success: true, response: cocktailList });
   } catch (e) {
     res.status(400).json({ success: false, response: e });
