@@ -13,7 +13,7 @@ const Search = () => {
   // fix loading animation
   console.log(loading);
 
-  // GETs all the cocktails when component mounts
+  // GET all cocktails when component mounts
   useEffect(() => {
     setLoading(true);
     getCocktails('cocktails')
@@ -22,7 +22,7 @@ const Search = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // GETs what's found when searching
+  // GET what's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true)

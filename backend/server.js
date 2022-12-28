@@ -173,13 +173,13 @@ app.post('/add', async (req, res) => {
     if (cocktailExist) {
       res.status(400).json({
         success: false,
-        response: 'This cocktail is already in the database.'
+        response: `${cocktailExist.cocktailName} is already in the database.`
       });
     } else {
       const newCocktail = await new Cocktail(req.body).save();
       res.status(201).json({
         success: true,
-        response: newCocktail
+        response: `${newCocktail.cocktailName} saved to database.`
       });
     }
   } catch (e) {

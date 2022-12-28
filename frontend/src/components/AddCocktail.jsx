@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
-import { postCocktail } from 'utils/utils';
+import cocktail, { postCocktail } from 'reducers/cocktail';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import cocktail from 'reducers/cocktail';
 import { SubmitBtn } from './styled/Buttons.styled';
 import { AddForm } from './styled/Forms';
 
@@ -22,8 +21,7 @@ const AddCocktail = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    postCocktail(cocktailState)
-      .finally(() => dispatch(cocktail.actions.cleanup()));
+    postCocktail();
   };
 
   return (

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { BASE_URL } from 'utils/utils';
 
 const initialState = {
   cocktailName: '',
@@ -41,5 +42,23 @@ const cocktail = createSlice({
     }
   }
 });
+
+// POST new cockail
+export const postCocktail = () => {
+  return (dispatch, getState) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: getState().user.accessToken
+      },
+      body: JSON.stringify(initialState)
+    };
+    fetch((`${BASE_URL}/add`), options)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .finally(() => dispatch(cocktail.actions.cleanup()))
+  };
+};
 
 export default cocktail;
