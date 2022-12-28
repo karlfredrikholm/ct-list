@@ -43,12 +43,12 @@ app.get('/', (req, res) => {
 // GET  all cocktails
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
-  // const searchQuery = name ? name : /.*/;
+  const nameQuery = name ? name : /.*/;
   let cocktailList = {};
 
   try {
     if (name) {
-      cocktailList = await Cocktail.find({ cocktailName: {$regex: name} }).sort({ cocktailName: 1});
+      cocktailList = await Cocktail.find({ cocktailName: {$regex: nameQuery} }).sort({ cocktailName: 1});
     } else {
       cocktailList = await Cocktail.find().sort({ cocktailName: 1});
     }
