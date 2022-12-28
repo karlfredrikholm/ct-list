@@ -44,15 +44,17 @@ app.get('/', (req, res) => {
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
   const searchQuery = {};
-  
+
   try {
     if (name) {
-      searchQuery.cocktailName = { $regex: new RegExp(name, "i") }; 
+      searchQuery.cocktailName = { $regex: new RegExp(name, 'i') };
     }
-    let cocktailList = await Cocktail.find(searchQuery).sort({ cocktailName: 1});
-    
-    if (!cocktailList) {
-      res.status(404).json({ success: false, response: "Nothing found"});
+    let cocktailList = await Cocktail.find(searchQuery).sort({
+      cocktailName: 1
+    });
+
+    if (!cocktailList.length) {
+      res.status(404).json({ success: false, response: 'Nothing found' });
     } else {
       res.status(200).json({ success: true, response: cocktailList });
     }
@@ -124,7 +126,6 @@ app.get('/:category', async (req, res) => {
     });
   }
 });
-
 
 // POST new cocktail /cocktails
 app.post('/cocktails', async (req, res) => {
