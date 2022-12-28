@@ -29,7 +29,7 @@ const Search = () => {
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
     console.log(category);
-    getCocktails(`cocktails/${category}`)
+    getCocktails(category)
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));

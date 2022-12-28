@@ -92,7 +92,7 @@ app.get('/cocktails/:id', async (req, res) => {
 });
 
 // GET all cocktails in one category
-app.get('/cocktails/:category', async (req, res) => {
+app.get('/:category', async (req, res) => {
   const { category } = req.params;
   let cocktailsInCategory = {};
 
