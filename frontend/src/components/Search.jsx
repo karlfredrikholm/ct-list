@@ -7,10 +7,12 @@ import { FilterBtn, SearchBtn } from './styled/Buttons.styled';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
 
   // fix loading animation
   console.log(loading)
+  console.log(searchInput);
 
   // GETs all the cocktails when component mounts
   useEffect(() => {
@@ -24,6 +26,15 @@ const Search = () => {
   // GETs whatever's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setLoading(true)
+
+    getCocktails(`cocktails?name=${searchInput}`)
+      .then((data) => setCocktailList(data.response))
+      .catch((e) => console.error(e))
+      .finally(() => {
+        setLoading(false)
+        setSearchInput('')
+      })
   };
 
   // GET all cocktails in one category
@@ -43,7 +54,7 @@ const Search = () => {
             <h1>IBA Cocktail List</h1>
           </label>
           <fieldset>
-            <input type="text" id="search" placeholder='E.g. "Manhattan"' />
+            <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
             <SearchBtn type="submit">Search</SearchBtn>
           </fieldset>
           <h3>Show all in one category</h3>

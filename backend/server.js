@@ -43,32 +43,32 @@ app.get('/', (req, res) => {
 // GET  all cocktails
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
-  const searchQuery = name ? name : /.*/;
+  // const searchQuery = name ? name : /.*/;
   let cocktailList = {};
 
-
-  // const {
-  //   page,
-  //   perPage,
-  //   numberPage = +page,
-  //   numberPerPage = +perPage
-  // } = req.query;
-
   try {
-    // if (page) {
-    //   cocktailList = await Cocktail.aggregate([
-    //     { $sort: { cocktailName: 1 } },
-    //     { $skip: (numberPage - 1) * numberPerPage },
-    //     { $limit: numberPerPage }
-    //   ]);
-    // } else {
-    // cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
-    cocktailList = await Cocktail.find({ cocktailName: searchQuery }).sort({ cocktailName: 1});
+    cocktailList = await Cocktail.find({ cocktailName: {$regex: name} }).sort({ cocktailName: 1});
     res.status(200).json({ success: true, response: cocktailList });
   } catch (e) {
     res.status(400).json({ success: false, response: e });
   }
 });
+
+// const {
+//   page,
+//   perPage,
+//   numberPage = +page,
+//   numberPerPage = +perPage
+// } = req.query;
+
+// if (page) {
+//   cocktailList = await Cocktail.aggregate([
+//     { $sort: { cocktailName: 1 } },
+//     { $skip: (numberPage - 1) * numberPerPage },
+//     { $limit: numberPerPage }
+//   ]);
+// } else {
+// cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
 
 // GET one single cocktail
 app.get('/cocktails/:id', async (req, res) => {
