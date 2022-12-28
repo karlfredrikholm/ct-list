@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import crypto from 'crypto';
 
 const CocktailSchema = new mongoose.Schema({
   cocktailName: {
@@ -38,6 +39,8 @@ const CocktailSchema = new mongoose.Schema({
   },
 });
 
+export const Cocktail = new mongoose.model('Cocktail', CocktailSchema);
+
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -59,5 +62,4 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-export const Cocktail = new mongoose.model('Cocktail', CocktailSchema);
 export const User = new mongoose.model('User', UserSchema);
