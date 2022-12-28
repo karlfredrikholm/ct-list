@@ -43,14 +43,12 @@ app.get('/', (req, res) => {
 // GET  all cocktails
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
-  // const searchQuery = name ? name : /.*/;
   let cocktailList = {};
-
+  const searchQuery = { $regex: new RegExp(name, "i") };
+  
   try {
-    if (name) {
-      Cocktail.createIndex({ cocktailName: "text" });
-      cocktailList = await Cocktail.find({ $text: { $search: name } }).sort({ cocktailName: 1});
-      // cocktailList = await Cocktail.find({ cocktailName: {$regex: searchQuery} }).sort({ cocktailName: 1});
+    if (searchQuery) {
+      cocktailList = await Cocktail.find(searchQuery).sort({ cocktailName: 1});
     } else {
       cocktailList = await Cocktail.find().sort({ cocktailName: 1});
     }
