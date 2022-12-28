@@ -49,13 +49,13 @@ app.get('/cocktails', async (req, res) => {
     if (name) {
       searchQuery.cocktailName = { $regex: new RegExp(name, "i") }; 
     }
-    
     let cocktailList = await Cocktail.find(searchQuery).sort({ cocktailName: 1});
-    res.status(200).json({ success: true, response: cocktailList });
-  
+    
     if (!cocktailList) {
       res.status(404).json({ success: false, response: "Nothing found"});
-    } 
+    } else {
+      res.status(200).json({ success: true, response: cocktailList });
+    }
   } catch (e) {
     res.status(400).json({ success: false, response: e });
   }

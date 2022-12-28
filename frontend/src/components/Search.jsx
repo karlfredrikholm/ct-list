@@ -13,6 +13,7 @@ const Search = () => {
   // fix loading animation
   console.log(loading)
   console.log(searchInput);
+  console.log(cocktailList);
 
   // GETs all the cocktails when component mounts
   useEffect(() => {
