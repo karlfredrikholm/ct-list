@@ -18,6 +18,27 @@ mongoose.promise = Promise;
 app.use(cors());
 app.use(express.json());
 
+// Function for authenticating user
+const authenticateUser = async (req, res, next) => {
+  const accessToken = req.header('Authorization');
+  try {
+    const user = await User.findOne({ accessToken: accessToken });
+    if (user) {
+      next();
+    } else {
+      res.status(401).json({
+        response: 'Please log in.',
+        success: false,
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      response: err,
+      success: false,
+    });
+  }
+};
+
 // Start defining your routes here
 app.get('/', (req, res) => {
   res.send([
@@ -34,13 +55,87 @@ app.get('/', (req, res) => {
       methods: ['GET']
     },
     {
-      path: '/cocktails/:category',
+      path: '/:category',
       methods: ['GET']
     }
   ]);
 });
 
-// GET  all cocktails
+// Register end point
+app.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const salt = bcrypt.genSaltSync();
+    const oldUser = await User.findOne({ username });
+    const oldEmail = await User.findOne({ email });
+
+    if (password.length < 8) {
+      res.status(400).json({
+        success: false,
+        response: 'Password must be min 8 characters',
+      });
+    } else if (oldUser) {
+      res.status(400).json({
+        success: false,
+        response: 'Username already registered',
+      });
+    } else if (oldEmail) {
+      res.status(400).json({
+        success: false,
+        response: 'Email already registered'
+      })
+    } else {
+      const newUser = await new User({
+        username: username,
+        email: email,
+        password: bcrypt.hashSync(password, salt),
+      }).save();
+      res.status(201).json({
+        success: true,
+        response: {
+          username: newUser.username,
+          accessToken: newUser.accessToken,
+          id: newUser._id,
+        },
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      response: err,
+    });
+  }
+});
+
+// Login end point
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username: username });
+    if (user && bcrypt.compareSync(password, user.password)) {
+      res.status(200).json({
+        success: true,
+        response: {
+          username: user.username,
+          id: user._id,
+          accessToken: user.accessToken,
+        },
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        response: 'Username and/or password not correct',
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      response: err,
+    });
+  }
+});
+
+// GET  all cocktails or by name search query
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
   const searchQuery = {};
@@ -54,7 +149,7 @@ app.get('/cocktails', async (req, res) => {
     });
 
     if (!cocktailList.length) {
-      res.status(404).json({ success: false, response: 'Nothing found' });
+      res.status(404).json({ success: false, response: 'Nothing found, try again.' });
     } else {
       res.status(200).json({ success: true, response: cocktailList });
     }
@@ -62,22 +157,6 @@ app.get('/cocktails', async (req, res) => {
     res.status(400).json({ success: false, response: e });
   }
 });
-
-// const {
-//   page,
-//   perPage,
-//   numberPage = +page,
-//   numberPerPage = +perPage
-// } = req.query;
-
-// if (page) {
-//   cocktailList = await Cocktail.aggregate([
-//     { $sort: { cocktailName: 1 } },
-//     { $skip: (numberPage - 1) * numberPerPage },
-//     { $limit: numberPerPage }
-//   ]);
-// } else {
-// cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
 
 // GET one single cocktail
 app.get('/cocktails/:id', async (req, res) => {
@@ -158,3 +237,21 @@ app.post('/cocktails', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+// For pagination
+
+// const {
+//   page,
+//   perPage,
+//   numberPage = +page,
+//   numberPerPage = +perPage
+// } = req.query;
+
+// if (page) {
+//   cocktailList = await Cocktail.aggregate([
+//     { $sort: { cocktailName: 1 } },
+//     { $skip: (numberPage - 1) * numberPerPage },
+//     { $limit: numberPerPage }
+//   ]);
+// } else {
+// cocktailList = await Cocktail.find().sort({ cocktailName: 1 });

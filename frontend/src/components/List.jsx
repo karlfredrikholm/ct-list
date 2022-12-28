@@ -6,18 +6,26 @@ import { ListItemBtn } from './styled/Buttons.styled';
 const List = ({ cocktailList }) => {
   return (
     <div>
-      {cocktailList && cocktailList.map((item) => {
-        return (
-          <Link key={item._id} to={`/cocktails/${item._id}`}>
-            <ListItemBtn>
-              <h4>{item.cocktailName}</h4>
-              <h5>{item.category}</h5>
-            </ListItemBtn>
-          </Link>
-        )
-      })}
+      {typeof cocktailList === 'string' ? (
+        <Link to="/">
+          <ListItemBtn>
+            <h4>{cocktailList}, try again</h4>
+          </ListItemBtn>
+        </Link>
+      ) : (
+        cocktailList.map((item) => {
+          return (
+            <Link key={item._id} to={`/cocktails/${item._id}`}>
+              <ListItemBtn>
+                <h4>{item.cocktailName}</h4>
+                <h5>{item.category}</h5>
+              </ListItemBtn>
+            </Link>
+          );
+        })
+      )}
     </div>
-  )
+  );
 };
 
 export default List;

@@ -11,9 +11,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
 
   // fix loading animation
-  console.log(loading)
-  console.log(searchInput);
-  console.log(cocktailList);
+  console.log(loading);
 
   // GETs all the cocktails when component mounts
   useEffect(() => {
@@ -24,7 +22,7 @@ const Search = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // GETs whatever's found when searching
+  // GETs what's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true)
