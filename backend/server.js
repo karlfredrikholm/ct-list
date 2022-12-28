@@ -42,7 +42,10 @@ app.get('/', (req, res) => {
 
 // GET  all cocktails
 app.get('/cocktails', async (req, res) => {
+  const { name } = req.query;
+  const searchQuery = name ? name : /.*/;
   let cocktailList = {};
+
 
   // const {
   //   page,
@@ -59,7 +62,8 @@ app.get('/cocktails', async (req, res) => {
     //     { $limit: numberPerPage }
     //   ]);
     // } else {
-    cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
+    // cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
+    cocktailList = await Cocktail.find({ cocktailName: searchQuery }).sort({ cocktailName: 1});
     res.status(200).json({ success: true, response: cocktailList });
   } catch (e) {
     res.status(400).json({ success: false, response: e });

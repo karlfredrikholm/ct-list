@@ -16,7 +16,7 @@ const SingleCocktail = () => {
   useEffect(() => {
     setLoading(true)
     getCocktails(`/cocktails/${id}`)
-      .then((data) => setSingleCocktail(data))
+      .then((data) => setSingleCocktail(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false))
   }, [id]);
