@@ -34,7 +34,7 @@ const Menu = () => {
           <NavLink to="/about">About</NavLink>
         </li>
         <li>
-          <NavLink to="/admin">Admin</NavLink>
+          <NavLink to="/login">Admin</NavLink>
         </li>
         {accessToken &&
         <li>
