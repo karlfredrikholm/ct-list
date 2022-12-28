@@ -62,52 +62,6 @@ app.get('/', (req, res) => {
   ]);
 });
 
-// Register end point
-app.post('/register', async (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const salt = bcrypt.genSaltSync();
-    const oldUser = await User.findOne({ username });
-    const oldEmail = await User.findOne({ email });
-
-    if (password.length < 8) {
-      res.status(400).json({
-        success: false,
-        response: 'Password must be min 8 characters'
-      });
-    } else if (oldUser) {
-      res.status(400).json({
-        success: false,
-        response: 'Username already registered'
-      });
-    } else if (oldEmail) {
-      res.status(400).json({
-        success: false,
-        response: 'Email already registered'
-      });
-    } else {
-      const newUser = await new User({
-        username: username,
-        email: email,
-        password: bcrypt.hashSync(password, salt)
-      }).save();
-      res.status(201).json({
-        success: true,
-        response: {
-          username: newUser.username,
-          accessToken: newUser.accessToken,
-          id: newUser._id
-        }
-      });
-    }
-  } catch (err) {
-    res.status(400).json({
-      success: false,
-      response: err
-    });
-  }
-});
-
 // Login end point
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -209,8 +163,10 @@ app.get('/:category', async (req, res) => {
   }
 });
 
-// POST new cocktail /cocktails
-app.post('/cocktails', async (req, res) => {
+// POST new cocktail
+app.get('/add', authenticateUser);
+app.post('/add', authenticateUser);
+app.post('/add', async (req, res) => {
   const { cocktailName } = req.body;
 
   try {
@@ -258,3 +214,49 @@ app.listen(port, () => {
 //   ]);
 // } else {
 // cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
+
+// Register end point
+app.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const salt = bcrypt.genSaltSync();
+    const oldUser = await User.findOne({ username });
+    const oldEmail = await User.findOne({ email });
+
+    if (password.length < 8) {
+      res.status(400).json({
+        success: false,
+        response: 'Password must be min 8 characters'
+      });
+    } else if (oldUser) {
+      res.status(400).json({
+        success: false,
+        response: 'Username already registered'
+      });
+    } else if (oldEmail) {
+      res.status(400).json({
+        success: false,
+        response: 'Email already registered'
+      });
+    } else {
+      const newUser = await new User({
+        username: username,
+        email: email,
+        password: bcrypt.hashSync(password, salt)
+      }).save();
+      res.status(201).json({
+        success: true,
+        response: {
+          username: newUser.username,
+          accessToken: newUser.accessToken,
+          id: newUser._id
+        }
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      response: err
+    });
+  }
+});

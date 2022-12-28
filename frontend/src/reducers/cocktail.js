@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  cocktailName: null,
-  cateogry: null,
-  ingredients: null,
-  garnish: null,
-  preparation: null,
-  imageSearchLink: null,
-  notes: null
+  cocktailName: '',
+  cateogry: '',
+  ingredients: '',
+  garnish: '',
+  preparation: '',
+  imageSearchLink: '',
+  notes: ''
 };
 
 const cocktail = createSlice({
@@ -43,30 +43,3 @@ const cocktail = createSlice({
 });
 
 export default cocktail;
-
-// export const postCocktail = () => {
-//   return (dispatch, getState) => {
-//     const options = {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(initialState)
-//     };
-//   }
-// }
-
-// export const postCocktail = async (recipe) => {
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(recipe)
-//   };
-
-//   // const res = await fetch(API_URL('cocktails'), options);
-//   const res = await fetch(API_URL('cocktails'), options);
-//   const json = await res.json();
-//   return json;
-// };
