@@ -29,7 +29,7 @@ const Search = () => {
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
     console.log(category);
-    getCocktails(category)
+    getCocktails(`cocktails/${category}`)
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
@@ -50,17 +50,17 @@ const Search = () => {
           <div>
             <FilterBtn
               type="button"
-              onClick={() => handleCategoryBtnClick('the unforgettables')}>
+              onClick={() => handleCategoryBtnClick('the-unforgettables')}>
               The Unforgettables
             </FilterBtn>
             <FilterBtn
               type="button"
-              onClick={() => handleCategoryBtnClick('contemporary classics')}>
+              onClick={() => handleCategoryBtnClick('contemporary-classics')}>
               Contemporary Classics
             </FilterBtn>
             <FilterBtn
               type="button"
-              onClick={() => handleCategoryBtnClick('new era drinks')}>
+              onClick={() => handleCategoryBtnClick('new-era-drinks')}>
               New Era Drinks
             </FilterBtn>
           </div>

@@ -59,33 +59,10 @@ app.get('/cocktails', async (req, res) => {
     //     { $limit: numberPerPage }
     //   ]);
     // } else {
-    cocktailList = await Cocktail.find().sort({ cocktailName: -1 });
+    cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
     res.status(200).json({ success: true, response: cocktailList });
   } catch (e) {
     res.status(400).json({ success: false, response: e });
-  }
-});
-
-// GET all cocktails in one category
-app.get('/cocktails/:category', async (req, res) => {
-  let cocktailsInCategory = {};
-  const { category } = req.params;
-
-  try {
-    if (category) {
-      cocktailsInCategory = await Cocktail.find({ category: category })
-        .limit(20)
-        .sort({ cocktailName: 1 });
-    } else {
-      cocktailsInCategory = await Cocktail.find().sort({ cocktailName: 1 });
-    }
-    res.status(200).json({ success: true, response: cocktailsInCategory });
-    // error message instead?
-  } catch (e) {
-    res.status(400).json({
-      success: false,
-      response: e
-    });
   }
 });
 
@@ -113,6 +90,30 @@ app.get('/cocktails/:id', async (req, res) => {
     });
   }
 });
+
+// GET all cocktails in one category
+app.get('/cocktails/:category', async (req, res) => {
+  const { category } = req.params;
+  let cocktailsInCategory = {};
+
+  try {
+    if (category) {
+      cocktailsInCategory = await Cocktail.find({ category: category }).sort({
+        cocktailName: 1
+      });
+    } else {
+      cocktailsInCategory = await Cocktail.find().sort({ cocktailName: 1 });
+    }
+    res.status(200).json({ success: true, response: cocktailsInCategory });
+    // error message instead?
+  } catch (e) {
+    res.status(400).json({
+      success: false,
+      response: e
+    });
+  }
+});
+
 
 // POST new cocktail /cocktails
 app.post('/cocktails', async (req, res) => {

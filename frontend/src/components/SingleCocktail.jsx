@@ -6,18 +6,19 @@ import { SingleCocktailContainer } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
 
 const SingleCocktail = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
-  const [singleCocktail, setSingleCocktail] = useState('');
-  // const [loading, setLoading] = useState(false);
+  const { id } = useParams();
+  const [singleCocktail, setSingleCocktail] = useState([]);
+  const [loading, setLoading] = useState(false);
   console.log(singleCocktail);
+  console.log(loading);
 
   useEffect(() => {
-    //    setLoading(true)
+    setLoading(true)
     getCocktails(`/cocktails/${id}`)
-      .then((data) => setSingleCocktail(data.response))
-      .catch((e) => console.error(e));
-    //      .finally(() => setLoading(false))
+      .then((data) => setSingleCocktail(data))
+      .catch((e) => console.error(e))
+      .finally(() => setLoading(false))
   }, [id]);
 
   const onBackBtnClick = () => {
@@ -39,11 +40,11 @@ const SingleCocktail = () => {
       <h2>{singleCocktail.cocktailName}</h2>
       <hr />
       <h4>Ingredients</h4>
-      {singleCocktail && lineBreaks(singleCocktail.ingredients, 'ing')}
+      {singleCocktail.ingredients && lineBreaks(singleCocktail.ingredients, 'ing')}
       <h4>Garnish</h4>
       {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
       <h4>Preparation</h4>
-      {singleCocktail && lineBreaks(singleCocktail.preparation, 'prep')}
+      {singleCocktail.preparation && lineBreaks(singleCocktail.preparation, 'prep')}
       <hr />
       {singleCocktail.notes && (
         <>
