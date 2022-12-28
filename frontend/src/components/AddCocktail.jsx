@@ -64,9 +64,9 @@ const AddCocktail = () => {
           <option value="" disabled>
             Choose IBA Category:
           </option>
-          <option value="the unforgettables">The Unforgettables</option>
-          <option value="contemporary classics">Contemporary Classics</option>
-          <option value="new era drinks">New Era Drinks</option>
+          <option value="the-unforgettables">The Unforgettables</option>
+          <option value="contemporary-classics">Contemporary Classics</option>
+          <option value="new-era-drinks">New Era Drinks</option>
         </select>
 
         <label htmlFor="ingredients">Ingredients</label>

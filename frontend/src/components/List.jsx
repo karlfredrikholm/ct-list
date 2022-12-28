@@ -1,25 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState, useEffect } from 'react';
-import { getCocktails } from 'utils/utils';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ListItemBtn } from './styled/Buttons.styled';
-// import { ListItem } from './styled/ListItem.styled';
 
-const List = () => {
-  const [cocktailList, setCocktailList] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true)
-    getCocktails('cocktails')
-      .then((data) => setCocktailList(data.response))
-      .catch((e) => console.error(e))
-      .finally(() => setLoading(false))
-  }, []);
-
-  // fix loading animation
-  console.log(loading)
-
+const List = ({ cocktailList }) => {
   return (
     <div>
       {cocktailList && cocktailList.map((item) => {
