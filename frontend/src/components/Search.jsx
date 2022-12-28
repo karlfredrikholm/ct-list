@@ -4,6 +4,7 @@ import { getCocktails } from 'utils/utils';
 import List from './List';
 import { SearchForm } from './styled/Forms';
 import { FilterBtn, SearchBtn } from './styled/Buttons.styled';
+import Loading from './Loading';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
@@ -38,7 +39,6 @@ const Search = () => {
 
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
-    console.log(category);
     getCocktails(category)
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
@@ -76,7 +76,8 @@ const Search = () => {
           </div>
         </SearchForm>
       </div>
-      <List cocktailList={cocktailList} />
+      {loading ? <Loading />
+        : <List cocktailList={cocktailList} />}
     </>
   );
 };

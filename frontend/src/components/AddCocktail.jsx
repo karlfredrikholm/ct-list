@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
-import cocktail, { postCocktail } from 'reducers/cocktail';
+import React, { useState, useEffect } from 'react';
+import cocktail from 'reducers/cocktail';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from 'utils/utils';
 import { SubmitBtn } from './styled/Buttons.styled';
 import { AddForm } from './styled/Forms';
 
@@ -10,6 +11,7 @@ const AddCocktail = () => {
   const cocktailState = useSelector((store) => store.cocktail);
   const accessToken = useSelector((store) => store.user.accessToken);
   const userName = useSelector((store) => store.user.username);
+  const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,7 +23,21 @@ const AddCocktail = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    postCocktail();
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      },
+      body: JSON.stringify(cocktailState)
+    };
+
+    fetch(`${BASE_URL}/add`, options)
+      .then((res) => res.json())
+      .then((data) => setMessage(data.response))
+      .catch((e) => console.error(e))
+      .finally(() => dispatch(cocktail.actions.cleanup()))
   };
 
   return (
@@ -95,6 +111,7 @@ const AddCocktail = () => {
           placeholder="Any extra notes?" />
 
         <SubmitBtn type="submit">Submit</SubmitBtn>
+        {message && <p>{message}</p>}
       </div>
     </AddForm>
   );
