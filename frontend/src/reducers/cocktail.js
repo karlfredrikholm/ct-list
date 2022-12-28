@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cocktailName: null,
   cateogry: null,
-  ingredients: [],
+  ingredients: null,
   garnish: null,
   preparation: null,
   imageSearchLink: null,
   notes: null
 };
 
-export const cocktail = createSlice({
+const cocktail = createSlice({
   name: 'Cocktail',
   initialState,
 
@@ -42,6 +42,8 @@ export const cocktail = createSlice({
   }
 });
 
+export default cocktail;
+
 // export const postCocktail = () => {
 //   return (dispatch, getState) => {
 //     const options = {
@@ -53,8 +55,6 @@ export const cocktail = createSlice({
 //     };
 //   }
 // }
-
-
 
 // export const postCocktail = async (recipe) => {
 //   const options = {
