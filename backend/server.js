@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { Cocktail } from './utils/mongoose.js';
+import bcrypt from 'bcrypt';
+import { Cocktail, User } from './utils/mongoose.js';
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
@@ -28,13 +29,13 @@ const authenticateUser = async (req, res, next) => {
     } else {
       res.status(401).json({
         response: 'Please log in.',
-        success: false,
+        success: false
       });
     }
   } catch (err) {
     res.status(400).json({
       response: err,
-      success: false,
+      success: false
     });
   }
 };
@@ -72,37 +73,37 @@ app.post('/register', async (req, res) => {
     if (password.length < 8) {
       res.status(400).json({
         success: false,
-        response: 'Password must be min 8 characters',
+        response: 'Password must be min 8 characters'
       });
     } else if (oldUser) {
       res.status(400).json({
         success: false,
-        response: 'Username already registered',
+        response: 'Username already registered'
       });
     } else if (oldEmail) {
       res.status(400).json({
         success: false,
         response: 'Email already registered'
-      })
+      });
     } else {
       const newUser = await new User({
         username: username,
         email: email,
-        password: bcrypt.hashSync(password, salt),
+        password: bcrypt.hashSync(password, salt)
       }).save();
       res.status(201).json({
         success: true,
         response: {
           username: newUser.username,
           accessToken: newUser.accessToken,
-          id: newUser._id,
-        },
+          id: newUser._id
+        }
       });
     }
   } catch (err) {
     res.status(400).json({
       success: false,
-      response: err,
+      response: err
     });
   }
 });
@@ -118,19 +119,19 @@ app.post('/login', async (req, res) => {
         response: {
           username: user.username,
           id: user._id,
-          accessToken: user.accessToken,
-        },
+          accessToken: user.accessToken
+        }
       });
     } else {
       res.status(400).json({
         success: false,
-        response: 'Username and/or password not correct',
+        response: 'Username and/or password not correct'
       });
     }
   } catch (err) {
     res.status(400).json({
       success: false,
-      response: err,
+      response: err
     });
   }
 });
@@ -149,7 +150,9 @@ app.get('/cocktails', async (req, res) => {
     });
 
     if (!cocktailList.length) {
-      res.status(404).json({ success: false, response: 'Nothing found, try again.' });
+      res
+        .status(404)
+        .json({ success: false, response: 'Nothing found, try again.' });
     } else {
       res.status(200).json({ success: true, response: cocktailList });
     }
