@@ -5,7 +5,7 @@ export const SearchForm = styled.form`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  padding: 0 1rem 1.5rem 1rem;
+  padding: 1rem 1rem 1.5rem;
 
   & input {
     background: var(--main-color);
@@ -20,6 +20,8 @@ export const SearchForm = styled.form`
 
   & input::placeholder {
     color: var(--text-color);
+    font-family: var(--main-font);
+    font-size: .9rem;
   }
 
   & input:active {

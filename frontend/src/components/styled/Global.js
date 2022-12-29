@@ -31,5 +31,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 80%;
+  height: fit-content;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.outer-wrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-wrap: break-word;
+  padding: 1px 0;
+}
+
 `
 export default GlobalStyles;

@@ -17,30 +17,3 @@ p {
   font-size: 1rem;
 }
 
-.inner-wrapper {
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-  width: 70%;
-  height: fit-content;
-}
-
-.outer-wrapper {
-  display: flex;
-  justify-content: center;
-  min-width: 100vw;
-  min-height: 100vh;
-  overflow-wrap: break-word;
-  padding: 1px 0;
-}
-
-@media (max-width: 700px) {
-  h2 {
-    font-size: 1.5rem; 
-  }
-
-  .inner-wrapper {
-    width: 100%;
-    border: none;
-  }
-}
