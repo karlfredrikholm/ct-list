@@ -24,17 +24,22 @@ export const H3 = styled.h3`
   letter-spacing: 0.05rem;
 
   @media (max-width: 700px) {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 `;
 
 export const H4 = styled.h4`
   font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   font-style: italic;
   letter-spacing: .05rem;
   text-transform: capitalize;
+
+  @media (max-width: 700px) {
+    font-size: .85rem;
+    font-weight: 400;
+  }
 `;
 
 export const H5 = styled.h5``;

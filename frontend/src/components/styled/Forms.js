@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   width: 100%;
-  padding: .7rem 1rem 1.5rem;
+  padding: 0 0 1.5rem 1rem;
 
   & input {
     background: var(--main-color);
     border: 1px solid var(--text-color);
-    color: var(--main-color);
+    color: var(--text-color);
     font-size: 1rem;
     height: 2rem;
     width: 15.5rem;
@@ -30,14 +31,15 @@ export const SearchForm = styled.form`
   }
 
   & fieldset {
+    display: flex;
+    align-items: center;
+    width: fit-content;
     border: none;
-    margin: .2rem 0 1rem 0;
   }
 
   & div {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
   }
 `
 

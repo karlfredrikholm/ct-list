@@ -52,10 +52,9 @@ const Search = () => {
     <>
       <div>
         <SearchForm onSubmit={handleFormSubmit}>
-          <label htmlFor="search">
             <H1>IBA Cocktail List</H1>
-          </label>
           <fieldset>
+          <label htmlFor="search" />
             <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
             <SearchBtn type="submit">Search</SearchBtn>
           </fieldset>
