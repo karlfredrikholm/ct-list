@@ -2,9 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SingleCocktailContainer } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
-import { H2, H3, H4, H5 } from './styled/elements/Headings.styled';
+import { H2, H3, H4 } from './styled/elements/Headings.styled';
+import { P } from './styled/elements/P';
+import { UL, LI } from './styled/elements/List.styled';
+
+import {
+  RecipeContainer,
+  Ingredients,
+  Preparation,
+  Garnish,
+  Notes
+} from './styled/Containers.styled';
 
 const Recipe = () => {
   const navigate = useNavigate();
@@ -15,11 +24,11 @@ const Recipe = () => {
   console.log(loading);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     getCocktails(`/cocktails/${id}`)
       .then((data) => setSingleCocktail(data.response))
       .catch((e) => console.error(e))
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false));
   }, [id]);
 
   const onBackBtnClick = () => {
@@ -28,38 +37,43 @@ const Recipe = () => {
 
   const lineBreaks = (string, what) => {
     if (what === 'ing') {
-      const newText = string.split(',').map((str) => <p>{str}</p>);
+      const newText = string.split(',').map((str) => <LI><P>{str}</P></LI>);
       return newText;
     } else if (what === 'prep') {
-      const newText = string.split('.').map((str) => <p>{str}</p>);
+      const newText = string.split('.').map((str) => <P>{str}</P>);
       return newText;
     }
   };
 
   return (
-    <SingleCocktailContainer>
-      <H2>
-        {singleCocktail.cocktailName}
-      </H2>
-      <hr />
-      <H3>Ingredients</H3>
-      {singleCocktail.ingredients && lineBreaks(singleCocktail.ingredients, 'ing')}
-      <H4>Garnish</H4>
-      {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
-      <H3>Preparation</H3>
-      {singleCocktail.preparation && lineBreaks(singleCocktail.preparation, 'prep')}
-      <hr />
-      {singleCocktail.notes && (
-        <>
-          <H5>Notes</H5>
-          <p>{singleCocktail.notes}</p>
-        </>
-      )}
+    <RecipeContainer>
+      <H2 recipe>{singleCocktail.cocktailName}</H2>
+      <Ingredients>
+        <H3>Ingredients</H3>
+        <UL>
+          {singleCocktail.ingredients
+            && lineBreaks(singleCocktail.ingredients, 'ing')}
+        </UL>
+      </Ingredients>
+      <Preparation>
+        <H3>Preparation</H3>
+          {singleCocktail.preparation
+            && lineBreaks(singleCocktail.preparation, 'prep')}
+      </Preparation>
+      <Garnish>
+        <H4>Garnish</H4>
+          {singleCocktail.garnish ? <P notes>{singleCocktail.garnish}</P> : <P>N/A</P>}
+      </Garnish>
+      <Notes>
+        <H4>Notes</H4>
+          {singleCocktail.notes ? <P notes>{singleCocktail.notes}</P> : <P>N/A</P>}
+      </Notes>
+
       <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
       <BackBtn type="button" onClick={() => onBackBtnClick()}>
         Back
       </BackBtn>
-    </SingleCocktailContainer>
+    </RecipeContainer>
   );
 };
 export default Recipe;
