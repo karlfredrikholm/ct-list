@@ -58,6 +58,19 @@ const Recipe = () => {
           {singleCocktail.ingredients &&
             lineBreaks(singleCocktail.ingredients, 'ing')}
         </Ingredients>
+        <Notes>
+          <H4 recipe upper>
+            Notes
+          </H4>
+          {singleCocktail.notes ? (
+            <P notes small>{singleCocktail.notes}</P>
+          ) : (
+            <P small>N/A</P>
+          )}
+        </Notes>
+      </RecipeContainer>
+      <HR />
+      <RecipeContainer>
         <Preparation>
           <H3 upper>Preparation</H3>
           {singleCocktail.preparation &&
@@ -67,29 +80,21 @@ const Recipe = () => {
       <HR />
       <RecipeContainer>
         <Garnish>
-          <H4 recipe upper>
+          <H3 recipe upper>
             Garnish
-          </H4>
+          </H3>
           {singleCocktail.garnish ? (
             <P small>{singleCocktail.garnish}</P>
           ) : (
             <P small>N/A</P>
           )}
         </Garnish>
-        <Notes>
-          <H4 recipe upper>
-            Notes
-          </H4>
-          {singleCocktail.notes ? (
-            <P small>{singleCocktail.notes}</P>
-          ) : (
-            <P small>N/A</P>
-          )}
-        </Notes>
+        <a href={singleCocktail.imageSearchLink}>
+          <P>Images for inspiration</P>
+        </a>
       </RecipeContainer>
       <HR />
       <RecipeContainer>
-        <a href={singleCocktail.imageSearchLink}>Images for inspiration</a>
         <BackBtn type="button" onClick={() => onBackBtnClick()}>
           Back
         </BackBtn>

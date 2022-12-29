@@ -19,12 +19,6 @@ export const RecipeContainer = styled.div`
 `;
 
 export const Ingredients = styled.div`
-
-  li {
-    border-bottom: 1px solid var(--text-color);
-    padding: 0;
-    line-height: 2rem;
-  }
 `;
 
 export const Garnish = styled(Ingredients)``;
@@ -32,6 +26,7 @@ export const Garnish = styled(Ingredients)``;
 export const Notes = styled(Garnish)``;
 
 export const Preparation = styled(Ingredients)`
+  grid-column: 2 span;
 `;
 
 export const AboutContainer = styled(RecipeContainer)`
