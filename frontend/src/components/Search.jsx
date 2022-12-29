@@ -1,16 +1,18 @@
+/* eslint-disable indent */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import List from './List';
 import { SearchForm } from './styled/Forms';
-import { FilterBtn, SearchBtn } from './styled/Buttons.styled';
+import { FilterBtn, SearchBtn, ShowCategoriesBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
-import { H1, H2 } from './styled/elements/Headings.styled';
+import { H1 } from './styled/elements/Headings.styled';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
 
   // fix loading animation
   console.log(loading);
@@ -57,8 +59,9 @@ const Search = () => {
             <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
             <SearchBtn type="submit">Search</SearchBtn>
           </fieldset>
-          <H2>Show all in one category</H2>
-          <div>
+          <ShowCategoriesBtn type="button" onClick={() => setShowCategories(!showCategories)}>Filter by category</ShowCategoriesBtn>
+          {showCategories
+          && <div>
             <FilterBtn
               type="button"
               onClick={() => handleCategoryBtnClick('the-unforgettables')}>
@@ -74,7 +77,7 @@ const Search = () => {
               onClick={() => handleCategoryBtnClick('new-era-drinks')}>
               New Era Drinks
             </FilterBtn>
-          </div>
+             </div>}
         </SearchForm>
       </div>
       {loading ? <Loading />

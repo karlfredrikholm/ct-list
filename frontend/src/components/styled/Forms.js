@@ -11,7 +11,7 @@ export const SearchForm = styled.form`
     border: none;
     color: var(--main-color);
     height: 2rem;
-    width: 45%;
+    width: 15.5rem;
     margin-right: 1rem;
     padding-left: .5rem;
   }
@@ -36,6 +36,7 @@ export const SearchForm = styled.form`
   & div {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
   }
 `
 

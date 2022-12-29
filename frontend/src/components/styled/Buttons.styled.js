@@ -35,29 +35,12 @@ export const SubmitBtn = styled.button`
   width: 5rem;
 `;
 
-export const ListItemBtn = styled.button`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--main-color);
-  border: none;
-  border-top: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 0.6rem 1rem;
-  width: 100%;
-
-  @media (min-width: 850 px) {
-    &:hover {
-      background: var(--text-color);
-      color: var(--main-color);
-    }
-  }
-`;
-
+/* Search Form */
 export const SearchBtn = styled.button`
   border: 1px solid var(--text-color);
   background: none;
   color: var(--text-color);
+  font-family: var(--main-font);
   font-size: 0.9rem;
   font-weight: 600;
   height: 2rem;
@@ -76,10 +59,11 @@ export const SearchBtn = styled.button`
     }
   }
 `;
+
 export const FilterBtn = styled(SearchBtn)`
   background: var(--text-color);
   color: var(--main-color);
-  padding: 0 0.5rem;
+  padding: 0 .8rem;
   height: 2rem;
   width: fit-content;
 
@@ -93,6 +77,11 @@ export const FilterBtn = styled(SearchBtn)`
   @media (max-width: 700px) {
     font-size: 0.7rem;
   }
+`;
+
+export const ShowCategoriesBtn = styled(SearchBtn)`
+  width: fit-content;
+  padding: 0 .8rem;
 `;
 
 export const BackBtn = styled(SearchBtn)``;
