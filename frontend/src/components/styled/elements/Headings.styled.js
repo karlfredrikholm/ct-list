@@ -4,7 +4,7 @@ export const H1 = styled.h1`
   color: var(--text-color);
   font-family: var(--main-font);
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: .1rem;
   text-transform: uppercase;
 
@@ -17,9 +17,13 @@ export const H2 = styled.h2`
   color: var(--text-color);
   font-family: var(--main-font);
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .1rem;
   text-transform: uppercase;
+
+  @media (max-width: 750px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const H3 = styled.h3`
