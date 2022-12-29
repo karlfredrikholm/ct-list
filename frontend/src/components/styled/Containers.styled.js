@@ -3,15 +3,14 @@ import styled from 'styled-components';
 export const RecipeContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 1rem 1rem 1.5rem 0;
-  column-gap: 0rem;
-  justify-items: center;
+  padding: 1rem 1rem 1.5rem 1rem;
+  gap: 1rem 1rem;
 
   h2 {
     grid-column: span 2;
     text-align: center;
-    margin-bottom: 1.5rem;
   }
+
   & a {
     color: var(--text-color);
     text-decoration: underline;
@@ -20,9 +19,12 @@ export const RecipeContainer = styled.div`
 `;
 
 export const Ingredients = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  border: 1px solid var(--text-color);
+
+  li {
+    border-bottom: 1px solid var(--text-color);
+    padding: 0;
+    line-height: 2rem;
+  }
 `;
 
 export const Garnish = styled(Ingredients)``;

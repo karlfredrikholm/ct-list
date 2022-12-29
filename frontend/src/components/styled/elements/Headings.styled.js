@@ -27,19 +27,22 @@ export const H3 = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.05rem;
-  margin-left: 1rem;
+  text-transform: ${(props) => props.upper && 'uppercase'};
+  
   @media (max-width: 750px) {
     font-size: 1rem;
   }
-`;
+  `;
 
 export const H4 = styled.h4`
-  font-family: var(--main-font);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-family: ${(props) => (props.recipe ? 'var(--main-font)' : 'var(--sub-font)')};
+  font-size: 1rem;
+  font-style: ${(props) => (props.recipe ? '' : 'italic')};
+  font-weight: 500;
   letter-spacing: .05rem;
-  margin-left: 1rem;
+  margin-left: ${(props) => (props.recipe ? '' : '1rem')};
   text-transform: capitalize;
+  text-transform: ${(props) => props.upper && 'uppercase'};
 
   @media (max-width: 750px) {
     font-size: .85rem;
