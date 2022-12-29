@@ -1,33 +1,5 @@
 import styled from 'styled-components/macro';
 
-export const MenuBtn = styled.button`
-  position: absolute;
-  top: 2.7rem;
-  right: 1rem;
-
-  background: none;
-  border: none;
-  width: 3rem;
-  height: 3rem;
-
-  & svg {
-    color: var(--main-color);
-    width: 2.8rem;
-    height: 2.8rem;
-    background: var(--text-color);
-    border-radius: 50%;
-    padding: 0.4rem;
-    transition: .3s ease;
-
-    &:hover {
-      background: var(--main-color);
-      border: 1px solid var(--text-color);
-      color: var(--text-color);
-    }
-  }
-`;
-
-/* Add Form */
 export const SubmitBtn = styled.button`
   border: none;
   margin-top: 2rem;
@@ -35,7 +7,6 @@ export const SubmitBtn = styled.button`
   width: 5rem;
 `;
 
-/* Search Form */
 export const SearchBtn = styled.button`
   background: var(--text-color);
   border: 1px solid var(--text-color);
@@ -62,11 +33,9 @@ export const SearchBtn = styled.button`
   }
 `;
 
+export const CategoryBtn = styled(SearchBtn)``;
+
 export const FilterBtn = styled(SearchBtn)`
-
-`;
-
-export const ShowCategoriesBtn = styled(SearchBtn)`
   background: var(--main-color);
   color: var(--text-color);
   width: fit-content;

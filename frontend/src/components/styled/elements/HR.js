@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const HR = styled.hr`
-  border-top: 1px solid var(--text-color);
-  border-bottom: 1px solid var(--text-color);
+  border-top: 6px dotted var(--text-color);
+  border-bottom: none;
 `

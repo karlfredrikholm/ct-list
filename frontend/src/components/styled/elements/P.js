@@ -8,5 +8,6 @@ export const P = styled.p`
 
   @media (max-width: 750px) {
     font-size: .85rem;
+    line-height: 1.25rem;
   }
 `

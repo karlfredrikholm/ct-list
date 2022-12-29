@@ -6,27 +6,22 @@ export const RecipeContainer = styled.div`
   padding: 1rem 1rem 1.5rem 1rem;
   gap: 1rem 2.5rem;
 
-  h2 {
+  & h2 {
     grid-column: span 2;
     text-align: center;
   }
 
-  & a {
-    color: var(--text-color);
-    text-decoration: underline;
-    margin: 1.5rem 0 1rem;
+  & hr {
+    grid-column: span 2;
+    border-top: 6px dotted var(--text-color);
+    border-bottom: none;
   }
 `;
 
-export const Ingredients = styled.div`
-`;
-
-export const Garnish = styled(Ingredients)``;
-
-export const Notes = styled(Garnish)``;
-
-export const Preparation = styled(Ingredients)`
-`;
+export const Ingredients = styled.div``;
+export const Garnish = styled.div``;
+export const Notes = styled.div``;
+export const Preparation = styled.div``;
 
 export const AboutContainer = styled(RecipeContainer)`
   & p {

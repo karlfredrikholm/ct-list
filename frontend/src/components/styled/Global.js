@@ -32,6 +32,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 .active {
   border-bottom: 2px solid var(--main-color);
 }
