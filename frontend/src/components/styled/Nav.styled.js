@@ -43,7 +43,7 @@ export const Nav = styled.nav`
 
 export const MenuToggler = styled.button`
   position: absolute;
-  bottom: 3rem;
+  bottom: 5.5rem;
   right: 2rem;
 
   background: none;
