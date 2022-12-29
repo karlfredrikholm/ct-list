@@ -5,7 +5,7 @@ export const SearchForm = styled.form`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  padding: 0 0 1.5rem 1rem;
+  padding: 0 1rem 1.5rem 1rem;
 
   & input {
     background: var(--main-color);

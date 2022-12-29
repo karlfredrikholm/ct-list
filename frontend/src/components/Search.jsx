@@ -64,17 +64,17 @@ const Search = () => {
             <FilterBtn
               type="button"
               onClick={() => handleCategoryBtnClick('the-unforgettables')}>
-              The Unforgettables
+              Unforgettables
             </FilterBtn>
             <FilterBtn
               type="button"
               onClick={() => handleCategoryBtnClick('contemporary-classics')}>
-              Contemporary Classics
+              Contemporary
             </FilterBtn>
             <FilterBtn
               type="button"
               onClick={() => handleCategoryBtnClick('new-era-drinks')}>
-              New Era Drinks
+              New Era
             </FilterBtn>
              </div>}
         </SearchForm>

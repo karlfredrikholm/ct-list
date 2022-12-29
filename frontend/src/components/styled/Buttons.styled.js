@@ -48,7 +48,7 @@ export const SearchBtn = styled.button`
   padding: 0 1rem;
   transition: 0.2s ease;
   
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     font-size: 0.8rem;
     font-weight: 500;
   }
@@ -63,6 +63,7 @@ export const SearchBtn = styled.button`
 `;
 
 export const FilterBtn = styled(SearchBtn)`
+
 `;
 
 export const ShowCategoriesBtn = styled(SearchBtn)`
