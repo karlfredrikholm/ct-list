@@ -5,4 +5,8 @@ export const P = styled.p`
   font-size: ${(props) => (props.small ? '.85rem' : '1rem')}; 
   font-style: ${(props) => (props.notes && 'italic')};
   line-height: 1.5rem;
+
+  @media (max-width: 750px) {
+    font-size: .85rem;
+  }
 `

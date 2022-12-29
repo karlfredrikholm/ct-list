@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BackBtn } from './styled/Buttons.styled';
-import { H2, H3, H4 } from './styled/elements/Headings.styled';
+import { H2, H3 } from './styled/elements/Headings.styled';
 import { P } from './styled/elements/P';
 import { HR } from './styled/elements/HR';
 
@@ -38,10 +38,10 @@ const Recipe = () => {
 
   const lineBreaks = (string, what) => {
     if (what === 'ing') {
-      const newText = string.split(',').map((str) => <P>{str}</P>);
+      const newText = string.split(/[,:.]/).map((str) => <P>{str}</P>);
       return newText;
     } else if (what === 'prep') {
-      const newText = string.split('.').map((str) => <P>{str}</P>);
+      const newText = string.split(/[,:.]/).map((str) => <P>{str}</P>);
       return newText;
     }
   };
@@ -59,11 +59,11 @@ const Recipe = () => {
             lineBreaks(singleCocktail.ingredients, 'ing')}
         </Ingredients>
         <Notes>
-          <H4 recipe upper>
+          <H3 upper>
             Notes
-          </H4>
+          </H3>
           {singleCocktail.notes ? (
-            <P notes small>{singleCocktail.notes}</P>
+            <P small>{singleCocktail.notes}</P>
           ) : (
             <P small>N/A</P>
           )}
@@ -76,9 +76,6 @@ const Recipe = () => {
           {singleCocktail.preparation &&
             lineBreaks(singleCocktail.preparation, 'prep')}
         </Preparation>
-      </RecipeContainer>
-      <HR />
-      <RecipeContainer>
         <Garnish>
           <H3 recipe upper>
             Garnish
@@ -89,12 +86,12 @@ const Recipe = () => {
             <P small>N/A</P>
           )}
         </Garnish>
-        <a href={singleCocktail.imageSearchLink}>
-          <P>Images for inspiration</P>
-        </a>
       </RecipeContainer>
       <HR />
       <RecipeContainer>
+        <a href={singleCocktail.imageSearchLink}>
+          Images for inspiration
+        </a>
         <BackBtn type="button" onClick={() => onBackBtnClick()}>
           Back
         </BackBtn>

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const RecipeContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   padding: 1rem 1rem 1.5rem 1rem;
-  gap: 1rem 1rem;
+  gap: 1rem 2.5rem;
 
   h2 {
     grid-column: span 2;
@@ -26,7 +26,6 @@ export const Garnish = styled(Ingredients)``;
 export const Notes = styled(Garnish)``;
 
 export const Preparation = styled(Ingredients)`
-  grid-column: 2 span;
 `;
 
 export const AboutContainer = styled(RecipeContainer)`

@@ -32,6 +32,10 @@ code {
     monospace;
 }
 
+.active {
+  border-bottom: 2px solid var(--main-color);
+}
+
 .inner-wrapper {
   display: flex;
   flex-direction: column;
