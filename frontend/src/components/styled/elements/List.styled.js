@@ -9,7 +9,7 @@ export const LI = styled.li`
   align-items: center;
   background: var(--main-color);
   border: none;
-  border-top: 1px solid var(--text-color);
+  border-top: .1rem dashed var(--text-color);
   color: var(--text-color);
   cursor: pointer;
   padding: 1rem;

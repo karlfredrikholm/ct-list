@@ -13,8 +13,6 @@ export const RecipeContainer = styled.div`
 
   & hr {
     grid-column: span 2;
-    border-top: 6px dotted var(--text-color);
-    border-bottom: none;
   }
 `;
 
