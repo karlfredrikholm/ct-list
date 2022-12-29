@@ -4,12 +4,13 @@ export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: .7rem 0 1.5rem 1rem;
+  padding: .7rem 1rem 1.5rem;
 
   & input {
-    background: var(--text-color);
-    border: none;
+    background: var(--main-color);
+    border: 1px solid var(--text-color);
     color: var(--main-color);
+    font-size: 1rem;
     height: 2rem;
     width: 15.5rem;
     margin-right: 1rem;
@@ -17,7 +18,7 @@ export const SearchForm = styled.form`
   }
 
   & input::placeholder {
-    color: var(--main-color);
+    color: var(--text-color);
   }
 
   & input:active {
