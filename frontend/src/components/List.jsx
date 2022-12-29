@@ -1,30 +1,31 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ListItemBtn } from './styled/Buttons.styled';
+import { UL, LI } from './styled/elements/List.styled';
+import { H3, H4 } from './styled/elements/Headings.styled';
 
 const List = ({ cocktailList }) => {
   return (
-    <div>
+    <UL>
       {typeof cocktailList === 'string' ? (
         <Link to="/">
-          <ListItemBtn>
+          <LI>
             <h4>{cocktailList}</h4>
-          </ListItemBtn>
+          </LI>
         </Link>
       ) : (
         cocktailList.map((item) => {
           return (
             <Link key={item._id} to={`/cocktails/${item._id}`}>
-              <ListItemBtn>
-                <h4>{item.cocktailName}</h4>
-                <h5>{item.category.replaceAll('-', ' ')}</h5>
-              </ListItemBtn>
+              <LI>
+                <H3>{item.cocktailName}</H3>
+                <H4>{item.category.replaceAll('-', ' ')}</H4>
+              </LI>
             </Link>
           );
         })
       )}
-    </div>
+    </UL>
   );
 };
 

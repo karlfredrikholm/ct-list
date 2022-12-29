@@ -7,7 +7,6 @@ export const MenuBtn = styled.button`
 
   background: none;
   border: none;
-  cursor: pointer;
   width: 3rem;
   height: 3rem;
 
@@ -18,6 +17,13 @@ export const MenuBtn = styled.button`
     background: var(--text-color);
     border-radius: 50%;
     padding: 0.4rem;
+    transition: .3s ease;
+
+    &:hover {
+      background: var(--main-color);
+      border: 1px solid var(--text-color);
+      color: var(--text-color);
+    }
   }
 `;
 
@@ -37,7 +43,6 @@ export const ListItemBtn = styled.button`
   border: none;
   border-top: 1px solid var(--text-color);
   color: var(--text-color);
-  cursor: pointer;
   padding: 0.6rem 1rem;
   width: 100%;
 
@@ -53,7 +58,6 @@ export const SearchBtn = styled.button`
   border: 1px solid var(--text-color);
   background: none;
   color: var(--text-color);
-  cursor: pointer;
   font-size: 0.9rem;
   font-weight: 600;
   height: 2rem;

@@ -4,8 +4,9 @@ import { getCocktails } from 'utils/utils';
 import { useNavigate, useParams } from 'react-router-dom';
 import { SingleCocktailContainer } from './styled/Containers.styled';
 import { BackBtn } from './styled/Buttons.styled';
+import { H2, H3, H4, H5 } from './styled/elements/Headings.styled';
 
-const SingleCocktail = () => {
+const Recipe = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [singleCocktail, setSingleCocktail] = useState([]);
@@ -37,18 +38,20 @@ const SingleCocktail = () => {
 
   return (
     <SingleCocktailContainer>
-      <h2>{singleCocktail.cocktailName}</h2>
+      <H2>
+        {singleCocktail.cocktailName}
+      </H2>
       <hr />
-      <h4>Ingredients</h4>
+      <H3>Ingredients</H3>
       {singleCocktail.ingredients && lineBreaks(singleCocktail.ingredients, 'ing')}
-      <h4>Garnish</h4>
+      <H4>Garnish</H4>
       {singleCocktail.garnish ? <p>{singleCocktail.garnish}</p> : <p>N/A</p>}
-      <h4>Preparation</h4>
+      <H3>Preparation</H3>
       {singleCocktail.preparation && lineBreaks(singleCocktail.preparation, 'prep')}
       <hr />
       {singleCocktail.notes && (
         <>
-          <h4>Notes</h4>
+          <H5>Notes</H5>
           <p>{singleCocktail.notes}</p>
         </>
       )}
@@ -59,4 +62,4 @@ const SingleCocktail = () => {
     </SingleCocktailContainer>
   );
 };
-export default SingleCocktail;
+export default Recipe;

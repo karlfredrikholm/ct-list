@@ -1,15 +1,16 @@
 import React from 'react';
 import './index.css';
+import GlobalStyles from 'components/styled/Global';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import Search from 'components/Search';
 import Nav from 'components/Nav';
 import Login from 'components/Login';
-import AddCocktail from 'components/AddCocktail';
+import Add from 'components/Add';
 import About from 'components/About';
 import NotFound from 'components/NotFound';
-import SingleCocktail from 'components/SingleCocktail';
+import Recipe from 'components/Recipe';
 import user from 'reducers/user';
 import cocktail from 'reducers/cocktail';
 
@@ -22,23 +23,26 @@ const store = configureStore({ reducer });
 
 const App = () => {
   return (
-    <div className="outer-wrapper">
-      <div className="inner-wrapper">
-        <Provider store={store}>
-          <BrowserRouter>
-            <Nav />
-            <Routes>
-              <Route path="/" element={<Search />} />
-              <Route path="/cocktails/:id" element={<SingleCocktail />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/add" element={<AddCocktail />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </Provider>
+    <>
+      <GlobalStyles />
+      <div className="outer-wrapper">
+        <div className="inner-wrapper">
+          <Provider store={store}>
+            <BrowserRouter>
+              <Nav />
+              <Routes>
+                <Route path="/" element={<Search />} />
+                <Route path="/cocktails/:id" element={<Recipe />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/add" element={<Add />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </Provider>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

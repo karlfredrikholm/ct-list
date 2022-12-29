@@ -5,6 +5,7 @@ import List from './List';
 import { SearchForm } from './styled/Forms';
 import { FilterBtn, SearchBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
+import { H1, H2 } from './styled/elements/Headings.styled';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
@@ -50,13 +51,13 @@ const Search = () => {
       <div>
         <SearchForm onSubmit={handleFormSubmit}>
           <label htmlFor="search">
-            <h1>IBA Cocktail List</h1>
+            <H1>IBA Cocktail List</H1>
           </label>
           <fieldset>
             <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
             <SearchBtn type="submit">Search</SearchBtn>
           </fieldset>
-          <h3>Show all in one category</h3>
+          <H2>Show all in one category</H2>
           <div>
             <FilterBtn
               type="button"

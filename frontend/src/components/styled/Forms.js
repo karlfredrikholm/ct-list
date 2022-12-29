@@ -7,6 +7,7 @@ export const SearchForm = styled.form`
   padding: .7rem 0 1.5rem 1rem;
 
   & input {
+    background: var(--text-color);
     border: none;
     color: var(--main-color);
     height: 2rem;
