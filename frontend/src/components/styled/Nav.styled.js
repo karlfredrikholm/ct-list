@@ -43,27 +43,26 @@ export const Nav = styled.nav`
 
 export const MenuToggler = styled.button`
   position: absolute;
-  top: 2.7rem;
-  right: 1rem;
+  bottom: 3rem;
+  right: 2rem;
 
   background: none;
   border: none;
-  width: 3rem;
-  height: 3rem;
 
   & svg {
     color: var(--main-color);
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 4rem;
+    height: 4rem;
     background: var(--text-color);
     border-radius: 50%;
     padding: 0.4rem;
-    transition: .3s ease;
 
-    &:hover {
-      background: var(--main-color);
-      border: 1px solid var(--text-color);
-      color: var(--text-color);
+    @media (min-width: 850px) {
+      &:hover {
+        background: var(--main-color);
+        border: 0.13rem solid var(--text-color);
+        color: var(--text-color);
+      }
     }
   }
 `;
