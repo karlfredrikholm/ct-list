@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RecipeContainer = styled.div`
+export const RecipeWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   padding: 1rem 1rem 1.5rem 1rem;
@@ -21,7 +21,7 @@ export const Garnish = styled.div``;
 export const Notes = styled.div``;
 export const Preparation = styled.div``;
 
-export const AboutContainer = styled(RecipeContainer)`
+export const AboutWrapper = styled(RecipeWrapper)`
   & p {
     margin-bottom: 1.5rem;
   }

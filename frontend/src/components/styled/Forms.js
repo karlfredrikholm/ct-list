@@ -46,14 +46,3 @@ export const AddForm = styled(Form)`
     width: 15.5rem;
   }
 `;
-
-export const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  border: .1rem solid var(--text-color);
-  width: fit-content;
-
-  & button {
-    margin-top: 1rem;
-  }
-`

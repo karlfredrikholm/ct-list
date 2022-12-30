@@ -10,12 +10,12 @@ import { HR } from './styled/elements/HR';
 import { P } from './styled/elements/P';
 
 import {
-  RecipeContainer,
+  RecipeWrapper,
   Ingredients,
   Preparation,
   Garnish,
   Notes
-} from './styled/Containers.styled';
+} from './styled/Wrappers.styled';
 
 const Recipe = () => {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const Recipe = () => {
   };
 
   return (
-    <RecipeContainer>
+    <RecipeWrapper>
       <H2 recipe>{singleCocktail.cocktailName}</H2>
 
       <HR />
@@ -85,7 +85,7 @@ const Recipe = () => {
       <FilledBtn type="button" onClick={() => onBackBtnClick()}>
         Back
       </FilledBtn>
-    </RecipeContainer>
+    </RecipeWrapper>
   );
 };
 export default Recipe;
