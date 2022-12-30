@@ -54,26 +54,26 @@ const Recipe = () => {
       <HR />
 
       <Ingredients>
-        <H3 upper>Ingredients</H3>
+        <H3 upper padd>Ingredients</H3>
         {singleCocktail.ingredients &&
           lineBreaks(singleCocktail.ingredients, 'ing')}
       </Ingredients>
 
       <Notes>
-        <H3 upper>Notes</H3>
+        <H3 upper padd>Notes</H3>
         {singleCocktail.notes ? <P>{singleCocktail.notes}</P> : <P>N/A</P>}
       </Notes>
 
       <HR />
 
       <Preparation>
-        <H3 upper>Preparation</H3>
+        <H3 upper padd>Preparation</H3>
         {singleCocktail.preparation &&
           lineBreaks(singleCocktail.preparation, 'prep')}
       </Preparation>
 
       <Garnish>
-        <H3 recipe upper>
+        <H3 upper padd>
           Garnish
         </H3>
         {singleCocktail.garnish ? <P>{singleCocktail.garnish}</P> : <P>N/A</P>}

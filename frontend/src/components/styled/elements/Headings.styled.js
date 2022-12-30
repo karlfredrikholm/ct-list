@@ -32,6 +32,7 @@ export const H3 = styled.h3`
   font-weight: 600;
   letter-spacing: 0.05rem;
   text-transform: ${(props) => props.upper && 'uppercase'};
+  padding-bottom: ${(props) => props.padd && '.25rem'};
   
   @media (max-width: 750px) {
     font-size: 1rem;
