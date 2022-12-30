@@ -5,9 +5,9 @@ export const Label = styled.label`
   flex-direction: column;
   font-family: var(--main-font);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: .03rem;
   gap: .25rem;
-  padding: 1rem 0 .5rem;
 
   @media (max-width: 750px) {
     font-size: 1rem;

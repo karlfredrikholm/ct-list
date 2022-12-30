@@ -19,7 +19,7 @@ const List = ({ cocktailList }) => {
             <Link key={item._id} to={`/cocktails/${item._id}`}>
               <LI>
                 <H3>{item.cocktailName}</H3>
-                <H4>{item.category.replaceAll('-', ' ')}</H4>
+                <H4 italic>{item.category.replaceAll('-', ' ')}</H4>
               </LI>
             </Link>
           );

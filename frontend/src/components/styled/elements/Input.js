@@ -6,9 +6,9 @@ export const Input = styled.input`
   color: var(--text-color);
   font-size: 1rem;
   height: 2rem;
-  width: 15.5rem;
-  margin-right: 1rem;
+  margin-right: ${(props) => (props.mr && '1rem')};
   padding-left: 0.5rem;
+  width: 15.5rem;
 
   &::placeholder {
     color: var(--text-color);

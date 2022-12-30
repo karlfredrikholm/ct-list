@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import List from './List';
-import { SearchForm } from './styled/Forms';
 import { FilledBtn, BorderBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
 import { H1 } from './styled/elements/Headings.styled';
+import { Input } from './styled/elements/Input';
+import { Form } from './styled/Forms';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
@@ -29,15 +30,15 @@ const Search = () => {
   // GET what's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setLoading(true)
+    setLoading(true);
 
     getCocktails(`cocktails?name=${searchInput}`)
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => {
-        setLoading(false)
-        setSearchInput('')
-      })
+        setLoading(false);
+        setSearchInput('');
+      });
   };
 
   // GET all cocktails in one category
@@ -51,36 +52,46 @@ const Search = () => {
   return (
     <>
       <div>
-        <SearchForm onSubmit={handleFormSubmit}>
-            <H1>IBA Cocktail List</H1>
+        <Form onSubmit={handleFormSubmit}>
+          <H1>IBA Cocktail List</H1>
           <fieldset>
-          <label htmlFor="search" />
-            <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
+            <label htmlFor="search" />
+            <Input
+              mr
+              type="text"
+              id="search"
+              placeholder='E.g. "Manhattan"'
+              onChange={(e) => setSearchInput(e.target.value)}
+              value={searchInput} />
             <FilledBtn type="submit">Search</FilledBtn>
           </fieldset>
-          <BorderBtn type="button" onClick={() => setShowCategories(!showCategories)}>Filter by category</BorderBtn>
-          {showCategories
-          && <div>
-            <FilledBtn
-              type="button"
-              onClick={() => handleCategoryBtnClick('the-unforgettables')}>
-              Unforgettables
-            </FilledBtn>
-            <FilledBtn
-              type="button"
-              onClick={() => handleCategoryBtnClick('contemporary-classics')}>
-              Contemporary
-            </FilledBtn>
-            <FilledBtn
-              type="button"
-              onClick={() => handleCategoryBtnClick('new-era-drinks')}>
-              New Era
-            </FilledBtn>
-             </div>}
-        </SearchForm>
+          <BorderBtn
+            type="button"
+            onClick={() => setShowCategories(!showCategories)}>
+            Filter by category
+          </BorderBtn>
+          {showCategories && (
+            <div>
+              <FilledBtn
+                type="button"
+                onClick={() => handleCategoryBtnClick('the-unforgettables')}>
+                Unforgettables
+              </FilledBtn>
+              <FilledBtn
+                type="button"
+                onClick={() => handleCategoryBtnClick('contemporary-classics')}>
+                Contemporary
+              </FilledBtn>
+              <FilledBtn
+                type="button"
+                onClick={() => handleCategoryBtnClick('new-era-drinks')}>
+                New Era
+              </FilledBtn>
+            </div>
+          )}
+        </Form>
       </div>
-      {loading ? <Loading />
-        : <List cocktailList={cocktailList} />}
+      {loading ? <Loading /> : <List cocktailList={cocktailList} />}
     </>
   );
 };

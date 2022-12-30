@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import user from 'reducers/user';
 import { BASE_URL } from 'utils/utils';
-import { LoginForm } from './styled/Forms';
+import { Form } from './styled/Forms';
 import { Input } from './styled/elements/Input';
 import { FilledBtn } from './styled/Buttons.styled';
 import { Label } from './styled/elements/Label';
-import { H4, H5 } from './styled/elements/Headings.styled';
+import { H5, H6 } from './styled/elements/Headings.styled';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -53,8 +53,8 @@ const Login = () => {
   };
 
   return (
-    <LoginForm onSubmit={onFormSubmit}>
-      <H4>Admin login</H4>
+    <Form onSubmit={onFormSubmit}>
+      <H5>Admin login</H5>
       <Label htmlFor="username">Username
         <Input
           type="text"
@@ -74,8 +74,8 @@ const Login = () => {
           required />
       </Label>
       <FilledBtn type="submit">Log in</FilledBtn>
-      <H5>{errorMessage && <p>{errorMessage}</p>}</H5>
-    </LoginForm>
+      {errorMessage && <H6>{errorMessage}</H6>}
+    </Form>
   );
 };
 
