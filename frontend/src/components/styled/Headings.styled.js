@@ -41,13 +41,3 @@ export const H3 = styled.h3`
     font-size: 1rem;
   }
 `;
-
-/* Login error */
-export const H6 = styled.h6`
-  color: ${(props) => (props.failed ? 'red' : 'var(--text-color)')};
-  font-family: var(--main-font);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: .05rem;
-  text-transform: uppercase;
-`;
