@@ -38,7 +38,7 @@ export const AboutWrapper = styled.div`
     max-width: 27rem;
 
     &:nth-child(6) {
-      padding-bottom: .5rem;
+      padding-bottom: .25rem;
     }
   }
 
