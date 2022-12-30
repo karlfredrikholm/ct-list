@@ -9,6 +9,8 @@ import { Input } from './styled/elements/Input';
 import { FilledBtn } from './styled/Buttons.styled';
 import { Label } from './styled/elements/Label';
 import { H2, H6 } from './styled/elements/Headings.styled';
+import { LoginWrapper } from './styled/Wrappers.styled';
+import { HR } from './styled/elements/HR';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -53,29 +55,37 @@ const Login = () => {
   };
 
   return (
-    <Form onSubmit={onFormSubmit}>
+    <LoginWrapper>
       <H2>Admin login</H2>
-      <Label htmlFor="username">Username
-        <Input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUserName(e.target.value)}
-          placeholder="Your Username"
-          required />
-      </Label>
-      <Label htmlFor="password">Password
-        <Input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="••••••••"
-          required />
-      </Label>
-      <FilledBtn type="submit">Log in</FilledBtn>
-      {errorMessage && <H6>{errorMessage}</H6>}
-    </Form>
+      <div>
+        <HR />
+      </div>
+      <Form onSubmit={onFormSubmit}>
+        <Label htmlFor="username">Username
+          <Input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Your Username"
+            required />
+        </Label>
+        <Label htmlFor="password">Password
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="**********"
+            required />
+        </Label>
+        <FilledBtn type="submit">Log in</FilledBtn>
+        {errorMessage && <H6>{errorMessage}</H6>}
+      </Form>
+      <div>
+        <HR />
+      </div>
+    </LoginWrapper>
   );
 };
 

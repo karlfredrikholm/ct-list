@@ -6,8 +6,8 @@ export const Label = styled.label`
   font-family: var(--main-font);
   font-size: 1.25rem;
   font-weight: 500;
-  letter-spacing: .03rem;
   gap: .25rem;
+  letter-spacing: .03rem;
 
   @media (max-width: 750px) {
     font-size: 1rem;

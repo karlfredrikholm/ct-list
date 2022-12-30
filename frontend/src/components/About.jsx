@@ -21,13 +21,13 @@ const About = () => {
       </P>
       <P>
         The idea was to make a simple recipes web app,
-        <P>easyto both navigate and view on your phone,</P>
+        <P>easy to navigate and view on your phone,</P>
         <P>while you are in the kitchen mixing it up.</P>
       </P>
       <P>
           The cocktails listed are all coming from the
-          International Bartenders Association (IBA), founded 1951.
-        <P>Read more on <A href="https://iba-world.com">their own website</A></P>
+          International Bartenders Association (IBA) official cocktail list.
+        <P>Read more on <A href="https://iba-world.com">their own website</A>.</P>
       </P>
       <div>
         <HR />

@@ -4,7 +4,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
   padding: 1rem 1rem 1.5rem;
 
   & fieldset {
