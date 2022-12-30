@@ -178,7 +178,7 @@ app.post('/add', async (req, res) => {
   const { cocktailName } = req.body;
   
   try {
-    const cocktailExist = await Cocktail.findOne({ cocktailName });
+    const cocktailExist = await Cocktail.findOne({ cocktailName: new RegExp(cocktailName, 'i') });
     
     if (cocktailExist) {
       res.status(400).json({

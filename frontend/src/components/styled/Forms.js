@@ -28,7 +28,6 @@ export const AddForm = styled(Form)`
     padding: .5rem .65rem;
     width: 20rem;
     resize: none;
-    box-shadow: 3px 3px var(--text-color);
 
     &::placeholder {
       color: var(--text-color);
@@ -44,6 +43,5 @@ export const AddForm = styled(Form)`
     height: 2rem;
     padding-left: .25rem;
     width: 20rem;
-    box-shadow: 3px 3px var(--text-color);
   }
 `;
