@@ -8,7 +8,7 @@ import { Form } from './styled/Forms';
 import { Input } from './styled/elements/Input';
 import { FilledBtn } from './styled/Buttons.styled';
 import { Label } from './styled/elements/Label';
-import { H5, H6 } from './styled/elements/Headings.styled';
+import { H2, H6 } from './styled/elements/Headings.styled';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <Form onSubmit={onFormSubmit}>
-      <H5>Admin login</H5>
+      <H2>Admin login</H2>
       <Label htmlFor="username">Username
         <Input
           type="text"

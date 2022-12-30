@@ -9,22 +9,29 @@ const About = () => {
   return (
     <AboutWrapper>
       <H2>About</H2>
-      <HR />
+      <div>
+        <HR />
+      </div>
       <P>
-        This was made as the final project of
-        Technigo Web Development Bootcamp, fall 2022.
+        <P>This was made as the final project of</P>
+          Technigo Web Development Bootcamp, fall 2022.
       </P>
       <P>
-        Front-end made with React.js, styled components,
-        client-side routing with React Router.
-        Back-end made with Node.js/Express and MongoDB database.
+        Made with the so-called MERN stack; <P>MongoDB, Express, React, Node.js</P>
       </P>
       <P>
-        The cocktails listed are all coming from the
-        International Bartenders Association (IBA), founded 1951.
-        Read more on <A href="https://iba-world.com">their own website</A>
+        The idea was to make a simple recipes web app,
+        <P>easyto both navigate and view on your phone,</P>
+        <P>while you are in the kitchen mixing it up.</P>
       </P>
-      <HR />
+      <P>
+          The cocktails listed are all coming from the
+          International Bartenders Association (IBA), founded 1951.
+        <P>Read more on <A href="https://iba-world.com">their own website</A></P>
+      </P>
+      <div>
+        <HR />
+      </div>
     </AboutWrapper>
   )
 };

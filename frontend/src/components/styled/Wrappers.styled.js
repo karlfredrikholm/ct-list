@@ -21,13 +21,32 @@ export const Garnish = styled.div``;
 export const Notes = styled.div``;
 export const Preparation = styled.div``;
 
-export const AboutWrapper = styled(RecipeWrapper)`
+export const AboutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+
+  & div {
+    width: 100%;
+  }
+
   & p {
-    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 27rem;
+
+    &:nth-child(6) {
+      padding-bottom: .5rem;
+    }
   }
 
   & a {
     font-size: 1rem;
-    font-weight: 400;
+
+    @media (max-width: 750px) {
+    font-size: .85rem;
+  }
   }
 `

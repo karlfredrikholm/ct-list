@@ -49,7 +49,7 @@ const Recipe = () => {
 
   return (
     <RecipeWrapper>
-      <H2 recipe>{singleCocktail.cocktailName}</H2>
+      <H2>{singleCocktail.cocktailName}</H2>
 
       <HR />
 
