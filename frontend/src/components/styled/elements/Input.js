@@ -13,7 +13,7 @@ export const Input = styled.input`
   &::placeholder {
     color: var(--text-color);
     font-family: var(--main-font);
-    font-size: 0.9rem;
+    font-size: .9rem;
   }
 
   &:active {

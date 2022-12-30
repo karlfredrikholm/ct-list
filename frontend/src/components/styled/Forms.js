@@ -24,7 +24,8 @@ export const AddForm = styled(Form)`
   textarea {
     background: var(--main-color);
     border: 1px solid var(--text-color);
-    height: 6rem;
+    font-size: 1rem;
+    height: 5rem;
     padding: .5rem .65rem;
     width: 15.5rem;
     resize: none;
@@ -32,6 +33,7 @@ export const AddForm = styled(Form)`
     &::placeholder {
       color: var(--text-color);
       font-family: var(--main-font);
+      font-size: .9rem;
     }
   }
 
