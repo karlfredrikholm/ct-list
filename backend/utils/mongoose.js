@@ -14,17 +14,20 @@ const CocktailSchema = new mongoose.Schema({
   },
   ingredients: {
     type: String,
-    minLength: 8,
-    maxLength: 140,
+    minLength: 10,
+    maxLength: 150,
     trim: true,
     required: true,
   },
   garnish: {
     type: String,
+    minLength: 10,
+    maxLength: 150
   },
   preparation: {
     type: String,
-    maxLength: 500,
+    minLength: 10,
+    maxLength: 350,
     trim: true,
     required: true,
   },
@@ -34,7 +37,8 @@ const CocktailSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-    maxLength: 140,
+    minLength: 10,
+    maxLength: 150,
     trim: true,
   },
 });

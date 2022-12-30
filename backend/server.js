@@ -44,56 +44,38 @@ app.get('/', (req, res) => {
   res.send([
     {
       path: '/',
-      methods: ['GET']
+      method: ['GET']
     },
     {
       path: '/cocktails',
-      methods: ['GET', 'POST']
+      method: ['GET'],
+      query: 'name'
     },
     {
       path: '/cocktails/:id',
-      methods: ['GET']
+      method: ['GET']
     },
     {
       path: '/:category',
-      methods: ['GET']
+      method: ['GET']
+    },
+    {
+      path: '/login',
+      method: ['POST']
+    },
+    {
+      path: '/add',
+      method: ['POST']
     }
   ]);
 });
 
-// Login end point
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    const user = await User.findOne({ username: username });
-    if (user && bcrypt.compareSync(password, user.password)) {
-      res.status(200).json({
-        success: true,
-        response: {
-          username: user.username,
-          id: user._id,
-          accessToken: user.accessToken
-        }
-      });
-    } else {
-      res.status(400).json({
-        success: false,
-        response: 'Credentials incorrect'
-      });
-    }
-  } catch (err) {
-    res.status(400).json({
-      success: false,
-      response: err
-    });
-  }
-});
 
 // GET  all cocktails or by name search query
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
   const searchQuery = {};
-
+  
   try {
     if (name) {
       searchQuery.cocktailName = { $regex: new RegExp(name, 'i') };
@@ -101,11 +83,11 @@ app.get('/cocktails', async (req, res) => {
     let cocktailList = await Cocktail.find(searchQuery).sort({
       cocktailName: 1
     });
-
+    
     if (!cocktailList.length) {
       res
-        .status(404)
-        .json({ success: false, response: 'Nothing found, try again.' });
+      .status(404)
+      .json({ success: false, response: 'Nothing found, try again.' });
     } else {
       res.status(200).json({ success: true, response: cocktailList });
     }
@@ -118,7 +100,7 @@ app.get('/cocktails', async (req, res) => {
 app.get('/cocktails/:id', async (req, res) => {
   const { id } = req.params;
   const singleCocktail = await Cocktail.findById(id);
-
+  
   try {
     if (singleCocktail) {
       res.status(200).json({
@@ -162,14 +144,42 @@ app.get('/:category', async (req, res) => {
   }
 });
 
+// Login end point
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username: username });
+    if (user && bcrypt.compareSync(password, user.password)) {
+      res.status(200).json({
+        success: true,
+        response: {
+          username: user.username,
+          id: user._id,
+          accessToken: user.accessToken
+        }
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        response: 'Credentials incorrect'
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      response: err
+    });
+  }
+});
+
 // POST new cocktail
 app.post('/add', authenticateUser);
 app.post('/add', async (req, res) => {
   const { cocktailName } = req.body;
-
+  
   try {
     const cocktailExist = await Cocktail.findOne({ cocktailName });
-
+    
     if (cocktailExist) {
       res.status(400).json({
         success: false,

@@ -82,6 +82,8 @@ const AddCocktail = () => {
         <Label htmlFor="ingredients">Ingredients
           <textarea
             id="ingredients"
+            minLength="10"
+            maxLength="150"
             onChange={(e) => dispatch(cocktail.actions.setIngredients(e.target.value))}
             value={cocktailState.ingredients}
             placeholder='E.g. "30 cl Gin, 30 cl Campari" etc.'
@@ -92,6 +94,8 @@ const AddCocktail = () => {
           <Input
             add
             id="garnish"
+            minLength="10"
+            maxLength="150"
             type="text"
             onChange={(e) => dispatch(cocktail.actions.setGarnish(e.target.value))}
             value={cocktailState.garnish}
@@ -101,6 +105,8 @@ const AddCocktail = () => {
         <Label htmlFor="preparation">Preparation
           <textarea
             id="preparation"
+            minLength="10"
+            maxLength="350"
             onChange={(e) => dispatch(cocktail.actions.setPreparation(e.target.value))}
             value={cocktailState.preparation}
             placeholder="How to make the cocktail"
@@ -110,6 +116,7 @@ const AddCocktail = () => {
           <Input
             add
             id="imagesLink"
+            minLength="10"
             type="text"
             onChange={(e) => dispatch(cocktail.actions.setImageSearchLink(e.target.value))}
             value={cocktailState.imageSearchLink}
