@@ -5,8 +5,8 @@ export const UL = styled.ul`
 `
 export const LI = styled.li`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background: var(--main-color);
   border: none;
   border-top: .1rem solid var(--text-color);

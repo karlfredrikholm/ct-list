@@ -5,9 +5,9 @@ import { getCocktails } from 'utils/utils';
 import List from './List';
 import { FilledBtn, BorderBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
-import { H1 } from './styled/elements/Headings.styled';
-import { Input } from './styled/elements/Input';
-import { Form } from './styled/Forms';
+import { H1 } from './styled/Headings.styled';
+import { Input } from './styled/Input.styled';
+import { Form } from './styled/Forms.styled';
 
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);

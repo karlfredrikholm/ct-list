@@ -1,8 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { UL, LI } from './styled/elements/List.styled';
-import { H3, H4 } from './styled/elements/Headings.styled';
+import { UL, LI } from './styled/List.styled';
+// import { H3 } from './styled/Headings.styled';
+import { CatP, NameP } from './styled/Misc.styled';
 
 const List = ({ cocktailList }) => {
   return (
@@ -10,7 +11,7 @@ const List = ({ cocktailList }) => {
       {typeof cocktailList === 'string' ? (
         <Link to="/">
           <LI>
-            <h4>{cocktailList}</h4>
+            <NameP>{cocktailList}</NameP>
           </LI>
         </Link>
       ) : (
@@ -18,8 +19,8 @@ const List = ({ cocktailList }) => {
           return (
             <Link key={item._id} to={`/cocktails/${item._id}`}>
               <LI>
-                <H3>{item.cocktailName}</H3>
-                <H4 italic>{item.category.replaceAll('-', ' ')}</H4>
+                <NameP>{item.cocktailName}</NameP>
+                <CatP>{item.category.replaceAll('-', ' ')}</CatP>
               </LI>
             </Link>
           );

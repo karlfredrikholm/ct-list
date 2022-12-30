@@ -1,14 +1,10 @@
 /* eslint-disable operator-linebreak */
-/* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCocktails } from 'utils/utils';
 import { FilledBtn } from './styled/Buttons.styled';
-import { A } from './styled/elements/A';
-import { H2, H3 } from './styled/elements/Headings.styled';
-import { HR } from './styled/elements/HR';
-import { P } from './styled/elements/P';
-
+import { A, HR, P } from './styled/Misc.styled';
+import { H2, H3 } from './styled/Headings.styled';
 import {
   RecipeWrapper,
   Ingredients,

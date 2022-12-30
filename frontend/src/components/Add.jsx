@@ -5,18 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from 'utils/utils';
 import { FilledBtn } from './styled/Buttons.styled';
-import { AddForm } from './styled/Forms';
-import { Input } from './styled/elements/Input';
-import { Label } from './styled/elements/Label';
-import { H2, H6 } from './styled/elements/Headings.styled';
+import { AddForm } from './styled/Forms.styled';
+import { Input, Label } from './styled/Input.styled';
+import { H2 } from './styled/Headings.styled';
 import { AddWrapper } from './styled/Wrappers.styled';
-import { HR } from './styled/elements/HR';
+import { HR, Mess } from './styled/Misc.styled';
 
 const AddCocktail = () => {
   const cocktailState = useSelector((store) => store.cocktail);
   const accessToken = useSelector((store) => store.user.accessToken);
   // const userName = useSelector((store) => store.user.username);
-  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,7 +39,7 @@ const AddCocktail = () => {
 
     fetch(`${BASE_URL}/add`, options)
       .then((res) => res.json())
-      .then((data) => setMessage(data.response))
+      .then((data) => setResponse(data.response))
       .catch((e) => console.error(e))
       .finally(() => dispatch(cocktail.actions.cleanup()))
   };
@@ -137,7 +136,9 @@ const AddCocktail = () => {
       <div>
         <HR />
       </div>
-      {message && <H6>{message}</H6>}
+      {response.message
+        ? <Mess>{response.message}</Mess>
+        : <Mess>{response}</Mess>}
     </AddWrapper>
   );
 };

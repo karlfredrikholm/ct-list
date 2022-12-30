@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import user from 'reducers/user';
 import { BASE_URL } from 'utils/utils';
-import { Form } from './styled/Forms';
-import { Input } from './styled/elements/Input';
+import { Form } from './styled/Forms.styled';
+import { Input, Label } from './styled/Input.styled';
 import { FilledBtn } from './styled/Buttons.styled';
-import { Label } from './styled/elements/Label';
-import { H2, H6 } from './styled/elements/Headings.styled';
+import { H2, H6 } from './styled/Headings.styled';
 import { LoginWrapper } from './styled/Wrappers.styled';
-import { HR } from './styled/elements/HR';
+import { HR } from './styled/Misc.styled';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -56,7 +55,7 @@ const Login = () => {
 
   return (
     <LoginWrapper>
-      <H2>Admin login</H2>
+      <H2>Admin Login</H2>
       <div>
         <HR />
       </div>

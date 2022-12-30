@@ -37,7 +37,7 @@ a {
 }
 
 .active {
-  border-bottom: 2px solid var(--main-color);
+  border-bottom: .3rem solid var(--main-color);
 }
 
 .inner-wrapper {

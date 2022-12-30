@@ -27,7 +27,7 @@ const Menu = () => {
         style={showMenu ? shownStyle : hiddenStyle}
         id="primary-navigation">
         <li>
-          <NavLink to="/">Cocktails</NavLink>
+          <NavLink to="/">List</NavLink>
         </li>
         <li>
           <NavLink to="/about">About</NavLink>

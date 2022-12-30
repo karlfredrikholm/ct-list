@@ -20,6 +20,17 @@ export const Nav = styled.nav`
     /* @media (max-width: 700px) {
       width: 100vw;
     } */
+
+    & a {
+    color: var(--main-color);
+    font-family: var(--main-font);
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: .04rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
   }
 
   @keyframes menuInAnimation {

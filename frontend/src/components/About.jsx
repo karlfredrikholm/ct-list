@@ -1,8 +1,6 @@
 import React from 'react';
-import { HR } from './styled/elements/HR';
-import { A } from './styled/elements/A';
-import { H2 } from './styled/elements/Headings.styled';
-import { P } from './styled/elements/P';
+import { A, HR, P } from './styled/Misc.styled';
+import { H2 } from './styled/Headings.styled';
 import { AboutWrapper } from './styled/Wrappers.styled'
 
 const About = () => {
