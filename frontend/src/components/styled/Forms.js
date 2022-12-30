@@ -85,3 +85,12 @@ export const AddForm = styled.form`
     height: 2rem;
   }
 `;
+
+export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: .1rem solid var(--text-color);
+  padding: 1rem 1rem 5rem;
+  width: fit-content;
+`

@@ -40,23 +40,23 @@ export const H3 = styled.h3`
   `;
 
 export const H4 = styled.h4`
-  font-family: ${(props) => (props.recipe ? 'var(--main-font)' : 'var(--sub-font)')};
-  font-size: 1rem;
-  font-style: ${(props) => (props.recipe ? '' : 'italic')};
-  font-weight: 500;
+  font-family: var(--main-font);
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: .05rem;
-  margin-left: ${(props) => (props.recipe ? '' : '1rem')};
   text-transform: capitalize;
-  text-transform: ${(props) => props.upper && 'uppercase'};
 
   @media (max-width: 750px) {
-    font-size: .85rem;
-    font-weight: 400;
+    font-size: 1.25rem;
   }
 `;
 
 export const H5 = styled.h5`
-  font-size: .8rem;
+  font-family: var(--main-font);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
 `;
 
 export const H6 = styled.h6``;

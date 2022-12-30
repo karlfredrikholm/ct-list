@@ -2,8 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { BASE_URL } from 'utils/utils';
 import user from 'reducers/user';
+import { BASE_URL } from 'utils/utils';
+import { LoginForm } from './styled/Forms';
+import { Input } from './styled/elements/Input';
+import { FilledBtn } from './styled/Buttons.styled';
+import { Label } from './styled/elements/Label';
+import { H4, H5 } from './styled/elements/Headings.styled';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -48,31 +53,29 @@ const Login = () => {
   };
 
   return (
-    <>
-      <form onSubmit={onFormSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
+    <LoginForm onSubmit={onFormSubmit}>
+      <H4>Admin login</H4>
+      <Label htmlFor="username">Username
+        <Input
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUserName(e.target.value)}
           placeholder="Your Username"
           required />
-
-        <label htmlFor="password">Password</label>
-        <input
+      </Label>
+      <Label htmlFor="password">Password
+        <Input
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="••••••••"
           required />
-        <div>
-          <button type="submit">Log in</button>
-        </div>
-      </form>
-      {errorMessage && <p>{errorMessage}</p>}
-    </>
+      </Label>
+      <FilledBtn type="submit">Log in</FilledBtn>
+      <H5>{errorMessage && <p>{errorMessage}</p>}</H5>
+    </LoginForm>
   );
 };
 

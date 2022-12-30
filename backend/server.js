@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
     } else {
       res.status(400).json({
         success: false,
-        response: 'Username/password not correct'
+        response: 'Credentials incorrect'
       });
     }
   } catch (err) {

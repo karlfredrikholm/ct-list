@@ -4,7 +4,7 @@ import cocktail from 'reducers/cocktail';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from 'utils/utils';
-import { SubmitBtn } from './styled/Buttons.styled';
+import { FilledBtn } from './styled/Buttons.styled';
 import { AddForm } from './styled/Forms';
 
 const AddCocktail = () => {
@@ -110,7 +110,7 @@ const AddCocktail = () => {
           value={cocktailState.notes}
           placeholder="Any extra notes?" />
 
-        <SubmitBtn type="submit">Submit</SubmitBtn>
+        <FilledBtn type="submit">Submit</FilledBtn>
         {message && <p>{message}</p>}
       </div>
     </AddForm>

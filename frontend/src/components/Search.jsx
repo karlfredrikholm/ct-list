@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import List from './List';
 import { SearchForm } from './styled/Forms';
-import { SearchBtn, FilterBtn, CategoryBtn } from './styled/Buttons.styled';
+import { FilledBtn, BorderBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
 import { H1 } from './styled/elements/Headings.styled';
 
@@ -56,26 +56,26 @@ const Search = () => {
           <fieldset>
           <label htmlFor="search" />
             <input type="text" id="search" placeholder='E.g. "Manhattan"' onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
-            <SearchBtn type="submit">Search</SearchBtn>
+            <FilledBtn type="submit">Search</FilledBtn>
           </fieldset>
-          <FilterBtn type="button" onClick={() => setShowCategories(!showCategories)}>Filter by category</FilterBtn>
+          <BorderBtn type="button" onClick={() => setShowCategories(!showCategories)}>Filter by category</BorderBtn>
           {showCategories
           && <div>
-            <CategoryBtn
+            <FilledBtn
               type="button"
               onClick={() => handleCategoryBtnClick('the-unforgettables')}>
               Unforgettables
-            </CategoryBtn>
-            <CategoryBtn
+            </FilledBtn>
+            <FilledBtn
               type="button"
               onClick={() => handleCategoryBtnClick('contemporary-classics')}>
               Contemporary
-            </CategoryBtn>
-            <CategoryBtn
+            </FilledBtn>
+            <FilledBtn
               type="button"
               onClick={() => handleCategoryBtnClick('new-era-drinks')}>
               New Era
-            </CategoryBtn>
+            </FilledBtn>
              </div>}
         </SearchForm>
       </div>
