@@ -80,11 +80,11 @@ const Login = () => {
             required />
         </Label>
         <FilledBtn type="submit">Log in</FilledBtn>
-        {errorMessage && <H6>{errorMessage}</H6>}
       </Form>
       <div>
         <HR />
       </div>
+      {errorMessage && <H6>{errorMessage}</H6>}
     </LoginWrapper>
   );
 };

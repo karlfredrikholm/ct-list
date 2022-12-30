@@ -8,7 +8,8 @@ export const Input = styled.input`
   height: 2rem;
   margin-right: ${(props) => (props.mr && '1rem')};
   padding-left: 0.5rem;
-  width: 15.5rem;
+  width: ${(props) => (props.add ? '20rem' : '15.5rem')};
+  box-shadow: 3px 3px var(--text-color);
 
   &::placeholder {
     color: var(--text-color);

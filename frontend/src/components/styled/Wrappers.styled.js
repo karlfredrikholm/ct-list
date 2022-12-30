@@ -52,8 +52,10 @@ export const AboutWrapper = styled.div`
 `
 
 export const LoginWrapper = styled(AboutWrapper)`
-
   & form {
     align-items: flex-end;
   }
+`
+
+export const AddWrapper = styled(LoginWrapper)`
 `
