@@ -29,7 +29,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-family: var(--main-font);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: ${(props) => (props.recipe ? '800' : '600')};
   letter-spacing: 0.05rem;
   text-transform: ${(props) => props.upper && 'uppercase'};
   padding-bottom: ${(props) => props.padd && '.25rem'};
