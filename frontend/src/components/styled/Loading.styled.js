@@ -14,6 +14,10 @@ export const LoadingAnimation = styled.div`
     padding: .6rem 0 0 .6rem;
   }
 
+  & p {
+    padding-top: .25rem;
+  }
+
   @keyframes load {
     from {
       transform: rotate(-30deg);

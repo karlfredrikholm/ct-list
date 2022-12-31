@@ -38,6 +38,8 @@ a {
 
 .active {
   border-bottom: .3rem solid var(--main-color);
+  font-weight: 900 !important;
+  letter-spacing: 0.2rem !important;
 }
 
 .inner-wrapper {

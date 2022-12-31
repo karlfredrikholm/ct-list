@@ -22,15 +22,22 @@ export const Nav = styled.nav`
     } */
 
     & a {
-    color: var(--main-color);
-    font-family: var(--main-font);
-    font-size: 1.25rem;
-    font-weight: 900;
-    letter-spacing: .04rem;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
+      color: var(--main-color);
+      font-family: var(--main-font);
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.05rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
 
+    @media (min-width: 850px) {
+      & a:hover {
+        letter-spacing: 0.2rem;
+        font-weight: 900;
+      }
+    }
   }
 
   @keyframes menuInAnimation {
@@ -54,7 +61,7 @@ export const Nav = styled.nav`
 
 export const MenuToggler = styled.button`
   position: absolute;
-  top: 1.30rem;
+  top: 1.3rem;
   right: 8rem;
 
   background: none;

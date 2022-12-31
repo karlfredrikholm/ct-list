@@ -23,23 +23,24 @@ const Menu = () => {
         aria-controls="primary-navigation">
         <GiMartini />
       </MenuToggler>
+      {showMenu &&
       <ul
         style={showMenu ? shownStyle : hiddenStyle}
         id="primary-navigation">
         <li>
-          <NavLink to="/">List</NavLink>
+          <NavLink onClick={() => setShowMenu(false)} to="/">List</NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink onClick={() => setShowMenu(false)} to="/about">About</NavLink>
         </li>
         <li>
-          <NavLink to="/login">Admin</NavLink>
+          <NavLink onClick={() => setShowMenu(false)} to="/login">Admin</NavLink>
         </li>
         {accessToken &&
         <li>
-          <NavLink to="/" onClick={() => dispatch(user.actions.setAccessToken(null))}>Sign Out</NavLink>
+          <NavLink to="/" onClick={() => dispatch(user.actions.setAccessToken(null))}>Log out</NavLink>
         </li>}
-      </ul>
+      </ul>}
     </Nav>
   );
 };
