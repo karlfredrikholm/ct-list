@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import list from 'reducers/list';
+import { getCocktails } from 'utils/utils';
 import { FilledBtn } from './styled/Buttons.styled';
 import { A, HR, P } from './styled/Misc.styled';
 import { H2, H3 } from './styled/Headings.styled';
@@ -21,7 +22,12 @@ const Recipe = () => {
   const clickedCocktail = useSelector((store) => store.list.clickedCocktail);
 
   useEffect(() => {
-    dispatch(list.actions.setClickedCocktail(id))
+    getCocktails('cocktails')
+      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
+      .catch((e) => console.error(e))
+      .finally(() => {
+        dispatch(list.actions.setClickedCocktail(id))
+      })
   }, [dispatch, id]);
 
   const onBackBtnClick = () => {

@@ -13,7 +13,7 @@ export const Nav = styled.nav`
 
     background: var(--text-color);
     list-style-type: none;
-    margin-right: -15rem;
+    // margin-right: -15rem;
     min-height: 100vh;
     width: 15rem;
 

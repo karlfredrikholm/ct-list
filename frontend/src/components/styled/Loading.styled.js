@@ -15,7 +15,8 @@ export const LoadingAnimation = styled.div`
   }
 
   & p {
-    padding-top: .25rem;
+    margin-top: .25rem;
+    text-transform: uppercase;
   }
 
   @keyframes load {
