@@ -1,5 +1,5 @@
-/* eslint-disable indent */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
 import list from 'reducers/list';
@@ -12,14 +12,10 @@ import { Input } from './styled/Input.styled';
 import { Form } from './styled/Forms.styled';
 
 const Search = () => {
-  // const [cocktailList, setCocktailList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
   const dispatch = useDispatch();
-
-  // fix loading animation
-  console.log(loading);
 
   // GET all cocktails when component mounts
   useEffect(() => {

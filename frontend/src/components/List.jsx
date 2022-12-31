@@ -7,7 +7,7 @@ import { CatP, NameP } from './styled/Misc.styled';
 
 const List = () => {
   const cocktailList = useSelector((store) => store.list.cocktailList);
-  console.log(cocktailList)
+
   return (
     <UL>
       {typeof cocktailList === 'string' ? (
