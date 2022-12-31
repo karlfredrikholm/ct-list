@@ -7,9 +7,9 @@ import { BASE_URL } from 'utils/utils';
 import { Form } from './styled/Forms.styled';
 import { Input, Label } from './styled/Input.styled';
 import { FilledBtn } from './styled/Buttons.styled';
-import { H2, H6 } from './styled/Headings.styled';
+import { H2 } from './styled/Headings.styled';
 import { LoginWrapper } from './styled/Wrappers.styled';
-import { HR } from './styled/Misc.styled';
+import { HR, Mess } from './styled/Misc.styled';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -83,7 +83,7 @@ const Login = () => {
       <div>
         <HR />
       </div>
-      {errorMessage && <H6>{errorMessage}</H6>}
+      {errorMessage && <Mess>{errorMessage}</Mess>}
     </LoginWrapper>
   );
 };

@@ -71,7 +71,7 @@ app.get('/', (req, res) => {
 });
 
 
-// GET  all cocktails or by name search query
+// GET  all cocktails or all by name search query
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
   const searchQuery = {};
@@ -121,7 +121,7 @@ app.get('/cocktails/:id', async (req, res) => {
   }
 });
 
-// GET all cocktails in one category
+// GET all cocktails in a category
 app.get('/:category', async (req, res) => {
   const { category } = req.params;
   let cocktailsInCategory = {};
@@ -205,6 +205,8 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+///////////////////////////////////////////////////////////////////////
+
 // For pagination
 // const {
 //   page,
@@ -221,6 +223,8 @@ app.listen(port, () => {
 //   ]);
 // } else {
 // cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
+
+///////////////////////////////////////////////////////////////////////
 
 // Register end point
 // app.post('/register', async (req, res) => {

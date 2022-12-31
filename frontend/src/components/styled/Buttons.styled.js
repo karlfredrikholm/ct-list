@@ -9,12 +9,14 @@ export const FilledBtn = styled.button`
   font-weight: 500;
   height: 2rem;
   width: fit-content;
+  letter-spacing: 0.02rem;
   padding: 0 1rem;
   transition: 0.2s ease;
-
+  
   @media (max-width: 750px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    letter-spacing: 0;
   }
 
   @media (min-width: 850px) {

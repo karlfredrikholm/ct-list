@@ -46,16 +46,16 @@ export const NameP = styled.p`
 
 /* Category in List */
 export const CatP = styled.p`
-  font-family: var(--sub-font);
+  font-family: var(--main-font);
   font-size: 1rem;
-  font-style: italic;
-  font-weight: 500;
+//  font-style: italic;
+  font-weight: 300;
   letter-spacing: 0.05rem;
   text-transform: capitalize;
 
   @media (max-width: 750px) {
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    font-weight: 300;
   }
 `;
 

@@ -11,21 +11,21 @@ const About = () => {
         <HR />
       </div>
       <P>
-        <P>This was made as the final project of</P>
-          Technigo Web Development Bootcamp, fall 2022.
+        <p>This was made as the final project of </p>
+        Technigo Web Development Bootcamp, fall 2022.
       </P>
       <P>
-        Made with the so-called MERN stack; <P>MongoDB, Express, React, Node.js</P>
+        Made with the so-called MERN stack; <p>MongoDB, Express.js, React.js, Node.js</p>
       </P>
       <P>
         The idea was to make a simple recipes web app,
-        <P>easy to navigate and view on your phone,</P>
-        <P>while you are in the kitchen mixing it up.</P>
+        <p>easy to view and navigate on small screen devices,</p>
+        <p>while you&apos;re in the kitchen, mixing it up.</p>
       </P>
       <P>
           The cocktails listed are all coming from the
-          International Bartenders Association (IBA) official cocktail list.
-        <P>Read more on <A href="https://iba-world.com">their own website</A>.</P>
+          International Bartenders Association&apos;s (IBA) official cocktail list.
+        <p>Read more on <A href="https://iba-world.com" target="_blank" rel="noopener noreferrer">their website</A>.</p>
       </P>
       <div>
         <HR />

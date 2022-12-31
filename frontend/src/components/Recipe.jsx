@@ -77,7 +77,7 @@ const Recipe = () => {
 
       <HR />
 
-      <A href={singleCocktail.imageSearchLink}>Images for inspiration</A>
+      <A href={singleCocktail.imageSearchLink} target="_blank" rel="noopener noreferrer">Images for inspiration</A>
       <FilledBtn type="button" onClick={() => onBackBtnClick()}>
         Back
       </FilledBtn>
