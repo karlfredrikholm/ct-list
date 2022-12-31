@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getCocktails } from 'utils/utils';
 import list from 'reducers/list';
 import { FilledBtn } from './styled/Buttons.styled';
 import { A, HR, P } from './styled/Misc.styled';
@@ -19,27 +18,11 @@ const Recipe = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
-  // const [singleCocktail, setSingleCocktail] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const clickedCocktail = useSelector((store) => store.list.clickedCocktail);
-
-  // To not render "anything" before everything is in place:
-  // const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(list.actions.setClickedCocktail(id))
   }, [dispatch, id]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   getCocktails(`/cocktails/${id}`)
-  //     .then((data) => setSingleCocktail(data.response))
-  //     .catch((e) => console.error(e))
-  //     .finally(() => {
-  //       setTimeout(setLoading(false), 800)
-  //       setIsLoaded(true)
-  //     });
-  // }, [id]);
 
   const onBackBtnClick = () => {
     navigate(-1);
