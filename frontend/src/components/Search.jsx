@@ -2,6 +2,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
+import list from 'reducers/list';
+import { useDispatch } from 'react-redux';
 import List from './List';
 import { FilledBtn, BorderBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
@@ -10,10 +12,11 @@ import { Input } from './styled/Input.styled';
 import { Form } from './styled/Forms.styled';
 
 const Search = () => {
-  const [cocktailList, setCocktailList] = useState([]);
+  // const [cocktailList, setCocktailList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
+  const dispatch = useDispatch();
 
   // fix loading animation
   console.log(loading);
@@ -22,29 +25,26 @@ const Search = () => {
   useEffect(() => {
     setLoading(true);
     getCocktails('cocktails')
-      .then((data) => setCocktailList(data.response))
+      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
-  }, []);
+  }, [dispatch]);
 
   // GET what's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-
+    setSearchInput('');
     getCocktails(`cocktails?name=${searchInput}`)
-      .then((data) => setCocktailList(data.response))
+      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
       .catch((e) => console.error(e))
-      .finally(() => {
-        setLoading(false);
-        setSearchInput('');
-      });
-  };
+      .finally(() => setLoading(false));
+      };
 
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
     getCocktails(category)
-      .then((data) => setCocktailList(data.response))
+      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   };
@@ -91,7 +91,7 @@ const Search = () => {
           )}
         </Form>
       </div>
-      {loading ? <Loading /> : <List cocktailList={cocktailList} />}
+      {loading ? <Loading /> : <List />}
     </>
   );
 };

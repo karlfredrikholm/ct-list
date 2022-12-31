@@ -1,7 +1,9 @@
 /* eslint-disable operator-linebreak */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getCocktails } from 'utils/utils';
+import { useDispatch, useSelector } from 'react-redux';
+// import { getCocktails } from 'utils/utils';
+import list from 'reducers/list';
 import { FilledBtn } from './styled/Buttons.styled';
 import { A, HR, P } from './styled/Misc.styled';
 import { H2, H3 } from './styled/Headings.styled';
@@ -16,18 +18,28 @@ import {
 const Recipe = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [singleCocktail, setSingleCocktail] = useState([]);
-  const [loading, setLoading] = useState(false);
-  console.log(singleCocktail);
-  console.log(loading);
+  const dispatch = useDispatch();
+  // const [singleCocktail, setSingleCocktail] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  const clickedCocktail = useSelector((store) => store.list.clickedCocktail);
+
+  // To not render "anything" before everything is in place:
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    getCocktails(`/cocktails/${id}`)
-      .then((data) => setSingleCocktail(data.response))
-      .catch((e) => console.error(e))
-      .finally(() => setLoading(false));
-  }, [id]);
+    dispatch(list.actions.setClickedCocktail(id))
+  }, [dispatch, id]);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getCocktails(`/cocktails/${id}`)
+  //     .then((data) => setSingleCocktail(data.response))
+  //     .catch((e) => console.error(e))
+  //     .finally(() => {
+  //       setTimeout(setLoading(false), 800)
+  //       setIsLoaded(true)
+  //     });
+  // }, [id]);
 
   const onBackBtnClick = () => {
     navigate(-1);
@@ -45,39 +57,39 @@ const Recipe = () => {
 
   return (
     <RecipeWrapper>
-      <H2>{singleCocktail.cocktailName}</H2>
+      <H2>{clickedCocktail.cocktailName}</H2>
 
       <HR />
 
       <Ingredients>
-        <H3 recipe padd>Ingredients</H3>
-        {singleCocktail.ingredients &&
-          lineBreaks(singleCocktail.ingredients, 'ing')}
+        <H3>Ingredients</H3>
+        {clickedCocktail.ingredients &&
+          lineBreaks(clickedCocktail.ingredients, 'ing')}
       </Ingredients>
 
       <Notes>
-        <H3 recipe padd>Notes</H3>
-        {singleCocktail.notes ? <P>{singleCocktail.notes}</P> : <P>N/A</P>}
+        <H3>Notes</H3>
+        {clickedCocktail.notes ? <P>{clickedCocktail.notes}</P> : <P>N/A</P>}
       </Notes>
 
       <HR />
 
       <Preparation>
         <H3 recipe padd>Preparation</H3>
-        {singleCocktail.preparation &&
-          lineBreaks(singleCocktail.preparation, 'prep')}
+        {clickedCocktail.preparation &&
+          lineBreaks(clickedCocktail.preparation, 'prep')}
       </Preparation>
 
       <Garnish>
         <H3 recipe padd>
           Garnish
         </H3>
-        {singleCocktail.garnish ? <P>{singleCocktail.garnish}</P> : <P>N/A</P>}
+        {clickedCocktail.garnish ? <P>{clickedCocktail.garnish}</P> : <P>N/A</P>}
       </Garnish>
 
       <HR />
 
-      <A href={singleCocktail.imageSearchLink} target="_blank" rel="noopener noreferrer">Images for inspiration</A>
+      <A href={clickedCocktail.imageSearchLink} target="_blank" rel="noopener noreferrer">Images for inspiration</A>
       <FilledBtn type="button" onClick={() => onBackBtnClick()}>
         Back
       </FilledBtn>

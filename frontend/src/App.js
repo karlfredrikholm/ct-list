@@ -12,10 +12,12 @@ import NotFound from 'components/NotFound';
 import Recipe from 'components/Recipe';
 import user from 'reducers/user';
 import cocktail from 'reducers/cocktail';
+import list from 'reducers/list';
 
 const reducer = combineReducers({
   user: user.reducer,
-  cocktail: cocktail.reducer
+  cocktail: cocktail.reducer,
+  list: list.reducer
 });
 
 const store = configureStore({ reducer });

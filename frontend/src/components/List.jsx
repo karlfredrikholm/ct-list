@@ -1,11 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { UL, LI } from './styled/List.styled';
-// import { H3 } from './styled/Headings.styled';
 import { CatP, NameP } from './styled/Misc.styled';
 
-const List = ({ cocktailList }) => {
+const List = () => {
+  const cocktailList = useSelector((store) => store.list.cocktailList);
+  console.log(cocktailList)
   return (
     <UL>
       {typeof cocktailList === 'string' ? (
