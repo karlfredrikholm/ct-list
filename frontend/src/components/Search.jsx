@@ -21,7 +21,7 @@ const Search = () => {
     getCocktails('cocktails')
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(true));
   }, []);
 
   // GET what's found when searching

@@ -72,10 +72,10 @@ export const MenuToggler = styled.button`
   }
 
   & svg {
+    background: var(--text-color);
     color: var(--main-color);
     width: 4rem;
     height: 4rem;
-    background: var(--text-color);
     border-radius: 50%;
     padding: 0.5rem;
     transition: .3s ease;
