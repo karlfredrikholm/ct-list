@@ -9,8 +9,12 @@ export const LoadingAnimation = styled(MenuToggler)`
  bottom: 10rem;
  animation: load .5s linear infinite alternate;
 
+  & svg {
+    background: RosyBrown;
+  }
+
   & p {
-    color: var(--text-color);
+    color: RosyBrown; // var(--text-color);
     font-weight: 700;
     letter-spacing: .1rem;
     text-transform: uppercase;
