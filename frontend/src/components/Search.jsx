@@ -12,16 +12,18 @@ import { Form } from './styled/Forms.styled';
 const Search = () => {
   const [cocktailList, setCocktailList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [showCategories, setShowCategories] = useState(false);
 
   // GET all cocktails when component mounts
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     getCocktails('cocktails')
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   // GET what's found when searching
@@ -33,7 +35,7 @@ const Search = () => {
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
-      };
+  };
 
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
@@ -47,7 +49,7 @@ const Search = () => {
     <>
       <div>
         <Form onSubmit={handleFormSubmit}>
-          <H1>Cocktail List</H1>
+          <H1>The IBA Cocktail List</H1>
           <fieldset>
             <label htmlFor="search" />
             <Input

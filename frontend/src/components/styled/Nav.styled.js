@@ -16,9 +16,9 @@ export const Nav = styled.nav`
     min-height: 100vh;
     width: 15rem;
 
-    /* @media (max-width: 700px) {
+    @media (max-width: 700px) {
       width: 100vw;
-    } */
+    }
 
     & a {
       color: var(--main-color);
@@ -66,7 +66,7 @@ export const MenuToggler = styled.button`
   background: none;
   border: none;
 
-  @media (max-width: 750px) {
+  @media (max-width: 800px) {
     top: 38rem;
     right: 1.5rem;
   }
