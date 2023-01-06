@@ -7,7 +7,6 @@ import user from 'reducers/user';
 import { Nav, MenuToggler } from './styled/Nav.styled';
 
 const shownStyle = { marginRight: '0', animation: 'menuInAnimation .4s ease' };
-const hiddenStyle = { animation: 'menuOutAnimation .4s ease' };
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const Menu = () => {
       </MenuToggler>
       {showMenu &&
       <ul
-        style={showMenu ? shownStyle : hiddenStyle}
+        style={showMenu && shownStyle}
         id="primary-navigation">
         <li>
           <NavLink onClick={() => setShowMenu(false)} to="/">List</NavLink>

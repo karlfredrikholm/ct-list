@@ -55,7 +55,7 @@ a {
 }
 
 .outer-wrapper {
-  background: var(--text-color);
+  background: RosyBrown;
   display: flex;
   justify-content: center;
   min-width: 100vw;

@@ -27,6 +27,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
+  color: RosyBrown;
   display: flex;
   flex-direction: column;
   font-family: var(--main-font);

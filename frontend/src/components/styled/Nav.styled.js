@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const Nav = styled.nav`
   position: fixed;
   right: 0;
-
+  
   & ul {
     display: flex;
     flex-direction: column;
@@ -13,6 +13,7 @@ export const Nav = styled.nav`
     padding-bottom: 2rem;
 
     background: var(--text-color);
+    background: RosyBrown;
     list-style-type: none;
     min-height: 100vh;
     width: 15rem;
@@ -47,15 +48,6 @@ export const Nav = styled.nav`
     }
     100% {
       margin-right: 0;
-    }
-  }
-
-  @keyframes menuOutAnimation {
-    0% {
-      margin-right: 0;
-    }
-    100% {
-      margin-right: -15rem;
     }
   }
 `;

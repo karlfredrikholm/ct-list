@@ -46,9 +46,10 @@ export const NameP = styled.p`
 
 /* Category in List */
 export const CatP = styled.p`
+  color: RosyBrown;
   font-family: var(--main-font);
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.05rem;
   text-transform: capitalize;
 
@@ -60,7 +61,7 @@ export const CatP = styled.p`
 
 /* Login/add success/error messages */
 export const Mess = styled.p`
-  color: var(--text-color);
+  color: RosyBrown //var(--text-color);
   font-family: var(--main-font);
   font-size: 1rem;
   font-weight: 500;
