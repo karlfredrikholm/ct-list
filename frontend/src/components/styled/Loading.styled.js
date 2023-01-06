@@ -11,6 +11,10 @@ export const LoadingAnimation = styled(MenuToggler)`
 
   & p {
     color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding: .08rem 0 0 .17rem;
   }
   
   @keyframes load {
