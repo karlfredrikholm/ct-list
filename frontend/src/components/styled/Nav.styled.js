@@ -60,21 +60,21 @@ export const Nav = styled.nav`
 
 export const MenuToggler = styled.button`
   position: absolute;
-  top: 0;
+  top: 2.75rem;
   right: 4.8rem;
 
   background: none;
   border: none;
 
   @media (max-width: 750px) {
-    top: 3rem;
+    top: 40rem;
     right: 1.5rem;
   }
 
   & svg {
     color: var(--main-color);
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     background: var(--text-color);
     border-radius: 50%;
     padding: 0.5rem;

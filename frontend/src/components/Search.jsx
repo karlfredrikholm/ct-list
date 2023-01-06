@@ -47,7 +47,7 @@ const Search = () => {
     <>
       <div>
         <Form onSubmit={handleFormSubmit}>
-          <H1>IBA Cocktail List</H1>
+          <H1>Cocktail List</H1>
           <fieldset>
             <label htmlFor="search" />
             <Input

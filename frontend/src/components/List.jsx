@@ -3,29 +3,33 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UL, LI } from './styled/List.styled';
 import { CatP, NameP } from './styled/Misc.styled';
+import Menu from './Nav';
 
 const List = ({ cocktailList }) => {
   return (
-    <UL>
-      {typeof cocktailList === 'string' ? (
-        <Link to="/">
-          <LI>
-            <NameP>{cocktailList}</NameP>
-          </LI>
-        </Link>
-      ) : (
-        cocktailList.map((item) => {
-          return (
-            <Link key={item._id} to={`/cocktails/${item._id}`}>
-              <LI>
-                <NameP>{item.cocktailName}</NameP>
-                <CatP>{item.category.replaceAll('-', ' ')}</CatP>
-              </LI>
-            </Link>
-          );
-        })
-      )}
-    </UL>
+    <>
+      <Menu />
+      <UL>
+        {typeof cocktailList === 'string' ? (
+          <Link to="/">
+            <LI>
+              <NameP>{cocktailList}</NameP>
+            </LI>
+          </Link>
+        ) : (
+          cocktailList.map((item) => {
+            return (
+              <Link key={item._id} to={`/cocktails/${item._id}`}>
+                <LI>
+                  <NameP>{item.cocktailName}</NameP>
+                  <CatP>{item.category.replaceAll('-', ' ')}</CatP>
+                </LI>
+              </Link>
+            );
+          })
+        )}
+      </UL>
+    </>
   );
 };
 

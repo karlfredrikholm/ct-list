@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import Search from 'components/Search';
-import Nav from 'components/Nav';
 import Login from 'components/Login';
 import Add from 'components/Add';
 import About from 'components/About';
@@ -28,7 +27,6 @@ const App = () => {
         <div className="inner-wrapper">
           <Provider store={store}>
             <BrowserRouter>
-              <Nav />
               <Routes>
                 <Route path="/" element={<Search />} />
                 <Route path="/cocktails/:id" element={<Recipe />} />

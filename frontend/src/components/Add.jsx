@@ -10,6 +10,7 @@ import { Input, Label } from './styled/Input.styled';
 import { H2 } from './styled/Headings.styled';
 import { AddWrapper } from './styled/Wrappers.styled';
 import { HR, Mess } from './styled/Misc.styled';
+import Menu from './Nav';
 
 const AddCocktail = () => {
   const cocktailState = useSelector((store) => store.cocktail);
@@ -43,101 +44,104 @@ const AddCocktail = () => {
   };
 
   return (
-    <AddWrapper>
-      <H2>Add New Cocktail</H2>
-      <div>
-        <HR />
-      </div>
-      <AddForm onSubmit={handleFormSubmit}>
+    <>
+      <Menu />
+      <AddWrapper>
+        <H2>Add New Cocktail</H2>
+        <div>
+          <HR />
+        </div>
+        <AddForm onSubmit={handleFormSubmit}>
 
-        <Label htmlFor="cocktailName">Name
-          <Input
-            add
-            id="cocktailName"
-            type="text"
-            onChange={(e) => dispatch(cocktail.actions.setCocktailName(e.target.value))}
-            value={cocktailState.cocktailName}
-            placeholder='E.g. "Negroni"'
-            required />
-        </Label>
+          <Label htmlFor="cocktailName">Name
+            <Input
+              add
+              id="cocktailName"
+              type="text"
+              onChange={(e) => dispatch(cocktail.actions.setCocktailName(e.target.value))}
+              value={cocktailState.cocktailName}
+              placeholder='E.g. "Negroni"'
+              required />
+          </Label>
 
-        <Label htmlFor="category">Category
-          <select
-            id="category"
-            onChange={(e) => dispatch(cocktail.actions.setCategory(e.target.value))}
-            value={cocktailState.category}
-            required>
-            <option value="" disabled>
+          <Label htmlFor="category">Category
+            <select
+              id="category"
+              onChange={(e) => dispatch(cocktail.actions.setCategory(e.target.value))}
+              value={cocktailState.category}
+              required>
+              <option value="" disabled>
             Choose IBA Category:
-            </option>
-            <option value="the-unforgettables">The Unforgettables</option>
-            <option value="contemporary-classics">Contemporary Classics</option>
-            <option value="new-era-drinks">New Era Drinks</option>
-          </select>
-        </Label>
+              </option>
+              <option value="the-unforgettables">The Unforgettables</option>
+              <option value="contemporary-classics">Contemporary Classics</option>
+              <option value="new-era-drinks">New Era Drinks</option>
+            </select>
+          </Label>
 
-        <Label htmlFor="ingredients">Ingredients
-          <textarea
-            id="ingredients"
-            minLength="10"
-            maxLength="150"
-            onChange={(e) => dispatch(cocktail.actions.setIngredients(e.target.value))}
-            value={cocktailState.ingredients}
-            placeholder='E.g. "30 cl Gin, 30 cl Campari" etc.'
-            required />
-        </Label>
+          <Label htmlFor="ingredients">Ingredients
+            <textarea
+              id="ingredients"
+              minLength="10"
+              maxLength="150"
+              onChange={(e) => dispatch(cocktail.actions.setIngredients(e.target.value))}
+              value={cocktailState.ingredients}
+              placeholder='E.g. "30 cl Gin, 30 cl Campari" etc.'
+              required />
+          </Label>
 
-        <Label htmlFor="garnish">Garnish
-          <Input
-            add
-            id="garnish"
-            minLength="10"
-            maxLength="150"
-            type="text"
-            onChange={(e) => dispatch(cocktail.actions.setGarnish(e.target.value))}
-            value={cocktailState.garnish}
-            placeholder="If no garnish, leave input field blank" />
-        </Label>
+          <Label htmlFor="garnish">Garnish
+            <Input
+              add
+              id="garnish"
+              minLength="10"
+              maxLength="150"
+              type="text"
+              onChange={(e) => dispatch(cocktail.actions.setGarnish(e.target.value))}
+              value={cocktailState.garnish}
+              placeholder="If no garnish, leave input field blank" />
+          </Label>
 
-        <Label htmlFor="preparation">Preparation
-          <textarea
-            id="preparation"
-            minLength="10"
-            maxLength="350"
-            onChange={(e) => dispatch(cocktail.actions.setPreparation(e.target.value))}
-            value={cocktailState.preparation}
-            placeholder="How to make the cocktail"
-            required />
-        </Label>
-        <Label htmlFor="image">Google Image Search Link
-          <Input
-            add
-            id="imagesLink"
-            minLength="10"
-            type="text"
-            onChange={(e) => dispatch(cocktail.actions.setImageSearchLink(e.target.value))}
-            value={cocktailState.imageSearchLink}
-            placeholder="URL for Google image search results"
-            required />
-        </Label>
-        <Label htmlFor="notes">Notes
-          <Input
-            add
-            id="notes"
-            type="text"
-            onChange={(e) => dispatch(cocktail.actions.setNotes(e.target.value))}
-            value={cocktailState.notes}
-            placeholder="Any extra notes?" />
-        </Label>
-        <FilledBtn type="submit">Submit</FilledBtn>
-      </AddForm>
-      <div>
-        <HR />
-      </div>
-      {response.message
-        ? <Mess>{response.message}</Mess>
-        : <Mess>{response}</Mess>}
-    </AddWrapper>
+          <Label htmlFor="preparation">Preparation
+            <textarea
+              id="preparation"
+              minLength="10"
+              maxLength="350"
+              onChange={(e) => dispatch(cocktail.actions.setPreparation(e.target.value))}
+              value={cocktailState.preparation}
+              placeholder="How to make the cocktail"
+              required />
+          </Label>
+          <Label htmlFor="image">Google Image Search Link
+            <Input
+              add
+              id="imagesLink"
+              minLength="10"
+              type="text"
+              onChange={(e) => dispatch(cocktail.actions.setImageSearchLink(e.target.value))}
+              value={cocktailState.imageSearchLink}
+              placeholder="URL for Google image search results"
+              required />
+          </Label>
+          <Label htmlFor="notes">Notes
+            <Input
+              add
+              id="notes"
+              type="text"
+              onChange={(e) => dispatch(cocktail.actions.setNotes(e.target.value))}
+              value={cocktailState.notes}
+              placeholder="Any extra notes?" />
+          </Label>
+          <FilledBtn type="submit">Submit</FilledBtn>
+        </AddForm>
+        <div>
+          <HR />
+        </div>
+        {response.message
+          ? <Mess>{response.message}</Mess>
+          : <Mess>{response}</Mess>}
+      </AddWrapper>
+    </>
   );
 };
 

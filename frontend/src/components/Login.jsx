@@ -10,6 +10,7 @@ import { FilledBtn } from './styled/Buttons.styled';
 import { H2 } from './styled/Headings.styled';
 import { LoginWrapper } from './styled/Wrappers.styled';
 import { HR, Mess } from './styled/Misc.styled';
+import Menu from './Nav';
 
 const Login = () => {
   const [username, setUserName] = useState('');
@@ -54,37 +55,40 @@ const Login = () => {
   };
 
   return (
-    <LoginWrapper>
-      <H2>Admin Login</H2>
-      <div>
-        <HR />
-      </div>
-      <Form onSubmit={onFormSubmit}>
-        <Label htmlFor="username">Username
-          <Input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="Your Username"
-            required />
-        </Label>
-        <Label htmlFor="password">Password
-          <Input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="**********"
-            required />
-        </Label>
-        <FilledBtn type="submit">Log in</FilledBtn>
-      </Form>
-      <div>
-        <HR />
-      </div>
-      {errorMessage && <Mess>{errorMessage}</Mess>}
-    </LoginWrapper>
+    <>
+      <Menu />
+      <LoginWrapper>
+        <H2>Admin Login</H2>
+        <div>
+          <HR />
+        </div>
+        <Form onSubmit={onFormSubmit}>
+          <Label htmlFor="username">Username
+            <Input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder="Your Username"
+              required />
+          </Label>
+          <Label htmlFor="password">Password
+            <Input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="**********"
+              required />
+          </Label>
+          <FilledBtn type="submit">Log in</FilledBtn>
+        </Form>
+        <div>
+          <HR />
+        </div>
+        {errorMessage && <Mess>{errorMessage}</Mess>}
+      </LoginWrapper>
+    </>
   );
 };
 
