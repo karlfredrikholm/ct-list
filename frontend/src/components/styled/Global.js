@@ -46,7 +46,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 80%;
-  max-width: 1000px;
+  max-width: 900px;
   min-height: 100vh;
 
   @media (max-width: 1200px) {

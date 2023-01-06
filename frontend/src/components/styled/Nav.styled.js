@@ -13,7 +13,6 @@ export const Nav = styled.nav`
     padding-bottom: 2rem;
 
     background: var(--text-color);
-    background: RosyBrown;
     list-style-type: none;
     min-height: 100vh;
     width: 15rem;
@@ -66,7 +65,7 @@ export const MenuToggler = styled.button`
   }
 
   & svg {
-    background: var(--text-color);
+    background: RosyBrown; //var(--text-color);
     color: var(--main-color);
     width: 4rem;
     height: 4rem;

@@ -30,7 +30,7 @@ export const H2 = styled.h2`
 
 /* Recipe Headings */
 export const H3 = styled.h3`
-  color: RosyBrown;
+  color: var(--text-color); //RosyBrown;
   font-family: var(--main-font);
   font-size: 1.25rem;
   font-weight: 800;

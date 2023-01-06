@@ -23,7 +23,7 @@ export const AddForm = styled(Form)`
   textarea {
     background: var(--main-color);
     border: 1px solid var(--text-color);
-    color: var(--text-color);
+    color: RosyBrown; //var(--text-color);
     font-family: var(--main-font);
     font-size: 1rem;
     height: 5rem;
@@ -32,7 +32,7 @@ export const AddForm = styled(Form)`
     resize: none;
 
     &::placeholder {
-      color: var(--text-color);
+      color: RosyBrown; //var(--text-color);
       font-family: var(--main-font);
       font-size: 0.9rem;
     }
@@ -45,7 +45,7 @@ export const AddForm = styled(Form)`
   & select {
     background: var(--main-color);
     border: 1px solid var(--text-color);
-    color: var(--text-color);
+    color: RosyBrown; //var(--text-color);
     height: 2rem;
     padding-left: 0.25rem;
     width: 20rem;

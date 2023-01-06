@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Input = styled.input`
   background: var(--main-color);
   border: 1px solid var(--text-color);
-  color: var(--text-color);
+  color: RosyBrown; //var(--text-color);
   font-family: var(--main-font);
   font-size: 1rem;
   height: 2rem;
@@ -12,13 +12,13 @@ export const Input = styled.input`
   width: ${(props) => (props.add ? '20rem' : '15.5rem')};
 
   &::placeholder {
-    color: var(--text-color);
+    color: RosyBrown; // var(--text-color);
     font-family: var(--main-font);
     font-size: .9rem;
   }
 
   &:active {
-    color: var(--main-color);
+    color: RosyBrown; //var(--main-color);
   }
 
   &:focus {
@@ -27,7 +27,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-  color: RosyBrown;
+  color: var(--text-color); //RosyBrown;
   display: flex;
   flex-direction: column;
   font-family: var(--main-font);
