@@ -36,6 +36,7 @@ const CocktailSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
+    maxLength: 350,
     trim: true
   }
 });
