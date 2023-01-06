@@ -16,7 +16,7 @@ export const Nav = styled.nav`
     min-height: 100vh;
     width: 15rem;
 
-    @media (max-width: 850px) {
+    @media (max-width: 750px) {
       width: 100vw;
     };
 
