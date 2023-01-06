@@ -8,13 +8,17 @@ export const LoadingAnimation = styled(MenuToggler)`
  top: 0;
  bottom: 10rem;
  animation: load .5s linear infinite alternate;
+
+  & p {
+    color: var(--text-color);
+  }
   
   @keyframes load {
     from {
-      transform: scale(0.7);
+      transform: scale(1);
     }
     to {
-      transform: scale(1);
+      transform: scale(1.5);
     }
   }
 `
