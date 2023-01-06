@@ -13,7 +13,6 @@ export const Nav = styled.nav`
 
     background: var(--text-color);
     list-style-type: none;
-    // margin-right: -15rem;
     min-height: 100vh;
     width: 15rem;
 
@@ -61,8 +60,8 @@ export const Nav = styled.nav`
 
 export const MenuToggler = styled.button`
   position: absolute;
-  top: 1.3rem;
-  right: 8rem;
+  top: 5rem;
+  right: 4.8rem;
 
   background: none;
   border: none;
@@ -73,19 +72,19 @@ export const MenuToggler = styled.button`
 
   & svg {
     color: var(--main-color);
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     background: var(--text-color);
     border-radius: 50%;
-    padding: 0.4rem;
+    padding: 0.5rem;
+    transition: .3s ease;
 
     @media (min-width: 850px) {
       &:hover {
-        background: var(--main-color);
-        border: 0.13rem solid var(--text-color);
-        color: var(--text-color);
+        transform: rotate(-25deg);
       }
     }
+
   }
 `;
 

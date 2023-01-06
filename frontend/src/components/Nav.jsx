@@ -17,6 +17,7 @@ const Menu = () => {
   return (
     <Nav>
       <MenuToggler
+        className={showMenu && 'expanded'}
         type="button"
         onClick={() => setShowMenu(!showMenu)}
         aria-label="menu"

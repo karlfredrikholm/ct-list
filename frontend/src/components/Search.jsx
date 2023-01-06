@@ -52,7 +52,7 @@ const Search = () => {
             <label htmlFor="search" />
             <Input
               mr
-              type="text"
+              type="search"
               id="search"
               placeholder='E.g. "Manhattan"'
               onChange={(e) => setSearchInput(e.target.value)}
