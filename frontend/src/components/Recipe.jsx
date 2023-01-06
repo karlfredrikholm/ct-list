@@ -26,7 +26,7 @@ const Recipe = () => {
       .finally(() => {
         setIsLoaded(true);
       })
-  }, []);
+  }, [id]);
 
   const onBackBtnClick = () => {
     navigate(-1);
