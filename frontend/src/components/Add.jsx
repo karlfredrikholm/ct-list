@@ -40,7 +40,8 @@ const AddCocktail = () => {
       .then((res) => res.json())
       .then((data) => setResponse(data.response))
       .catch((e) => console.error(e))
-      .finally(() => dispatch(cocktail.actions.cleanup()))
+      {data.success && 
+        .finally(() => dispatch(cocktail.actions.cleanup()))}
   };
 
   return (
@@ -129,6 +130,7 @@ const AddCocktail = () => {
               add
               id="notes"
               type="text"
+              maxLength="350"
               onChange={(e) => dispatch(cocktail.actions.setNotes(e.target.value))}
               value={cocktailState.notes}
               placeholder="Any extra notes?" />
