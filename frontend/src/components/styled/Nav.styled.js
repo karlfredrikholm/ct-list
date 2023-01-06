@@ -10,6 +10,7 @@ export const Nav = styled.nav`
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    padding-bottom: 2rem;
 
     background: var(--text-color);
     list-style-type: none;
@@ -18,6 +19,7 @@ export const Nav = styled.nav`
 
     @media (max-width: 700px) {
       width: 100vw;
+      gap: 2.5rem;
     }
 
     & a {
@@ -31,7 +33,7 @@ export const Nav = styled.nav`
       transition: 0.3s ease;
     }
 
-    @media (min-width: 850px) {
+    @media (min-width: 800px) {
       & a:hover {
         letter-spacing: 0.2rem;
         font-weight: 900;
@@ -82,7 +84,7 @@ export const MenuToggler = styled.button`
 
     @media (min-width: 850px) {
       &:hover {
-        transform: rotate(-25deg);
+        transform: rotate(15deg);
       }
     }
 
