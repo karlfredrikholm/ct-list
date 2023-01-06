@@ -86,7 +86,7 @@ const AddCocktail = () => {
               maxLength="150"
               onChange={(e) => dispatch(cocktail.actions.setIngredients(e.target.value))}
               value={cocktailState.ingredients}
-              placeholder='E.g. "30 cl Gin, 30 cl Campari" etc.'
+              placeholder='E.g. "30 ml Gin, 30 ml Campari" etc.'
               required />
           </Label>
 
