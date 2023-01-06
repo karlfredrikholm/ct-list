@@ -9,13 +9,13 @@ import { AddForm } from './styled/Forms.styled';
 import { Input, Label } from './styled/Input.styled';
 import { H2 } from './styled/Headings.styled';
 import { AddWrapper } from './styled/Wrappers.styled';
-import { HR, Mess } from './styled/Misc.styled';
+import { HR, Mess, P } from './styled/Misc.styled';
 import Menu from './Nav';
 
 const AddCocktail = () => {
   const cocktailState = useSelector((store) => store.cocktail);
   const accessToken = useSelector((store) => store.user.accessToken);
-  // const userName = useSelector((store) => store.user.username);
+  const userName = useSelector((store) => store.user.username);
   const [response, setResponse] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const AddCocktail = () => {
     <>
       <Menu />
       <AddWrapper>
+        <P>Welcome {userName}.</P>
         <H2>Add New Cocktail</H2>
         <div>
           <HR />
