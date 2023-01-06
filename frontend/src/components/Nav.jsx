@@ -38,7 +38,7 @@ const Menu = () => {
         </li>
         {accessToken &&
         <li>
-          <NavLink to="/" onClick={() => dispatch(user.actions.setAccessToken(null))}>Log out</NavLink>
+          <NavLink to="/add" onClick={() => dispatch(user.actions.setAccessToken(null))}>Log out</NavLink>
         </li>}
       </ul>}
     </Nav>
