@@ -61,7 +61,7 @@ export const CatP = styled.p`
 
 /* Login/add success/error messages */
 export const Mess = styled.p`
-  color: RosyBrown //var(--text-color);
+  color: RosyBrown; //var(--text-color);
   font-family: var(--main-font);
   font-size: 1rem;
   font-weight: 500;

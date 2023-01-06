@@ -41,6 +41,10 @@ a {
   letter-spacing: 0.2rem !important;
 }
 
+.err {
+  color: RosyBrown;
+}
+
 .inner-wrapper {
   background: var(--main-color);
   display: flex;

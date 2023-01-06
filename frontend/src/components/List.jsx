@@ -11,11 +11,9 @@ const List = ({ cocktailList }) => {
       <Menu />
       <UL>
         {typeof cocktailList === 'string' ? (
-          <Link to="/">
-            <LI>
-              <NameP>{cocktailList}</NameP>
-            </LI>
-          </Link>
+          <LI>
+            <NameP className="err">{cocktailList}</NameP>
+          </LI>
         ) : (
           cocktailList.map((item) => {
             return (
