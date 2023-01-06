@@ -13,6 +13,14 @@ export const RecipeWrapper = styled.div`
 
   & hr {
     grid-column: span 2;
+
+    &:last-of-type {
+      margin-bottom: .35rem;
+    }
+  }
+
+  & p {
+    width: 22rem;
   }
 `;
 

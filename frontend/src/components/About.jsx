@@ -19,7 +19,7 @@ const About = () => {
       </P>
       <P>
         The idea was to make a simple recipes web app,
-        <p>easy to view and navigate on small screen devices,</p>
+        <p>easy to view and navigate on small screen devices</p>
         <p>while you&apos;re in the kitchen, mixing it up.</p>
       </P>
       <P>

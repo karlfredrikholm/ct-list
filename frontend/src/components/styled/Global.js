@@ -18,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  background: var(--main-color);
   color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -45,16 +44,19 @@ a {
 .inner-wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  max-width: 1000px;
   width: 80%;
-  height: fit-content;
+  min-height: 100vh;
 
-  @media (max-width: 800px) {
+  background: var(--main-color);
+  @media (max-width: 1200px) {
     width: 100%;
   }
 }
 
 .outer-wrapper {
+  background: #804B54;
+  background: #652E37;
   display: flex;
   justify-content: center;
   min-width: 100vw;

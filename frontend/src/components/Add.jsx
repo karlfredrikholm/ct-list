@@ -27,7 +27,6 @@ const AddCocktail = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
     const options = {
       method: 'POST',
       headers: {
@@ -36,7 +35,6 @@ const AddCocktail = () => {
       },
       body: JSON.stringify(cocktailState)
     };
-
     fetch(`${BASE_URL}/add`, options)
       .then((res) => res.json())
       .then((data) => setResponse(data.response))

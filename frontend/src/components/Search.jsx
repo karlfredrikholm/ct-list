@@ -2,8 +2,6 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
 import { getCocktails } from 'utils/utils';
-import list from 'reducers/list';
-import { useDispatch } from 'react-redux';
 import List from './List';
 import { FilledBtn, BorderBtn } from './styled/Buttons.styled';
 import Loading from './Loading';
@@ -12,19 +10,19 @@ import { Input } from './styled/Input.styled';
 import { Form } from './styled/Forms.styled';
 
 const Search = () => {
+  const [cocktailList, setCocktailList] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const dispatch = useDispatch();
 
   // GET all cocktails when component mounts
   useEffect(() => {
     setLoading(true);
     getCocktails('cocktails')
-      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
+      .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
-  }, [dispatch]);
+  }, []);
 
   // GET what's found when searching
   const handleFormSubmit = (event) => {
@@ -32,7 +30,7 @@ const Search = () => {
     setLoading(true);
     setSearchInput('');
     getCocktails(`cocktails?name=${searchInput}`)
-      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
+      .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
       };
@@ -40,7 +38,7 @@ const Search = () => {
   // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
     getCocktails(category)
-      .then((data) => dispatch(list.actions.setCocktailList(data.response)))
+      .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   };
@@ -87,7 +85,7 @@ const Search = () => {
           )}
         </Form>
       </div>
-      {loading ? <Loading /> : <List />}
+      {loading ? <Loading /> : <List cocktailList={cocktailList} />}
     </>
   );
 };
