@@ -42,21 +42,20 @@ a {
 }
 
 .inner-wrapper {
+  background: var(--main-color);
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
   width: 80%;
+  max-width: 1000px;
   min-height: 100vh;
 
-  background: var(--main-color);
   @media (max-width: 1200px) {
-    width: 100%;
+    width: 100vw;
   }
 }
 
 .outer-wrapper {
-  background: #804B54;
-  background: #652E37;
+  background: var(--text-color);
   display: flex;
   justify-content: center;
   min-width: 100vw;

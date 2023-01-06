@@ -13,12 +13,13 @@ export const Nav = styled.nav`
 
     background: var(--text-color);
     list-style-type: none;
+    // margin-right: -15rem;
     min-height: 100vh;
     width: 15rem;
 
-    @media (max-width: 750px) {
+    /* @media (max-width: 700px) {
       width: 100vw;
-    };
+    } */
 
     & a {
       color: var(--main-color);
@@ -48,14 +49,14 @@ export const Nav = styled.nav`
     }
   }
 
-  /* @keyframes menuOutAnimation {
+  @keyframes menuOutAnimation {
     0% {
       margin-right: 0;
     }
     100% {
       margin-right: -15rem;
     }
-  } */
+  }
 `;
 
 export const MenuToggler = styled.button`

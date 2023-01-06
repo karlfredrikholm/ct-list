@@ -15,7 +15,7 @@ import cocktail from 'reducers/cocktail';
 
 const reducer = combineReducers({
   user: user.reducer,
-  cocktail: cocktail.reduce
+  cocktail: cocktail.reducer
 });
 
 const store = configureStore({ reducer });

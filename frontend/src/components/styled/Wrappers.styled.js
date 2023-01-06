@@ -4,7 +4,7 @@ export const RecipeWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   padding: 1rem 1rem 1.5rem 1rem;
-  gap: 1rem 2.5rem;
+  gap: 1rem 5rem;
 
   & h2 {
     grid-column: span 2;
@@ -15,12 +15,14 @@ export const RecipeWrapper = styled.div`
     grid-column: span 2;
 
     &:last-of-type {
-      margin-bottom: .35rem;
+      margin-bottom: 0.35rem;
     }
   }
 
-  & p {
-    width: 22rem;
+  @media (min-width: 750px) {
+    .wide {
+      width: 25rem;
+    }
   }
 `;
 
@@ -46,7 +48,7 @@ export const AboutWrapper = styled.div`
     max-width: 27rem;
 
     &:nth-child(6) {
-      padding-bottom: .25rem;
+      padding-bottom: 0.25rem;
     }
   }
 
@@ -54,16 +56,15 @@ export const AboutWrapper = styled.div`
     font-size: 1rem;
 
     @media (max-width: 750px) {
-    font-size: .85rem;
+      font-size: 0.85rem;
+    }
   }
-  }
-`
+`;
 
 export const LoginWrapper = styled(AboutWrapper)`
   & form {
     align-items: flex-end;
   }
-`
+`;
 
-export const AddWrapper = styled(LoginWrapper)`
-`
+export const AddWrapper = styled(LoginWrapper)``;
