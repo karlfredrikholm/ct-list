@@ -10,8 +10,7 @@ const CocktailSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true,
-    enum: ['the-unforgettables', 'contemporary-classics', 'new-era-drinks']
+    required: true
   },
   ingredients: {
     type: String,
