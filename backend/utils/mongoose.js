@@ -5,6 +5,7 @@ const CocktailSchema = new mongoose.Schema({
   cocktailName: {
     type: String,
     required: true,
+    trim: true,
     unique: true
   },
   category: {
@@ -14,21 +15,17 @@ const CocktailSchema = new mongoose.Schema({
   },
   ingredients: {
     type: String,
-    minLength: 10,
-    maxLength: 150,
-    trim: true,
-    required: true
+    required: true,
+    trim: true
   },
   garnish: {
     type: String,
-    maxLength: 150
+    trim: true
   },
   preparation: {
     type: String,
-    minLength: 10,
-    maxLength: 350,
-    trim: true,
-    required: true
+    required: true,
+    trim: true
   },
   imageSearchLink: {
     type: String,
@@ -36,7 +33,6 @@ const CocktailSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-    maxLength: 350,
     trim: true
   }
 });

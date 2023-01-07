@@ -57,6 +57,7 @@ const AddCocktail = () => {
               add
               id="cocktailName"
               type="text"
+              maxLength="25"
               onChange={(e) => dispatch(cocktail.actions.setCocktailName(e.target.value))}
               value={cocktailState.cocktailName}
               placeholder='E.g. "Negroni"'
