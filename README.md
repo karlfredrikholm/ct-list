@@ -1,2 +1,1 @@
-# final-project
-Final project of Technog web development bootcamp
+https://ctlist.netlify.app/
