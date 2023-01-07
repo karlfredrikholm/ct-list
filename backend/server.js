@@ -10,7 +10,7 @@ import { Cocktail, User } from './utils/mongoose.js';
 const port = process.env.PORT || 8080;
 const app = express();
 
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/cocktails-project';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/cocktail-list';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.promise = Promise;
 
