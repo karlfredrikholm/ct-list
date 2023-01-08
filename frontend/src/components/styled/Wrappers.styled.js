@@ -4,7 +4,7 @@ export const RecipeWrapper = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   padding: 1rem 1rem 1.5rem 1rem;
-  gap: 1rem 5rem;
+  gap: 1rem 2rem;
 
   & h2 {
     grid-column: span 2;
@@ -21,7 +21,7 @@ export const RecipeWrapper = styled.div`
 
   @media (min-width: 750px) {
     .wide {
-      width: 25rem;
+      width: 23rem;
     }
   }
 `;
