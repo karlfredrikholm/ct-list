@@ -6,7 +6,7 @@ export const LoadingAnimation = styled(MenuToggler)`
  left: 0;
  right: 0;
  top: 0;
- bottom: 25rem;
+ bottom: 18rem;
  animation: load 1s linear infinite alternate;
 
   & svg {
@@ -24,11 +24,11 @@ export const LoadingAnimation = styled(MenuToggler)`
   @keyframes load {
     from {
       transform: rotate(360deg);
-      margin-right: 12rem;
+      margin-right: 15rem;
     }
     to {
       transform: rotate(0deg);
-      margin-left: 12rem;
+      margin-left: 15rem;
     }
   }
 `
