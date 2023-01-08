@@ -22,7 +22,7 @@ const Search = () => {
       .then((data) => setCocktailList(data.response))
       .catch((e) => console.error(e))
       .finally(() => {
-        setLoading(true);
+        setLoading(false);
       });
   }, []);
 
