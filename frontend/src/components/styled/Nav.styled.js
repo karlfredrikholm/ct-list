@@ -60,7 +60,7 @@ export const MenuToggler = styled.button`
   border: none;
 
   @media (max-width: 800px) {
-    top: 35rem;
+    top: 33rem;
     right: 2rem;
   }
 
