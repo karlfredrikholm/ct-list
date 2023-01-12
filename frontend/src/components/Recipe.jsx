@@ -37,10 +37,6 @@ const Recipe = () => {
       const newText = string.split(',').map((str) => <P className="wide">{str}</P>);
       return newText;
     }
-    // else if (what === 'prep') {
-    //   const newText = string.split('.').map((str) => <P>{str}</P>);
-    //   return newText;
-    // }
   };
 
   return (
@@ -62,8 +58,6 @@ const Recipe = () => {
         <Preparation>
           <H3>Preparation</H3>
           <P className="wide">{clickedCocktail.preparation}</P>
-          {/* {clickedCocktail.preparation &&
-              lineBreaks(clickedCocktail.preparation, 'prep')} */}
         </Preparation>
         <Garnish>
           <H3>Garnish</H3>

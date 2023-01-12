@@ -66,7 +66,6 @@ export const MenuToggler = styled.button`
 
   @media (max-height: 650px) {
     top: 33rem;
-    right: 2rem;
   }
 
   & svg {

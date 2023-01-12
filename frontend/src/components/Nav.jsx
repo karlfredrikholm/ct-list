@@ -33,13 +33,15 @@ const Menu = () => {
         <li>
           <NavLink onClick={() => setShowMenu(false)} to="/about">About</NavLink>
         </li>
-        <li>
-          <NavLink onClick={() => setShowMenu(false)} to="/login">Admin</NavLink>
-        </li>
-        {accessToken &&
-        <li>
-          <NavLink to="/add" onClick={() => dispatch(user.actions.setAccessToken(null))}>Log out</NavLink>
-        </li>}
+        {accessToken
+          ?
+          <li>
+            <NavLink to="/add" onClick={() => dispatch(user.actions.setAccessToken(null))}>Log out</NavLink>
+          </li>
+          :
+          <li>
+            <NavLink onClick={() => setShowMenu(false)} to="/login">Admin</NavLink>
+          </li>}
       </ul>}
     </Nav>
   );
