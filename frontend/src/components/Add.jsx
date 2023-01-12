@@ -83,7 +83,7 @@ const AddCocktail = () => {
             <textarea
               id="ingredients"
               minLength="10"
-              maxLength="150"
+              maxLength="200"
               onChange={(e) => dispatch(cocktail.actions.setIngredients(e.target.value))}
               value={cocktailState.ingredients}
               placeholder='E.g. "30 ml Gin, 30 ml Campari" etc.'
