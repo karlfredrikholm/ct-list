@@ -15,7 +15,6 @@ const Search = () => {
   const [loading, setLoading] = useState(true);
   const [showCategories, setShowCategories] = useState(false);
 
-  // GET all cocktails when component mounts
   useEffect(() => {
     setLoading(true)
     getCocktails('cocktails')
@@ -26,7 +25,6 @@ const Search = () => {
       });
   }, []);
 
-  // GET what's found when searching
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -37,7 +35,6 @@ const Search = () => {
       .finally(() => setLoading(false));
   };
 
-  // GET all cocktails in one category
   const handleCategoryBtnClick = (category) => {
     getCocktails(category)
       .then((data) => setCocktailList(data.response))

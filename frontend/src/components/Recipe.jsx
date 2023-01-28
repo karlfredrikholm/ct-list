@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable operator-linebreak */
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -34,7 +35,7 @@ const Recipe = () => {
 
   const lineBreaks = (string, what) => {
     if (what === 'ing') {
-      const newText = string.split(',').map((str) => <P className="wide">{str}</P>);
+      const newText = string.split(',').map((str, index) => <P key={str + index} className="wide">{str}</P>);
       return newText;
     }
   };

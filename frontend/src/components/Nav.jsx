@@ -18,9 +18,7 @@ const Menu = () => {
       <MenuToggler
         className={showMenu && 'expanded'}
         type="button"
-        onClick={() => setShowMenu(!showMenu)}
-        aria-label="menu"
-        aria-controls="primary-navigation">
+        onClick={() => setShowMenu(!showMenu)}>
         <GiMartini />
       </MenuToggler>
       {showMenu &&

@@ -4,21 +4,16 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import { Cocktail, User } from './utils/mongoose.js';
 
-// Defines the port the app will run on. Defaults to 8080, but can be overridden
-// when starting the server. Example command to overwrite PORT env variable value:
-// PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
 
-const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/0.0.0.0/0';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/final-project-fredrik';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.promise = Promise;
 
-// Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
-// Function for authenticating user
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
   try {
@@ -39,7 +34,6 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-// Start defining your routes here
 app.get('/', (req, res) => {
   res.send([
     {
@@ -70,8 +64,6 @@ app.get('/', (req, res) => {
   ]);
 });
 
-
-// GET  all cocktails or all by name search query
 app.get('/cocktails', async (req, res) => {
   const { name } = req.query;
   const searchQuery = {};
@@ -96,7 +88,6 @@ app.get('/cocktails', async (req, res) => {
   }
 });
 
-// GET single cocktail
 app.get('/cocktails/:id', async (req, res) => {
   const { id } = req.params;
   const singleCocktail = await Cocktail.findById(id);
@@ -121,7 +112,6 @@ app.get('/cocktails/:id', async (req, res) => {
   }
 });
 
-// GET all cocktails in a category
 app.get('/:category', async (req, res) => {
   const { category } = req.params;
   let cocktailsInCategory = {};
@@ -135,7 +125,6 @@ app.get('/:category', async (req, res) => {
       cocktailsInCategory = await Cocktail.find().sort({ cocktailName: 1 });
     }
     res.status(200).json({ success: true, response: cocktailsInCategory });
-    // error message instead?
   } catch (e) {
     res.status(400).json({
       success: false,
@@ -144,7 +133,6 @@ app.get('/:category', async (req, res) => {
   }
 });
 
-// Login end point
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -172,7 +160,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// POST new cocktail
 app.post('/add', authenticateUser);
 app.post('/add', async (req, res) => {
   const { cocktailName } = req.body;
@@ -200,74 +187,6 @@ app.post('/add', async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
-
-///////////////////////////////////////////////////////////////////////
-
-// For pagination
-// const {
-//   page,
-//   perPage,
-//   numberPage = +page,
-//   numberPerPage = +perPage
-// } = req.query;
-
-// if (page) {
-//   cocktailList = await Cocktail.aggregate([
-//     { $sort: { cocktailName: 1 } },
-//     { $skip: (numberPage - 1) * numberPerPage },
-//     { $limit: numberPerPage }
-//   ]);
-// } else {
-// cocktailList = await Cocktail.find().sort({ cocktailName: 1 });
-
-///////////////////////////////////////////////////////////////////////
-
-// Register end point
-// app.post('/register', async (req, res) => {
-//   const { username, email, password } = req.body;
-//   try {
-//     const salt = bcrypt.genSaltSync();
-//     const oldUser = await User.findOne({ username });
-//     const oldEmail = await User.findOne({ email });
-
-//     if (password.length < 8) {
-//       res.status(400).json({
-//         success: false,
-//         response: 'Password must be min 8 characters'
-//       });
-//     } else if (oldUser) {
-//       res.status(400).json({
-//         success: false,
-//         response: 'Username already registered'
-//       });
-//     } else if (oldEmail) {
-//       res.status(400).json({
-//         success: false,
-//         response: 'Email already registered'
-//       });
-//     } else {
-//       const newUser = await new User({
-//         username: username,
-//         email: email,
-//         password: bcrypt.hashSync(password, salt)
-//       }).save();
-//       res.status(201).json({
-//         success: true,
-//         response: {
-//           username: newUser.username,
-//           accessToken: newUser.accessToken,
-//           id: newUser._id
-//         }
-//       });
-//     }
-//   } catch (err) {
-//     res.status(400).json({
-//       success: false,
-//       response: err
-//     });
-//   }
-// });
